@@ -1,15 +1,14 @@
-# V6.0 Korean Memory Game — 20 words
+# V6.1 Korean Memory Game — 30 words
 
-V6.0 moves beyond the 10-word prototype.
+Built directly from the verified V6.0 version.
 
 Changes:
-- Vocabulary expanded from 10 to 20 words.
-- All 20 cues use realistic/semi-realistic photo-style JPG assets.
-- Former illustration-style 002 (book) and 006 (coffee) are replaced with realistic photo-style assets.
-- Existing working game mechanics are preserved: silent 3-second presentation, level-based memory delay, typing/speech answer input, no repeats within a game, wrong-answer pronunciation, restart, and local high score.
-- Part-of-speech labels remain centered below the image.
-- Image files remain in the repository root so they can be uploaded individually through GitHub's web interface.
+- Vocabulary expanded from 20 to 30 words.
+- Added 10 realistic photo-style assets.
+- Existing 20 words/images and working game logic are retained.
+- Part-of-speech labels remain centered below images.
+- Image files remain at repository root for individual GitHub upload.
 - Service worker remains disabled during development/testing.
 
-New vocabulary added in V6.0:
-좋아요, 걸어요, 나무, 해, 달, 의자, 펜, 문, 침대, 시계
+New V6.1 vocabulary:
+밥, 빵, 바나나, 계란, 오렌지, 우유, 휴대폰, 가방, 책상, 자요

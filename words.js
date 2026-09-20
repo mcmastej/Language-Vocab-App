@@ -138,5 +138,75 @@ const WORDS = [
     "meaning": "clock",
     "form": "시계",
     "image": "019.jpg"
+  },
+  {
+    "ko": "밥",
+    "type": "noun",
+    "meaning": "cooked rice",
+    "form": "밥",
+    "image": "020.jpg"
+  },
+  {
+    "ko": "빵",
+    "type": "noun",
+    "meaning": "bread",
+    "form": "빵",
+    "image": "021.jpg"
+  },
+  {
+    "ko": "바나나",
+    "type": "noun",
+    "meaning": "banana",
+    "form": "바나나",
+    "image": "022.jpg"
+  },
+  {
+    "ko": "계란",
+    "type": "noun",
+    "meaning": "egg",
+    "form": "계란",
+    "image": "023.jpg"
+  },
+  {
+    "ko": "오렌지",
+    "type": "noun",
+    "meaning": "orange",
+    "form": "오렌지",
+    "image": "024.jpg"
+  },
+  {
+    "ko": "우유",
+    "type": "noun",
+    "meaning": "milk",
+    "form": "우유",
+    "image": "025.jpg"
+  },
+  {
+    "ko": "휴대폰",
+    "type": "noun",
+    "meaning": "mobile phone",
+    "form": "휴대폰",
+    "image": "026.jpg"
+  },
+  {
+    "ko": "가방",
+    "type": "noun",
+    "meaning": "bag",
+    "form": "가방",
+    "image": "027.jpg"
+  },
+  {
+    "ko": "책상",
+    "type": "noun",
+    "meaning": "desk",
+    "form": "책상",
+    "image": "028.jpg"
+  },
+  {
+    "ko": "자요",
+    "type": "verb",
+    "meaning": "sleep",
+    "form": "자요",
+    "image": "029.jpg"
   }
 ];

@@ -1,1 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" rx="28" fill="#eff6ff"/><path d="M90 105 H200 V210 Q200 245 165 245 H125 Q90 245 90 210 Z" fill="#f8fafc" stroke="#475569" stroke-width="7"/><path d="M200 135 H225 Q250 135 250 165 Q250 195 205 195" fill="none" stroke="#475569" stroke-width="7"/><path d="M110 120 H180 V165 H110 Z" fill="#6f4e37"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4eee6"/><stop offset="1" stop-color="#e7ddd0"/></linearGradient>
+ <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".7" stop-color="#eeeae4"/><stop offset="1" stop-color="#d7d1ca"/></linearGradient>
+ <radialGradient id="coffee"><stop stop-color="#7a4b2c"/><stop offset=".65" stop-color="#5b341f"/><stop offset="1" stop-color="#3b2116"/></radialGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-opacity=".2"/></filter>
+</defs>
+<rect width="600" height="600" rx="48" fill="url(#bg)"/>
+<ellipse cx="300" cy="455" rx="185" ry="42" fill="#5c4638" opacity=".15"/>
+<g filter="url(#shadow)">
+ <ellipse cx="285" cy="420" rx="165" ry="32" fill="#faf8f5"/>
+ <path d="M145 220 H405 L382 390 Q378 426 340 434 H210 Q171 426 167 390Z" fill="url(#cup)"/>
+ <ellipse cx="275" cy="222" rx="130" ry="42" fill="#f9f7f3"/>
+ <ellipse cx="275" cy="225" rx="112" ry="31" fill="url(#coffee)"/>
+ <ellipse cx="278" cy="218" rx="80" ry="18" fill="#a56a3f" opacity=".28"/>
+ <path d="M405 258 C495 247 503 371 421 386 C402 389 389 381 381 369" fill="none" stroke="#eeeae4" stroke-width="34" stroke-linecap="round"/>
+ <path d="M405 267 C468 261 473 350 416 360" fill="none" stroke="#cfc8c0" stroke-width="8" opacity=".65"/>
+</g>
+<g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".58">
+ <path d="M225 170 C205 140 235 126 220 94"/>
+ <path d="M282 169 C262 137 294 122 278 87"/>
+ <path d="M338 171 C320 141 349 126 337 98"/>
+</g>
+</svg>

@@ -4,14 +4,14 @@ const WORDS = [
     "type": "noun",
     "meaning": "apple",
     "form": "사과",
-    "image": "000.svg"
+    "image": "000.jpg"
   },
   {
     "ko": "고양이",
     "type": "noun",
     "meaning": "cat",
     "form": "고양이",
-    "image": "001.svg"
+    "image": "001.jpg"
   },
   {
     "ko": "책",
@@ -25,21 +25,21 @@ const WORDS = [
     "type": "noun",
     "meaning": "car",
     "form": "자동차",
-    "image": "003.svg"
+    "image": "003.jpg"
   },
   {
     "ko": "집",
     "type": "noun",
     "meaning": "house",
     "form": "집",
-    "image": "004.svg"
+    "image": "004.jpg"
   },
   {
     "ko": "강아지",
     "type": "noun",
     "meaning": "dog",
     "form": "강아지",
-    "image": "005.svg"
+    "image": "005.jpg"
   },
   {
     "ko": "커피",
@@ -53,20 +53,20 @@ const WORDS = [
     "type": "noun",
     "meaning": "water",
     "form": "물",
-    "image": "007.svg"
+    "image": "007.jpg"
   },
   {
     "ko": "먹어요",
     "type": "verb",
     "meaning": "eat",
     "form": "먹어요",
-    "image": "008.svg"
+    "image": "008.jpg"
   },
   {
     "ko": "커요",
     "type": "adjective",
     "meaning": "big",
     "form": "커요",
-    "image": "009.svg"
+    "image": "009.jpg"
   }
 ];

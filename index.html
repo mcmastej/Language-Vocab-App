@@ -68,10 +68,17 @@
     </section>
 
     <footer>
-      <span>10-word image-loading test set</span>
+      <span>10-word diagnostic test set</span>
     </footer>
   </main>
   <script src="words.js"></script>
-  <script src="app.js"></script><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js?v=5.2")}</script>
+  <script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(registration => registration.unregister());
+  });
+}
+</script>
 </body>
 </html>

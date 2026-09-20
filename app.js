@@ -30,11 +30,18 @@ function startLevel(){
   hideStages(); imageStage.classList.remove("hidden");
   wordImage.innerHTML="";
   const img=document.createElement("img");
-  img.src=currentWord.image;
+  const imageUrl=new URL(currentWord.image, document.baseURI).href;
+  img.src=imageUrl;
   img.alt="";
   img.draggable=false;
   img.loading="eager";
-  img.onerror=()=>{wordImage.textContent="Image unavailable";};
+  img.onerror=()=>{
+    wordImage.innerHTML="";
+    const error=document.createElement("div");
+    error.className="image-error";
+    error.innerHTML="<strong>Image unavailable</strong><small>Failed path: "+imageUrl+"</small>";
+    wordImage.appendChild(error);
+  };
   wordImage.appendChild(img);
   partOfSpeech.textContent=`(${currentWord.type})`;
   // Deliberately no audio here: the image is shown silently.

@@ -1,13 +1,13 @@
-# Korean Memory Game — v5.2 10-word test
+# Korean Memory Game — v5.3 diagnostic build
 
-Reduced test build with 10 vocabulary items and 10 local SVG images.
+Purpose: isolate the GitHub Pages image-loading problem using only 10 local SVG images.
 
-Fixes:
-- New service-worker cache version.
-- Old caches are deleted when the new service worker activates.
-- Core app files are network-first during testing to reduce stale-build problems.
-- Images are local and rendered explicitly in JavaScript.
-- Part-of-speech labels remain under the image.
-- Silent image presentation, no-repeat stack, speech input, wrong-answer pronunciation, restart, and local high score remain.
+Changes from v5.2:
+- Service worker removed for testing.
+- On load, the page unregisters any older service worker for this site.
+- Image URLs are resolved explicitly against `document.baseURI`, which is compatible with GitHub Pages project paths.
+- If an image fails, the screen displays the exact URL/path that failed.
+- 10-word vocabulary and local `assets/000.svg` through `assets/009.svg` are retained.
+- Part-of-speech labels and the established game behavior are retained.
 
-Upload the complete contents, including the `assets` folder, to GitHub Pages.
+Upload ALL files and the `assets` folder to the same GitHub Pages publishing directory. After deploying, refresh the page once. If an image still fails, the displayed `Failed path:` line identifies exactly what the browser tried to load.

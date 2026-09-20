@@ -18,7 +18,7 @@ const WORDS = [
     "type": "noun",
     "meaning": "book",
     "form": "책",
-    "image": "002.svg"
+    "image": "002.jpg"
   },
   {
     "ko": "자동차",
@@ -46,7 +46,7 @@ const WORDS = [
     "type": "noun",
     "meaning": "coffee",
     "form": "커피",
-    "image": "006.svg"
+    "image": "006.jpg"
   },
   {
     "ko": "물",
@@ -68,5 +68,75 @@ const WORDS = [
     "meaning": "big",
     "form": "커요",
     "image": "009.jpg"
+  },
+  {
+    "ko": "좋아요",
+    "type": "adjective",
+    "meaning": "good / like",
+    "form": "좋아요",
+    "image": "010.jpg"
+  },
+  {
+    "ko": "걸어요",
+    "type": "verb",
+    "meaning": "walk",
+    "form": "걸어요",
+    "image": "011.jpg"
+  },
+  {
+    "ko": "나무",
+    "type": "noun",
+    "meaning": "tree",
+    "form": "나무",
+    "image": "012.jpg"
+  },
+  {
+    "ko": "해",
+    "type": "noun",
+    "meaning": "sun",
+    "form": "해",
+    "image": "013.jpg"
+  },
+  {
+    "ko": "달",
+    "type": "noun",
+    "meaning": "moon",
+    "form": "달",
+    "image": "014.jpg"
+  },
+  {
+    "ko": "의자",
+    "type": "noun",
+    "meaning": "chair",
+    "form": "의자",
+    "image": "015.jpg"
+  },
+  {
+    "ko": "펜",
+    "type": "noun",
+    "meaning": "pen",
+    "form": "펜",
+    "image": "016.jpg"
+  },
+  {
+    "ko": "문",
+    "type": "noun",
+    "meaning": "door",
+    "form": "문",
+    "image": "017.jpg"
+  },
+  {
+    "ko": "침대",
+    "type": "noun",
+    "meaning": "bed",
+    "form": "침대",
+    "image": "018.jpg"
+  },
+  {
+    "ko": "시계",
+    "type": "noun",
+    "meaning": "clock",
+    "form": "시계",
+    "image": "019.jpg"
   }
 ];

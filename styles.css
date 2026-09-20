@@ -10,3 +10,69 @@
 .image-error{max-width:90%;padding:18px;text-align:center;font-size:1.15rem;overflow-wrap:anywhere;}
 .image-error strong{display:block;margin-bottom:10px;}
 .image-error small{display:block;font-size:.72rem;line-height:1.35;color:#6b7280;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+
+/* V5.5 mobile answer-screen layout fixes */
+.answer-stage{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:stretch;
+  padding:24px;
+  min-height:360px;
+  box-sizing:border-box;
+}
+.answer-stage form{
+  width:100%;
+  max-width:100%;
+  margin:0;
+}
+.answer-stage label{
+  display:block;
+  margin:0 0 10px;
+  font-weight:700;
+}
+.answer-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  width:100%;
+  align-items:stretch;
+}
+.answer-row input{
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+.answer-row button{
+  white-space:nowrap;
+}
+.answer-stage .primary{
+  display:block;
+  width:100%;
+  margin-top:12px;
+  box-sizing:border-box;
+}
+.answer-stage .note{
+  width:100%;
+  max-width:100%;
+  margin:16px 0 0;
+  text-align:center;
+  line-height:1.4;
+  overflow-wrap:normal;
+  word-break:normal;
+  box-sizing:border-box;
+}
+
+@media (max-width:520px){
+  .app{padding-left:16px;padding-right:16px;}
+  .stage{min-height:360px;}
+  .answer-stage{padding:20px 16px;}
+  .answer-row{grid-template-columns:minmax(0,1fr) auto;gap:8px;}
+  .answer-row button{padding-left:16px;padding-right:16px;}
+  .answer-stage .note{font-size:.9rem;}
+}
+
+@media (max-width:360px){
+  .answer-row{grid-template-columns:1fr;}
+  .answer-row button{width:100%;}
+}

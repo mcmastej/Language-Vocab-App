@@ -1,15 +1,14 @@
-# V5.4 Korean Memory Game — 10-image flat-file test
+# V5.5 Korean Memory Game — mobile layout fix
 
-This build is designed for uploading every file individually through GitHub's web interface.
+This build keeps the working V5.4 flat-file image setup and changes only presentation/layout.
 
-There is NO `assets` folder. The ten SVG image files (`000.svg` through `009.svg`) belong in the repository root beside `index.html`, `app.js`, `styles.css`, and `words.js`.
+Fixes:
+- Answer form stays inside the white game card on mobile.
+- Speech note is placed below the Submit button instead of being squeezed into a narrow right column.
+- Input and Speak button use a stable responsive grid.
+- Submit button remains full width.
+- On very narrow screens, Speak moves below the input automatically.
+- All 10 SVG files remain in the repository root for individual GitHub upload.
+- No service worker is used during testing.
 
-The vocabulary image paths are correspondingly flat:
-- `000.svg`
-- `001.svg`
-- ...
-- `009.svg`
-
-The service worker remains disabled during testing. If an image fails, the app displays the exact failed URL.
-
-Upload every file from this ZIP individually to the same GitHub repository directory.
+Upload every file individually to the same repository directory, replacing the V5.4 files.

@@ -9,75 +9,98 @@
   <title>Korean Memory Game</title>
 </head>
 <body>
-  <main class="app">
-    <header class="topbar">
-      <div>
-        <h1>Korean Memory</h1>
-        <p>Remember the image. Type or speak the Korean word.</p>
-      </div>
-      <div class="score">High score: <span id="highScore">0</span></div>
-    </header>
+<main class="app">
+  <header class="topbar">
+    <div>
+      <h1>Korean Memory</h1>
+      <p id="subtitle">Choose a learning mode.</p>
+    </div>
+    <div id="scoreBox" class="score hidden">High score: <span id="highScore">0</span></div>
+  </header>
 
-    <section id="startScreen" class="panel">
-      <h2>Ready?</h2>
-      <p>An image appears for 3 seconds. Then the screen is blank for the level number of seconds.</p>
-      <p>Type or speak the Korean word when the answer box appears.</p>
+  <section id="homeScreen" class="panel home-panel">
+    <h2>Choose a mode</h2>
+    <div class="mode-grid">
+      <button id="speakingModeBtn" class="mode-card">
+        <strong>Speaking/Writing</strong>
+        <span>See an image, remember it, then produce the Korean word.</span>
+      </button>
+      <button id="listeningModeBtn" class="mode-card">
+        <strong>Listening/Reading</strong>
+        <span>See and hear a Korean word, remember it, then choose the correct image.</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="startScreen" class="panel hidden">
+    <h2 id="modeTitle"></h2>
+    <p id="modeInstructions"></p>
+    <div class="actions">
       <button id="startBtn" class="primary">Start game</button>
-    </section>
+      <button id="startHomeBtn" type="button">Home</button>
+    </div>
+  </section>
 
-    <section id="game" class="hidden">
-      <div class="levelbar">
-        <strong>Level <span id="level">1</span></strong>
-        <span id="status">Look carefully.</span>
-      </div>
+  <section id="game" class="hidden">
+    <div class="levelbar">
+      <strong>Level <span id="level">1</span></strong>
+      <span id="status"></span>
+      <button id="gameHomeBtn" class="home-button" type="button">Home</button>
+    </div>
 
-      <div id="imageStage" class="stage">
-        <div id="wordImage" class="word-image" aria-label="memory image"></div><div id="partOfSpeech" class="part-of-speech"></div>
-      </div>
+    <!-- Speaking/Writing stages -->
+    <div id="imageStage" class="stage hidden">
+      <div id="wordImage" class="word-image"></div>
+      <div id="partOfSpeech" class="part-of-speech"></div>
+    </div>
 
-      <div id="blankStage" class="stage blank hidden">
-        <div id="blankCountdown" class="countdown"></div>
-      </div>
+    <div id="wordStage" class="stage word-stage hidden">
+      <div id="presentedWord" class="presented-word" lang="ko"></div>
+    </div>
 
-      <div id="answerStage" class="stage answer-stage hidden">
-        <form id="answerForm" autocomplete="off">
-          <label for="answerInput">Your answer</label>
-          <div class="answer-row">
-            <input id="answerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type Korean" />
-            <button id="speakBtn" type="button" title="Speak your answer">Speak</button>
-          </div>
-          <button class="primary" type="submit">Submit</button>
-        </form>
-        <p id="speechNote" class="note">Speech input is optional. If available, it fills the box; you still press Submit.</p>
-      </div>
+    <div id="blankStage" class="stage blank hidden"></div>
 
-      <div id="correctStage" class="stage result hidden">
-        <h2>Correct!</h2>
-        <p>Next level…</p>
-      </div>
-
-      <div id="wrongStage" class="stage result hidden">
-        <h2>Incorrect</h2>
-        <p>The correct answer was:</p>
-        <div id="correctAnswer" class="correct-answer"></div>
-        <div class="actions">
-          <button id="hearBtn" type="button">Hear word</button>
-          <button id="restartBtn" type="button">Restart</button>
+    <div id="answerStage" class="stage answer-stage hidden">
+      <form id="answerForm" autocomplete="off">
+        <label for="answerInput">Your answer</label>
+        <div class="answer-row">
+          <input id="answerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type Korean">
+          <button id="speakBtn" type="button">Speak</button>
         </div>
-      </div>
-    </section>
+        <button class="primary" type="submit">Submit</button>
+      </form>
+      <p id="speechNote" class="note">Speech input is optional. If available, it fills the box; you still press Submit.</p>
+    </div>
 
-    <footer>
-      <span>V6.1 · 30-word realistic-image build</span>
-    </footer>
-  </main>
-  <script src="words.js"></script>
-  <script src="app.js"></script>
+    <!-- Listening/Reading multiple choice -->
+    <div id="choiceStage" class="stage choice-stage hidden">
+      <div id="choiceGrid" class="choice-grid"></div>
+    </div>
+
+    <div id="correctStage" class="stage result hidden">
+      <h2>Correct!</h2>
+      <p>Next level…</p>
+    </div>
+
+    <div id="wrongStage" class="stage result hidden">
+      <h2>Incorrect</h2>
+      <p>The correct answer was:</p>
+      <div id="correctAnswer" class="correct-answer" lang="ko"></div>
+      <div class="actions">
+        <button id="hearBtn" type="button">Hear word</button>
+        <button id="restartBtn" type="button">Restart</button>
+        <button id="wrongHomeBtn" type="button">Home</button>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>V7.0 · 30 words · two learning modes</span></footer>
+</main>
+<script src="words.js"></script>
+<script src="app.js"></script>
 <script>
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.getRegistrations().then(registrations => {
-    registrations.forEach(registration => registration.unregister());
-  });
+  navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
 }
 </script>
 </body>

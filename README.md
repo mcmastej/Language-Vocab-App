@@ -1,14 +1,23 @@
-# V6.1 Korean Memory Game — 30 words
+# V7.0 Korean Memory Game — Two Learning Modes
 
-Built directly from the verified V6.0 version.
+Built from the verified V6.1 30-word build.
 
-Changes:
-- Vocabulary expanded from 20 to 30 words.
-- Added 10 realistic photo-style assets.
-- Existing 20 words/images and working game logic are retained.
-- Part-of-speech labels remain centered below images.
-- Image files remain at repository root for individual GitHub upload.
+## Home screen
+- Speaking/Writing: original Image → Korean mode.
+- Listening/Reading: new Korean → Image mode.
+
+## Listening/Reading flow
+1. Korean word appears for 3 seconds and is spoken once.
+2. Screen clears for the level number of seconds.
+3. Four shuffled images appear: one correct and three distractors.
+4. Correct selection is highlighted green, `Correct!` is shown, and the next level begins automatically.
+5. Incorrect selection is highlighted red and the correct image is highlighted green.
+6. After an incorrect answer, the original Korean word reappears with Hear word, Restart, and Home controls.
+
+## Other behavior
+- Both modes share the same 30-word vocabulary/image bank.
+- Words do not repeat during a game until the bank is exhausted.
+- Speaking/Writing and Listening/Reading have separate local high scores.
+- Home controls allow returning to mode selection.
+- Existing root-level image structure is preserved for GitHub web uploads.
 - Service worker remains disabled during development/testing.
-
-New V6.1 vocabulary:
-밥, 빵, 바나나, 계란, 오렌지, 우유, 휴대폰, 가방, 책상, 자요

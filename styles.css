@@ -126,3 +126,25 @@
   .image-choice{padding:5px;border-width:4px;border-radius:14px}
   .image-choice img{border-radius:9px}
 }
+
+/* V8.0 Grammar module */
+.single-mode{grid-template-columns:minmax(0,1fr);max-width:520px;margin-left:auto;margin-right:auto}
+.grammar-card{max-width:700px;margin:16px auto}
+.grammar-image{width:min(100%,430px);margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+.grammar-image img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px}
+.grammar-prompt{text-align:center;margin:4px auto 22px;max-width:600px}
+.grammar-prompt-en{font-size:1.25rem;font-weight:700;margin-bottom:7px}
+.grammar-korean-row{display:flex;align-items:center;justify-content:center;gap:10px}
+.grammar-prompt-ko{font-size:1.35rem;font-weight:700}
+.round-control{width:44px;height:44px;border-radius:50%;padding:0;flex:0 0 auto}
+.grammar-answer-form{display:flex;flex-direction:column;gap:12px;width:100%}
+.grammar-answer-form .answer-row{width:100%}
+.grammar-feedback{text-align:center;margin-top:18px}
+.grammar-feedback h2{margin-bottom:8px}
+.grammar-feedback .correct-answer{margin:10px 0 18px}
+@media(max-width:620px){
+  .grammar-card{margin:10px auto;padding:16px}
+  .grammar-image{width:min(100%,360px);margin-bottom:14px}
+  .grammar-prompt-en{font-size:1.1rem}
+  .grammar-prompt-ko{font-size:1.2rem}
+}

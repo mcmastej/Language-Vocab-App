@@ -13,13 +13,29 @@
   <header class="topbar">
     <div>
       <h1>Korean Memory</h1>
-      <p id="subtitle">Choose a learning mode.</p>
+      <p id="subtitle">Choose a section.</p>
     </div>
     <div id="scoreBox" class="score hidden">High score: <span id="highScore">0</span></div>
   </header>
 
+  <!-- Top-level home -->
   <section id="homeScreen" class="panel home-panel">
-    <h2>Choose a mode</h2>
+    <h2>Choose a section</h2>
+    <div class="mode-grid">
+      <button id="vocabSectionBtn" class="mode-card">
+        <strong>Vocab</strong>
+        <span>Practice Korean vocabulary with memory-based speaking, writing, listening, and reading.</span>
+      </button>
+      <button id="grammarSectionBtn" class="mode-card">
+        <strong>Grammar</strong>
+        <span>Practice producing complete Korean answers to questions.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Vocab submenu -->
+  <section id="vocabMenu" class="panel home-panel hidden">
+    <h2>Vocab</h2>
     <div class="mode-grid">
       <button id="speakingModeBtn" class="mode-card">
         <strong>Speaking/Writing</strong>
@@ -30,36 +46,46 @@
         <span>See and hear a Korean word, remember it, then choose the correct image.</span>
       </button>
     </div>
+    <div class="actions"><button id="vocabHomeBtn" type="button">Home</button></div>
   </section>
 
+  <!-- Grammar submenu -->
+  <section id="grammarMenu" class="panel home-panel hidden">
+    <h2>Grammar</h2>
+    <div class="mode-grid single-mode">
+      <button id="answerQuestionBtn" class="mode-card">
+        <strong>Answering a Question</strong>
+        <span>Read and hear a question, then answer it with a complete Korean sentence.</span>
+      </button>
+    </div>
+    <div class="actions"><button id="grammarHomeBtn" type="button">Home</button></div>
+  </section>
+
+  <!-- Existing vocab pre-game screen -->
   <section id="startScreen" class="panel hidden">
     <h2 id="modeTitle"></h2>
     <p id="modeInstructions"></p>
     <div class="actions">
       <button id="startBtn" class="primary">Start game</button>
-      <button id="startHomeBtn" type="button">Home</button>
+      <button id="startBackBtn" type="button">Back</button>
     </div>
   </section>
 
+  <!-- Existing vocab game -->
   <section id="game" class="hidden">
     <div class="levelbar">
       <strong>Level <span id="level">1</span></strong>
       <span id="status"></span>
       <button id="gameHomeBtn" class="home-button" type="button">Home</button>
     </div>
-
-    <!-- Speaking/Writing stages -->
     <div id="imageStage" class="stage hidden">
       <div id="wordImage" class="word-image"></div>
       <div id="partOfSpeech" class="part-of-speech"></div>
     </div>
-
     <div id="wordStage" class="stage word-stage hidden">
       <div id="presentedWord" class="presented-word" lang="ko"></div>
     </div>
-
     <div id="blankStage" class="stage blank hidden"></div>
-
     <div id="answerStage" class="stage answer-stage hidden">
       <form id="answerForm" autocomplete="off">
         <label for="answerInput">Your answer</label>
@@ -71,17 +97,12 @@
       </form>
       <p id="speechNote" class="note">Speech input is optional. If available, it fills the box; you still press Submit.</p>
     </div>
-
-    <!-- Listening/Reading multiple choice -->
     <div id="choiceStage" class="stage choice-stage hidden">
       <div id="choiceGrid" class="choice-grid"></div>
     </div>
-
     <div id="correctStage" class="stage result hidden">
-      <h2>Correct!</h2>
-      <p>Next level…</p>
+      <h2>Correct!</h2><p>Next level…</p>
     </div>
-
     <div id="wrongStage" class="stage result hidden">
       <h2>Incorrect</h2>
       <p>The correct answer was:</p>
@@ -94,9 +115,57 @@
     </div>
   </section>
 
-  <footer><span>V7.2 · 30 words · two learning modes</span></footer>
+  <!-- Grammar: Answering a Question -->
+  <section id="grammarGame" class="hidden">
+    <div class="levelbar">
+      <strong>Completed <span id="grammarCompleted">0</span> / <span id="grammarTotal">2</span></strong>
+      <span id="grammarStatus"></span>
+      <button id="grammarGameHomeBtn" class="home-button" type="button">Home</button>
+    </div>
+
+    <div id="grammarCard" class="panel grammar-card">
+      <div id="grammarImage" class="grammar-image"></div>
+
+      <div class="grammar-prompt">
+        <div id="grammarPromptEn" class="grammar-prompt-en"></div>
+        <div class="grammar-korean-row">
+          <div id="grammarPromptKo" class="grammar-prompt-ko" lang="ko"></div>
+          <button id="grammarHearQuestionBtn" class="round-control" type="button" aria-label="Hear question">🔊</button>
+        </div>
+      </div>
+
+      <form id="grammarAnswerForm" class="grammar-answer-form" autocomplete="off">
+        <label for="grammarAnswerInput">Your answer</label>
+        <div class="answer-row">
+          <input id="grammarAnswerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type your Korean answer">
+          <button id="grammarSpeakBtn" type="button" aria-label="Speak answer">Speak</button>
+        </div>
+        <button class="primary" type="submit">Submit</button>
+      </form>
+      <p id="grammarSpeechNote" class="note">Speech input is optional. If available, it fills the box; you still press Submit.</p>
+
+      <div id="grammarFeedback" class="grammar-feedback hidden">
+        <h2 id="grammarFeedbackTitle"></h2>
+        <p id="grammarFeedbackLabel"></p>
+        <div id="grammarCorrectAnswer" class="correct-answer" lang="ko"></div>
+        <button id="grammarNextBtn" class="primary" type="button">Next card</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="grammarComplete" class="panel result hidden">
+    <h2>Grammar deck complete!</h2>
+    <p>You successfully answered every card.</p>
+    <div class="actions">
+      <button id="grammarRestartBtn" class="primary" type="button">Play again</button>
+      <button id="grammarCompleteHomeBtn" type="button">Home</button>
+    </div>
+  </section>
+
+  <footer><span>V8.0 · Vocab + Grammar prototype</span></footer>
 </main>
 <script src="words.js"></script>
+<script src="grammar.js"></script>
 <script src="app.js"></script>
 <script>
 if ("serviceWorker" in navigator) {

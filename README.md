@@ -1,4 +1,4 @@
-# V8.2.1 Korean Memory Game — Vocab + Grammar
+# V8.2.2 Korean Memory Game — Vocab + Grammar
 
 V8.0 preserves the verified V7.2 Vocab games and introduces a separate Grammar branch.
 
@@ -68,3 +68,12 @@ After an incorrect answer, the learner now sees:
 
 The global `.hidden` utility is now authoritative (`display:none !important`) so
 component display rules cannot accidentally reveal/hide the wrong feedback elements.
+
+## V8.2.2 answer-matching fix
+Korean answer comparison now ignores:
+- spaces and other whitespace;
+- punctuation such as periods and commas;
+- symbol characters.
+
+Korean wording itself remains exact. For example, `세권` and `세 권` are treated as
+the same answer, and a final period does not affect correctness.

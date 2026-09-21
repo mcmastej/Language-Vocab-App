@@ -23,7 +23,11 @@ function shuffle(a){
   for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}
   return x;
 }
-function normalize(s){return s.trim().replace(/\s+/g,"")}
+function normalize(s){
+  return s
+    .normalize("NFC")
+    .replace(/[\s\p{P}\p{S}]+/gu,"");
+}
 function speakKorean(text){
   if(!("speechSynthesis" in window))return;
   speechSynthesis.cancel();

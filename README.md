@@ -208,3 +208,13 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Grammar answer input no longer receives automatic focus when a card loads.
 - On mobile, the keyboard now remains closed until the learner manually taps the answer field.
 - Visible footer updated and verified as V8.7.1.
+
+
+## V8.8.0
+- Each 25-word Vocab stack presents every word only once per attempt, in random order.
+- Any incorrect answer keeps the existing restart-from-beginning behavior.
+- Perfect 25/25 opens a Congratulations screen with Restart Stack and Back to Vocab Stacks.
+- Restart restores and reshuffles all 25 words.
+- Applies to Speaking/Writing and Listening/Reading.
+- Replaced 109.jpg (쌀) with a bag of uncooked rice.
+- Footer updated to V8.8.0.

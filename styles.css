@@ -186,3 +186,6 @@
 #startScreen > .actions {
   margin-top: 26px;
 }
+
+/* V8.8.0 — perfect 25/25 stack completion */
+.vocab-complete{text-align:center;max-width:620px;margin:0 auto}.completion-trophy{width:82px;height:82px;margin:8px auto 18px;border-radius:50%;display:grid;place-items:center;font-size:42px;font-weight:900;background:#fef3c7;color:#d97706}.vocab-complete h2{font-size:2rem;margin-bottom:10px}.completion-score{font-size:1.35rem;font-weight:800;margin:22px 0 8px}.completion-actions{margin:30px auto 0;gap:14px}

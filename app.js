@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 const homeScreen=$("homeScreen"),vocabMenu=$("vocabMenu"),vocabStackMenu=$("vocabStackMenu"),grammarMenu=$("grammarMenu");
-const startScreen=$("startScreen"),game=$("game"),grammarGame=$("grammarGame"),grammarComplete=$("grammarComplete");
+const startScreen=$("startScreen"),game=$("game"),vocabComplete=$("vocabComplete"),grammarGame=$("grammarGame"),grammarComplete=$("grammarComplete");
 const subtitle=$("subtitle"),scoreBox=$("scoreBox"),highScoreEl=$("highScore");
 const modeTitle=$("modeTitle"),modeInstructions=$("modeInstructions");
 const levelEl=$("level"),statusEl=$("status");
@@ -43,7 +43,7 @@ function imageElement(path){
   return img;
 }
 function hideAllScreens(){
-  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,startScreen,game,grammarGame,grammarComplete].forEach(x=>x.classList.add("hidden"));
+  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,startScreen,game,vocabComplete,grammarGame,grammarComplete].forEach(x=>x.classList.add("hidden"));
 }
 function goMainHome(){
   clearTimers();speechSynthesis?.cancel();mode=null;
@@ -66,7 +66,7 @@ function hideStages(){[imageStage,wordStage,blankStage,answerStage,choiceStage,c
 function activeWords(){const start=(vocabStack-1)*25;return WORDS.slice(start,start+25)}
 function resetWordStack(){remainingWords=[...activeWords()]}
 function chooseWord(){
-  if(!remainingWords.length)resetWordStack();
+  if(!remainingWords.length)return null;
   return remainingWords.splice(Math.floor(Math.random()*remainingWords.length),1)[0];
 }
 function scoreKey(){return SCORE_KEYS[mode]}
@@ -102,6 +102,19 @@ function startVocabLevel(){
   clearTimers();roundLocked=false;currentWord=chooseWord();levelEl.textContent=level;hideStages();
   if(mode==="speaking")startSpeakingLevel();else startListeningLevel();
 }
+function completeVocabStack(){
+  clearTimers();speechSynthesis?.cancel();roundLocked=true;
+  hideAllScreens();vocabComplete.classList.remove("hidden");scoreBox.classList.remove("hidden");
+  $("vocabCompleteTitle").textContent="Congratulations!";
+  $("vocabCompleteText").textContent=`You answered all 25 words in Vocab Stack ${vocabStack} correctly.`;
+  subtitle.textContent=`Vocab · Stack ${vocabStack} · Complete`;
+}
+function restartCompletedVocabStack(){startVocabGame()}
+function backToVocabStacks(){
+  clearTimers();speechSynthesis?.cancel();hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
+  $("stackModeTitle").textContent=mode==="speaking"?"Speaking/Writing · Choose a Vocab Stack":"Listening/Reading · Choose a Vocab Stack";
+  subtitle.textContent="Vocab · Choose a stack.";
+}
 function startSpeakingLevel(){
   statusEl.textContent="Look carefully.";imageStage.classList.remove("hidden");
   wordImage.innerHTML="";wordImage.appendChild(imageElement(currentWord.image));
@@ -129,7 +142,8 @@ function showChoices(){
 }
 function markSpeakingCorrect(){
   clearTimers();setHighScore(level);hideStages();correctStage.classList.remove("hidden");statusEl.textContent="Correct!";
-  timers.push(setTimeout(()=>{level++;startVocabLevel()},700));
+  if(!remainingWords.length){timers.push(setTimeout(completeVocabStack,700))}
+  else{timers.push(setTimeout(()=>{level++;startVocabLevel()},700))}
 }
 function prepareVocabTranslation(){
   translationText.textContent=currentWord.meaning;
@@ -145,7 +159,11 @@ function handleImageChoice(btn,word){
   const buttons=[...choiceGrid.querySelectorAll(".image-choice")];buttons.forEach(b=>b.disabled=true);
   if(word===currentWord){
     btn.classList.add("correct-choice");setHighScore(level);statusEl.textContent="Correct!";
-    timers.push(setTimeout(()=>{hideStages();correctStage.classList.remove("hidden");timers.push(setTimeout(()=>{level++;startVocabLevel()},550))},450));
+    timers.push(setTimeout(()=>{
+      hideStages();correctStage.classList.remove("hidden");
+      if(!remainingWords.length){timers.push(setTimeout(completeVocabStack,550))}
+      else{timers.push(setTimeout(()=>{level++;startVocabLevel()},550))}
+    },450));
   }else{
     btn.classList.add("wrong-choice");
     const correctBtn=buttons.find(b=>b.dataset.correct==="true");if(correctBtn)correctBtn.classList.add("correct-choice");
@@ -273,6 +291,8 @@ $("vocabStack3Btn").addEventListener("click",()=>selectVocabStack(3));
 $("vocabStack4Btn").addEventListener("click",()=>selectVocabStack(4));
 $("vocabStack5Btn").addEventListener("click",()=>selectVocabStack(5));
 $("stackBackBtn").addEventListener("click",openVocabMenu);
+$("vocabRestartCompleteBtn").addEventListener("click",restartCompletedVocabStack);
+$("vocabBackToStacksBtn").addEventListener("click",backToVocabStacks);
 $("answerQuestionBtn").addEventListener("click",startGrammarGame);
 $("startBtn").addEventListener("click",startVocabGame);
 $("startBackBtn").addEventListener("click",()=>selectVocabMode(mode));

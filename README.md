@@ -86,14 +86,14 @@ the same answer, and a final period does not affect correctness.
 - English translation and linguistic analysis are confined to the breakdown panel.
 
 
-## V8.4.1 separate breakdown controls
+## V8.5 separate breakdown controls
 - `Breakdown question` is available with the Korean question.
 - `Breakdown answer` remains hidden until the learner submits an answer.
 - Question and answer breakdowns open independently.
 - English translations and linguistic analysis remain confined to breakdown content.
 
 
-## V8.4.1 — 50-word vocab bank and stacks
+## V8.5 — 50-word vocab bank and stacks
 - Vocabulary expanded from 30 to 50 words/images.
 - Stack 1: 000–024 (25 words).
 - Stack 2: 025–049 (25 words).
@@ -105,5 +105,28 @@ the same answer, and a final period does not affect correctness.
 The ZIP is organized into `Images/` and `App-Files/` only for easier file management. When publishing to GitHub Pages, upload the contents of both folders together into the repository root, as before. The application itself still uses root-level image paths.
 
 
-## V8.4.1
+## V8.5
 After an incorrect Vocab answer, a Translation button is available. The English meaning remains hidden until the learner taps the button. This applies to both Speaking/Writing and Listening/Reading.
+
+## V8.5
+- Vocabulary expanded to 75 words/images.
+- Vocab Stack 3 contains words 050–074.
+- All three 25-word stacks are available in Speaking/Writing and Listening/Reading.
+- The version number at the bottom of the page is updated to V8.5.
+- V8.4.1 incorrect-answer Translation behavior is preserved.
+
+## V8.5.1 vocabulary audit
+A programmatic audit of all 75 Korean vocabulary entries found 75 unique entries:
+- Stack 1 (000–024): 25 unique
+- Stack 2 (025–049): 25 unique
+- Stack 3 (050–074): 25 unique
+- Across all stacks: 75 unique
+
+No vocabulary replacements were necessary. The webpage footer version, which had remained stale, is corrected to V8.5.1.
+
+## V8.5.2 image-quality correction
+- Replaced low-detail icon-style images 066–074 with realistic photographic-style image cues.
+- Stack 3 image files 050–074 were audited and normalized as 600×600 JPEG files.
+- Vocabulary and game behavior are unchanged.
+- All 75 vocabulary entries remain unique.
+- Page footer updated to V8.5.2.

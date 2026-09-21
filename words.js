@@ -208,8 +208,7 @@ const WORDS = [
     "meaning": "sleep",
     "form": "자요",
     "image": "029.jpg"
-  }
-,
+  },
   {
     "ko": "사람",
     "type": "noun",
@@ -349,5 +348,180 @@ const WORDS = [
     "meaning": "cold",
     "form": "춥다",
     "image": "049.jpg"
+  },
+  {
+    "ko": "차",
+    "type": "noun",
+    "meaning": "tea",
+    "form": "차",
+    "image": "050.jpg"
+  },
+  {
+    "ko": "고기",
+    "type": "noun",
+    "meaning": "meat",
+    "form": "고기",
+    "image": "051.jpg"
+  },
+  {
+    "ko": "생선",
+    "type": "noun",
+    "meaning": "fish",
+    "form": "생선",
+    "image": "052.jpg"
+  },
+  {
+    "ko": "야채",
+    "type": "noun",
+    "meaning": "vegetables",
+    "form": "야채",
+    "image": "053.jpg"
+  },
+  {
+    "ko": "과일",
+    "type": "noun",
+    "meaning": "fruit",
+    "form": "과일",
+    "image": "054.jpg"
+  },
+  {
+    "ko": "국수",
+    "type": "noun",
+    "meaning": "noodles",
+    "form": "국수",
+    "image": "055.jpg"
+  },
+  {
+    "ko": "음식",
+    "type": "noun",
+    "meaning": "food",
+    "form": "음식",
+    "image": "056.jpg"
+  },
+  {
+    "ko": "식탁",
+    "type": "noun",
+    "meaning": "dining table",
+    "form": "식탁",
+    "image": "057.jpg"
+  },
+  {
+    "ko": "창문",
+    "type": "noun",
+    "meaning": "window",
+    "form": "창문",
+    "image": "058.jpg"
+  },
+  {
+    "ko": "열쇠",
+    "type": "noun",
+    "meaning": "key",
+    "form": "열쇠",
+    "image": "059.jpg"
+  },
+  {
+    "ko": "버스",
+    "type": "noun",
+    "meaning": "bus",
+    "form": "버스",
+    "image": "060.jpg"
+  },
+  {
+    "ko": "지하철",
+    "type": "noun",
+    "meaning": "subway",
+    "form": "지하철",
+    "image": "061.jpg"
+  },
+  {
+    "ko": "자전거",
+    "type": "noun",
+    "meaning": "bicycle",
+    "form": "자전거",
+    "image": "062.jpg"
+  },
+  {
+    "ko": "비행기",
+    "type": "noun",
+    "meaning": "airplane",
+    "form": "비행기",
+    "image": "063.jpg"
+  },
+  {
+    "ko": "산",
+    "type": "noun",
+    "meaning": "mountain",
+    "form": "산",
+    "image": "064.jpg"
+  },
+  {
+    "ko": "바다",
+    "type": "noun",
+    "meaning": "sea",
+    "form": "바다",
+    "image": "065.jpg"
+  },
+  {
+    "ko": "가족",
+    "type": "noun",
+    "meaning": "family",
+    "form": "가족",
+    "image": "066.jpg"
+  },
+  {
+    "ko": "방",
+    "type": "noun",
+    "meaning": "room",
+    "form": "방",
+    "image": "067.jpg"
+  },
+  {
+    "ko": "손",
+    "type": "noun",
+    "meaning": "hand",
+    "form": "손",
+    "image": "068.jpg"
+  },
+  {
+    "ko": "눈",
+    "type": "noun",
+    "meaning": "eye",
+    "form": "눈",
+    "image": "069.jpg"
+  },
+  {
+    "ko": "머리",
+    "type": "noun",
+    "meaning": "head",
+    "form": "머리",
+    "image": "070.jpg"
+  },
+  {
+    "ko": "만나요",
+    "type": "verb",
+    "meaning": "meet",
+    "form": "만나다",
+    "image": "071.jpg"
+  },
+  {
+    "ko": "공부해요",
+    "type": "verb",
+    "meaning": "study",
+    "form": "공부하다",
+    "image": "072.jpg"
+  },
+  {
+    "ko": "일해요",
+    "type": "verb",
+    "meaning": "work",
+    "form": "일하다",
+    "image": "073.jpg"
+  },
+  {
+    "ko": "앉아요",
+    "type": "verb",
+    "meaning": "sit",
+    "form": "앉다",
+    "image": "074.jpg"
   }
 ];

@@ -77,3 +77,10 @@ Korean answer comparison now ignores:
 
 Korean wording itself remains exact. For example, `세권` and `세 권` are treated as
 the same answer, and a final period does not affect correctness.
+
+
+## V8.3 Korean-first Grammar breakdown
+- Grammar cards show only the Korean question during normal play; the English question is hidden from the initial card.
+- A Break it down panel contains the English translation and word/root/particle/conjugation analysis.
+- The answer breakdown and grammar note become available only after the learner submits, so the help panel cannot reveal the answer beforehand.
+- English translation and linguistic analysis are confined to the breakdown panel.

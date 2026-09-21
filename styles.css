@@ -162,3 +162,13 @@
 .grammar-feedback:not(.hidden){display:block}
 .grammar-answer-review:not(.hidden){display:block}
 .answer-audio-row{display:flex;align-items:center;gap:10px}
+
+/* V8.3 Korean-first grammar breakdown */
+.breakdown-toggle{display:block;margin:-8px auto 18px}
+.breakdown-panel{max-width:620px;margin:0 auto 20px;padding:16px;border:1px solid #d8dee8;border-radius:14px;background:#f8fafc;text-align:left}
+.breakdown-panel h3{margin:4px 0 8px}
+.breakdown-translation{font-weight:700;margin:0 0 14px}
+.breakdown-table{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.breakdown-row{display:grid;grid-template-columns:minmax(90px,.8fr) minmax(150px,1.35fr) minmax(130px,1.2fr);gap:10px;padding:9px 0;border-bottom:1px solid #e3e7ee}
+.breakdown-row strong{font-size:1.05rem}
+@media(max-width:600px){.breakdown-row{grid-template-columns:1fr;gap:3px}.breakdown-row span{font-size:.92rem}}

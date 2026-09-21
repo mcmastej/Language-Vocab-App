@@ -1,62 +1,42 @@
 const GRAMMAR_CARDS = [
-  {
-    image: "000.jpg",
-    promptEn: "What fruit is this?",
-    promptKo: "이 과일은 뭐예요?",
-    answer: "이 과일은 사과예요"
-  },
-  {
-    image: "001.jpg",
-    promptEn: "Is this a dog or a cat?",
-    promptKo: "이게 개예요, 아니면 고양이예요?",
-    answer: "이게 고양이예요"
-  },
-  {
-    image: "002.jpg",
-    promptEn: "How many books are there in this picture?",
-    promptKo: "이 사진에 책이 몇 권 있어요?",
-    answer: "이 사진에 책이 세 권 있어요."
-  },
-  {
-    image: "003.jpg",
-    promptEn: "What color is that car?",
-    promptKo: "저 자동차는 무슨 색이에요?",
-    answer: "저 자동차는 흰색이에요."
-  },
-  {
-    image: "004.jpg",
-    promptEn: "Is this a house or a park?",
-    promptKo: "여기는 집이에요, 아니면 공원이에요?",
-    answer: "여기는 집이에요."
-  },
-  {
-    image: "005.jpg",
-    promptEn: "What kind of animal is in this photo?",
-    promptKo: "이 사진에 어떤 동물이 있어요?",
-    answer: "이 사진에 강아지가 있어요."
-  },
-  {
-    image: "006.jpg",
-    promptEn: "Where do you buy this drink?",
-    promptKo: "이 음료를 어디에서 사요?",
-    answer: "이 음료를 카페에서 사요."
-  },
-  {
-    image: "007.jpg",
-    promptEn: "Does this cup have milk or water in it?",
-    promptKo: "이 컵에 우유가 있어요, 아니면 물이 있어요?",
-    answer: "이 컵에 물이 있어요."
-  },
-  {
-    image: "008.jpg",
-    promptEn: "What is happening in this photo?",
-    promptKo: "이 사진에서 무슨 일이 일어나고 있어요?",
-    answer: "남자아이가 밥을 먹고 있어요."
-  },
-  {
-    image: "009.jpg",
-    promptEn: "What is this mom and baby elephant doing?",
-    promptKo: "엄마 코끼리와 아기 코끼리가 뭐 하고 있어요?",
-    answer: "엄마 코끼리와 아기 코끼리가 걷고 있어요."
-  }
+  {image:"000.jpg",promptEn:"What fruit is this?",promptKo:"이 과일은 뭐예요?",answer:"이 과일은 사과예요",
+   questionBreakdown:[["이","this; modifies 과일"],["과일은","과일 (fruit) + 은 (topic particle)","fruit, as the topic"],["뭐예요?","뭐 (what) + 예요 (is)","what is it?"]],
+   answerBreakdown:[["이","this","this"],["과일은","과일 + 은","fruit + topic particle"],["사과예요","사과 (apple) + 예요 (is)","is an apple"]],
+   grammarNote:"은/는 marks the topic. 예요 is the polite copula used after a noun ending in a vowel."},
+  {image:"001.jpg",promptEn:"Is this a dog or a cat?",promptKo:"이게 개예요, 아니면 고양이예요?",answer:"이게 고양이예요",
+   questionBreakdown:[["이게","이것이 → 이게","this + subject particle; contracted form"],["개예요","개 (dog) + 예요","is a dog"],["아니면","or / if not","connects alternatives"],["고양이예요?","고양이 (cat) + 예요","is a cat?"]],
+   answerBreakdown:[["이게","이것이 → 이게","this + subject particle"],["고양이예요","고양이 + 예요","is a cat"]],
+   grammarNote:"이게 is the common contraction of 이것이. 아니면 presents an alternative: ‘or’."},
+  {image:"002.jpg",promptEn:"How many books are there in this picture?",promptKo:"이 사진에 책이 몇 권 있어요?",answer:"이 사진에 책이 세 권 있어요.",
+   questionBreakdown:[["이","this","this"],["사진에","사진 (photo) + 에 (location particle)","in this photo"],["책이","책 (book) + 이 (subject particle)","books"],["몇","how many","asks for a quantity"],["권","counter for books/volumes","book counter"],["있어요?","있다 → 있어요","exist / are there?"]],
+   answerBreakdown:[["이","this","this"],["사진에","사진 + 에","in this photo"],["책이","책 + 이","books + subject particle"],["세 권","셋 → 세 + 권","three books; 세 is the attributive form used before a counter"],["있어요","있다 → 있어요","there are / exist"]],
+   grammarNote:"Korean commonly uses a native Korean number plus a counter. 권 is the counter for books, so ‘three books’ is 세 권."},
+  {image:"003.jpg",promptEn:"What color is that car?",promptKo:"저 자동차는 무슨 색이에요?",answer:"저 자동차는 흰색이에요.",
+   questionBreakdown:[["저","that (over there)","that"],["자동차는","자동차 (car) + 는 (topic particle)","as for that car"],["무슨","what / what kind of","modifies a noun"],["색이에요?","색 (color) + 이에요","what color is it?"]],
+   answerBreakdown:[["저","that","that"],["자동차는","자동차 + 는","car + topic particle"],["흰색이에요","흰색 (white) + 이에요","is white / is the color white"]],
+   grammarNote:"이에요 is the polite copula after a noun ending in a consonant; 예요 is used after a vowel."},
+  {image:"004.jpg",promptEn:"Is this a house or a park?",promptKo:"여기는 집이에요, 아니면 공원이에요?",answer:"여기는 집이에요.",
+   questionBreakdown:[["여기는","여기 (here) + 는 (topic particle)","as for this place / here"],["집이에요","집 (house) + 이에요","is a house"],["아니면","or / if not","presents another choice"],["공원이에요?","공원 (park) + 이에요","is it a park?"]],
+   answerBreakdown:[["여기는","여기 + 는","as for this place"],["집이에요","집 + 이에요","is a house"]],
+   grammarNote:"는 marks 여기 as the topic. 아니면 links two alternatives in an either/or question."},
+  {image:"005.jpg",promptEn:"What kind of animal is in this photo?",promptKo:"이 사진에 어떤 동물이 있어요?",answer:"이 사진에 강아지가 있어요.",
+   questionBreakdown:[["이","this","this"],["사진에","사진 + 에","in this photo"],["어떤","what kind of / which","asks about type or identity"],["동물이","동물 (animal) + 이","animal + subject particle"],["있어요?","있다 → 있어요","is there / exists?"]],
+   answerBreakdown:[["이","this","this"],["사진에","사진 + 에","in this photo"],["강아지가","강아지 (puppy/dog) + 가","dog + subject particle"],["있어요","있다 → 있어요","there is / exists"]],
+   grammarNote:"있다 expresses existence or presence. 에 marks the place where something exists."},
+  {image:"006.jpg",promptEn:"Where do you buy this drink?",promptKo:"이 음료를 어디에서 사요?",answer:"이 음료를 카페에서 사요.",
+   questionBreakdown:[["이","this","this"],["음료를","음료 (drink/beverage) + 를 (object particle)","this drink as the object"],["어디에서","어디 (where) + 에서","where; 에서 marks where an action happens"],["사요?","사다 → 사요","buy / do you buy?"]],
+   answerBreakdown:[["이","this","this"],["음료를","음료 + 를","drink + object particle"],["카페에서","카페 + 에서","at/from a café; place of the action"],["사요","사다 → 사요","buy"]],
+   grammarNote:"에서 marks the location where an action occurs. 사다 becomes 사요 in the polite present tense."},
+  {image:"007.jpg",promptEn:"Does this cup have milk or water in it?",promptKo:"이 컵에 우유가 있어요, 아니면 물이 있어요?",answer:"이 컵에 물이 있어요.",
+   questionBreakdown:[["이","this","this"],["컵에","컵 (cup) + 에","in this cup"],["우유가","우유 (milk) + 가","milk + subject particle"],["있어요","있다 → 있어요","there is / contains"],["아니면","or / if not","alternative"],["물이","물 (water) + 이","water + subject particle"],["있어요?","있다 → 있어요","is there?"]],
+   answerBreakdown:[["이","this","this"],["컵에","컵 + 에","in this cup"],["물이","물 + 이","water + subject particle"],["있어요","있다 → 있어요","there is / contains"]],
+   grammarNote:"Korean can express ‘have/contain’ with 있다: literally, ‘In this cup, water exists.’"},
+  {image:"008.jpg",promptEn:"What is happening in this photo?",promptKo:"이 사진에서 무슨 일이 일어나고 있어요?",answer:"남자아이가 밥을 먹고 있어요.",
+   questionBreakdown:[["이","this","this"],["사진에서","사진 + 에서","in this photo; setting of the action"],["무슨","what / what kind of","modifies 일"],["일이","일 (thing/event) + 이","event + subject particle"],["일어나고 있어요?","일어나다 + -고 있다","is happening / is taking place"]],
+   answerBreakdown:[["남자아이가","남자아이 (boy) + 가","boy + subject particle"],["밥을","밥 (meal/rice) + 을","meal + object particle"],["먹고 있어요","먹다 + -고 있다 → 먹고 있어요","is eating"]],
+   grammarNote:"Verb stem + -고 있다 describes an action in progress. 먹다 → 먹고 있어요 means ‘is eating’."},
+  {image:"009.jpg",promptEn:"What is this mom and baby elephant doing?",promptKo:"엄마 코끼리와 아기 코끼리가 뭐 하고 있어요?",answer:"엄마 코끼리와 아기 코끼리가 걷고 있어요.",
+   questionBreakdown:[["엄마 코끼리와","엄마 코끼리 + 와","mother elephant + and"],["아기 코끼리가","아기 코끼리 + 가","baby elephant + subject particle"],["뭐","what","what"],["하고 있어요?","하다 + -고 있다","are doing?"]],
+   answerBreakdown:[["엄마 코끼리와","엄마 코끼리 + 와","mother elephant + and"],["아기 코끼리가","아기 코끼리 + 가","baby elephant + subject particle"],["걷고 있어요","걷다 + -고 있다 → 걷고 있어요","are walking"]],
+   grammarNote:"-고 있다 marks an action in progress. 걷다 is ‘to walk’; 걷고 있어요 means ‘is/are walking’."}
 ];

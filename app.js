@@ -63,7 +63,7 @@ function openGrammarMenu(){
 
 /* ---------- Vocab modes: preserved from V7.2 ---------- */
 function hideStages(){[imageStage,wordStage,blankStage,answerStage,choiceStage,correctStage,wrongStage].forEach(x=>x.classList.add("hidden"))}
-function activeWords(){return vocabStack===1?WORDS.slice(0,25):vocabStack===2?WORDS.slice(25,50):WORDS.slice(50,75)}
+function activeWords(){const start=(vocabStack-1)*25;return WORDS.slice(start,start+25)}
 function resetWordStack(){remainingWords=[...activeWords()]}
 function chooseWord(){
   if(!remainingWords.length)resetWordStack();
@@ -270,6 +270,7 @@ $("listeningModeBtn").addEventListener("click",()=>selectVocabMode("listening"))
 $("vocabStack1Btn").addEventListener("click",()=>selectVocabStack(1));
 $("vocabStack2Btn").addEventListener("click",()=>selectVocabStack(2));
 $("vocabStack3Btn").addEventListener("click",()=>selectVocabStack(3));
+$("vocabStack4Btn").addEventListener("click",()=>selectVocabStack(4));
 $("stackBackBtn").addEventListener("click",openVocabMenu);
 $("answerQuestionBtn").addEventListener("click",startGrammarGame);
 $("startBtn").addEventListener("click",startVocabGame);

@@ -140,3 +140,47 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Vocabulary content and game logic are unchanged.
 - All 75 vocabulary entries remain unique.
 - Page footer updated to V8.5.3.
+
+## V8.6.0
+- Added Vocab Stack 4 (075–099) to both Vocab modes.
+- 100 total vocabulary entries; full exact-Hangul duplicate audit passed: 100/100 unique.
+- Images 075.jpg–099.jpg are verified 600×600 JPEGs.
+- Image crops exclude printed numbers, labels, borders, and adjacent tiles.
+- Existing Grammar and Vocab behavior is preserved.
+- Visible footer updated and verified as V8.6.0.
+
+## V8.6.1
+- Regenerated all Stack 4 images (075–099) from the new clean, text-free source.
+- Final files 075.jpg–099.jpg are verified 600×600 JPEGs.
+- No numbers, labels, or neighboring-image fragments are included.
+- Cross-reference against 000–074 found no duplicate word+meaning entries.
+- Same Korean spelling with a genuinely different meaning is permitted by design.
+- Vocab/Grammar logic is unchanged.
+- Visible footer updated and verified as V8.6.1.
+
+## V8.6.2
+- Rebuilt all Stack 4 images (075–099) from a clean 5×5 grid made only of square photographic cells.
+- Extracted exact cell interiors while excluding the thin grid separator lines.
+- No source numbers, vocabulary labels, headers, footers, or card UI are present.
+- Verified all 25 final Stack 4 files are individual 600×600 JPEGs.
+- Cross-reference against 000–074 passed: no duplicate word+meaning entries.
+- Same Korean spelling with a different meaning remains allowed.
+- Visible page footer updated and verified as V8.6.2.
+
+## V8.6.3
+- Regenerated Stack 4 using a widely spaced 5×5 photo grid.
+- Detected each photo region independently from the white gutters.
+- Applied an additional inward safety margin before extraction.
+- Saved 075.jpg–099.jpg as individual 600×600 high-quality JPEG files.
+- Verified all 25 output dimensions/formats and exact words.js filename mapping.
+- Duplicate word+meaning audit against 000–074 passed.
+- Visible footer updated and verified as V8.6.3.
+
+## V8.6.4
+- Regenerated all Stack 4 images using the accepted widely spaced 5×5 source-grid standard.
+- Each of the 25 source cells uses a distinct image; no image is intentionally reused within Stack 4.
+- Each photo region was detected independently and cropped with an inward safety margin.
+- 075.jpg–099.jpg are verified individual 600×600 high-quality JPEG files.
+- Filename-to-vocabulary mapping was verified.
+- Duplicate word+meaning audit against 000–074 passed.
+- Visible footer updated and verified as V8.6.4.

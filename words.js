@@ -523,5 +523,180 @@ const WORDS = [
     "meaning": "sit",
     "form": "앉다",
     "image": "074.jpg"
+  },
+  {
+    "ko": "목말라요",
+    "type": "adjective",
+    "meaning": "thirsty",
+    "form": "목마르다",
+    "image": "075.jpg"
+  },
+  {
+    "ko": "달려요",
+    "type": "verb",
+    "meaning": "run",
+    "form": "달리다",
+    "image": "076.jpg"
+  },
+  {
+    "ko": "써요",
+    "type": "verb",
+    "meaning": "write",
+    "form": "쓰다",
+    "image": "077.jpg"
+  },
+  {
+    "ko": "들어요",
+    "type": "verb",
+    "meaning": "listen / hear",
+    "form": "듣다",
+    "image": "078.jpg"
+  },
+  {
+    "ko": "안녕하세요",
+    "type": "expression",
+    "meaning": "hello",
+    "form": "안녕하세요",
+    "image": "079.jpg"
+  },
+  {
+    "ko": "안녕히 가세요",
+    "type": "expression",
+    "meaning": "goodbye",
+    "form": "안녕히 가세요",
+    "image": "080.jpg"
+  },
+  {
+    "ko": "국",
+    "type": "noun",
+    "meaning": "soup",
+    "form": "국",
+    "image": "081.jpg"
+  },
+  {
+    "ko": "주스",
+    "type": "noun",
+    "meaning": "juice",
+    "form": "주스",
+    "image": "082.jpg"
+  },
+  {
+    "ko": "잔",
+    "type": "noun",
+    "meaning": "glass / cup",
+    "form": "잔",
+    "image": "083.jpg"
+  },
+  {
+    "ko": "선생님",
+    "type": "noun",
+    "meaning": "teacher",
+    "form": "선생님",
+    "image": "084.jpg"
+  },
+  {
+    "ko": "학생",
+    "type": "noun",
+    "meaning": "student",
+    "form": "학생",
+    "image": "085.jpg"
+  },
+  {
+    "ko": "병원",
+    "type": "noun",
+    "meaning": "hospital",
+    "form": "병원",
+    "image": "086.jpg"
+  },
+  {
+    "ko": "은행",
+    "type": "noun",
+    "meaning": "bank",
+    "form": "은행",
+    "image": "087.jpg"
+  },
+  {
+    "ko": "마트",
+    "type": "noun",
+    "meaning": "mart / supermarket",
+    "form": "마트",
+    "image": "088.jpg"
+  },
+  {
+    "ko": "식당",
+    "type": "noun",
+    "meaning": "restaurant",
+    "form": "식당",
+    "image": "089.jpg"
+  },
+  {
+    "ko": "인터넷",
+    "type": "noun",
+    "meaning": "internet",
+    "form": "인터넷",
+    "image": "090.jpg"
+  },
+  {
+    "ko": "텔레비전",
+    "type": "noun",
+    "meaning": "television",
+    "form": "텔레비전",
+    "image": "091.jpg"
+  },
+  {
+    "ko": "동물",
+    "type": "noun",
+    "meaning": "animal",
+    "form": "동물",
+    "image": "092.jpg"
+  },
+  {
+    "ko": "비",
+    "type": "noun",
+    "meaning": "rain",
+    "form": "비",
+    "image": "093.jpg"
+  },
+  {
+    "ko": "겨울",
+    "type": "noun",
+    "meaning": "winter",
+    "form": "겨울",
+    "image": "094.jpg"
+  },
+  {
+    "ko": "바람",
+    "type": "noun",
+    "meaning": "wind",
+    "form": "바람",
+    "image": "095.jpg"
+  },
+  {
+    "ko": "구름",
+    "type": "noun",
+    "meaning": "cloud",
+    "form": "구름",
+    "image": "096.jpg"
+  },
+  {
+    "ko": "하늘",
+    "type": "noun",
+    "meaning": "sky",
+    "form": "하늘",
+    "image": "097.jpg"
+  },
+  {
+    "ko": "별",
+    "type": "noun",
+    "meaning": "star",
+    "form": "별",
+    "image": "098.jpg"
+  },
+  {
+    "ko": "무지개",
+    "type": "noun",
+    "meaning": "rainbow",
+    "form": "무지개",
+    "image": "099.jpg"
   }
 ];

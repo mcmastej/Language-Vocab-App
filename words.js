@@ -209,4 +209,145 @@ const WORDS = [
     "form": "자요",
     "image": "029.jpg"
   }
+,
+  {
+    "ko": "사람",
+    "type": "noun",
+    "meaning": "person",
+    "form": "사람",
+    "image": "030.jpg"
+  },
+  {
+    "ko": "여자",
+    "type": "noun",
+    "meaning": "woman",
+    "form": "여자",
+    "image": "031.jpg"
+  },
+  {
+    "ko": "남자",
+    "type": "noun",
+    "meaning": "man",
+    "form": "남자",
+    "image": "032.jpg"
+  },
+  {
+    "ko": "아이",
+    "type": "noun",
+    "meaning": "child",
+    "form": "아이",
+    "image": "033.jpg"
+  },
+  {
+    "ko": "친구",
+    "type": "noun",
+    "meaning": "friend",
+    "form": "친구",
+    "image": "034.jpg"
+  },
+  {
+    "ko": "학교",
+    "type": "noun",
+    "meaning": "school",
+    "form": "학교",
+    "image": "035.jpg"
+  },
+  {
+    "ko": "돈",
+    "type": "noun",
+    "meaning": "money",
+    "form": "돈",
+    "image": "036.jpg"
+  },
+  {
+    "ko": "시간",
+    "type": "noun",
+    "meaning": "time",
+    "form": "시간",
+    "image": "037.jpg"
+  },
+  {
+    "ko": "가요",
+    "type": "verb",
+    "meaning": "go",
+    "form": "가다",
+    "image": "038.jpg"
+  },
+  {
+    "ko": "와요",
+    "type": "verb",
+    "meaning": "come",
+    "form": "오다",
+    "image": "039.jpg"
+  },
+  {
+    "ko": "봐요",
+    "type": "verb",
+    "meaning": "see / watch / look",
+    "form": "보다",
+    "image": "040.jpg"
+  },
+  {
+    "ko": "해요",
+    "type": "verb",
+    "meaning": "do",
+    "form": "하다",
+    "image": "041.jpg"
+  },
+  {
+    "ko": "말해요",
+    "type": "verb",
+    "meaning": "speak / say",
+    "form": "말하다",
+    "image": "042.jpg"
+  },
+  {
+    "ko": "마셔요",
+    "type": "verb",
+    "meaning": "drink",
+    "form": "마시다",
+    "image": "043.jpg"
+  },
+  {
+    "ko": "읽어요",
+    "type": "verb",
+    "meaning": "read",
+    "form": "읽다",
+    "image": "044.jpg"
+  },
+  {
+    "ko": "작아요",
+    "type": "adjective",
+    "meaning": "small",
+    "form": "작다",
+    "image": "045.jpg"
+  },
+  {
+    "ko": "많아요",
+    "type": "adjective",
+    "meaning": "many / a lot",
+    "form": "많다",
+    "image": "046.jpg"
+  },
+  {
+    "ko": "빨라요",
+    "type": "adjective",
+    "meaning": "fast",
+    "form": "빠르다",
+    "image": "047.jpg"
+  },
+  {
+    "ko": "더워요",
+    "type": "adjective",
+    "meaning": "hot",
+    "form": "덥다",
+    "image": "048.jpg"
+  },
+  {
+    "ko": "추워요",
+    "type": "adjective",
+    "meaning": "cold",
+    "form": "춥다",
+    "image": "049.jpg"
+  }
 ];

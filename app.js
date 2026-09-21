@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const homeScreen=$("homeScreen"),vocabMenu=$("vocabMenu"),grammarMenu=$("grammarMenu");
+const homeScreen=$("homeScreen"),vocabMenu=$("vocabMenu"),vocabStackMenu=$("vocabStackMenu"),grammarMenu=$("grammarMenu");
 const startScreen=$("startScreen"),game=$("game"),grammarGame=$("grammarGame"),grammarComplete=$("grammarComplete");
 const subtitle=$("subtitle"),scoreBox=$("scoreBox"),highScoreEl=$("highScore");
 const modeTitle=$("modeTitle"),modeInstructions=$("modeInstructions");
@@ -9,7 +9,7 @@ const answerStage=$("answerStage"),choiceStage=$("choiceStage"),correctStage=$("
 const wordImage=$("wordImage"),partOfSpeech=$("partOfSpeech"),presentedWord=$("presentedWord");
 const answerInput=$("answerInput"),correctAnswer=$("correctAnswer"),choiceGrid=$("choiceGrid"),speechNote=$("speechNote");
 
-let mode=null,level=1,currentWord=null,remainingWords=[],timers=[],roundLocked=false;
+let mode=null,vocabStack=1,level=1,currentWord=null,remainingWords=[],timers=[],roundLocked=false;
 let grammarStack=[],currentGrammarCard=null,grammarCompletedCount=0,grammarAwaitingNext=false;
 
 const SCORE_KEYS={
@@ -42,7 +42,7 @@ function imageElement(path){
   return img;
 }
 function hideAllScreens(){
-  [homeScreen,vocabMenu,grammarMenu,startScreen,game,grammarGame,grammarComplete].forEach(x=>x.classList.add("hidden"));
+  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,startScreen,game,grammarGame,grammarComplete].forEach(x=>x.classList.add("hidden"));
 }
 function goMainHome(){
   clearTimers();speechSynthesis?.cancel();mode=null;
@@ -62,7 +62,8 @@ function openGrammarMenu(){
 
 /* ---------- Vocab modes: preserved from V7.2 ---------- */
 function hideStages(){[imageStage,wordStage,blankStage,answerStage,choiceStage,correctStage,wrongStage].forEach(x=>x.classList.add("hidden"))}
-function resetWordStack(){remainingWords=[...WORDS]}
+function activeWords(){return vocabStack===1?WORDS.slice(0,25):WORDS.slice(25,50)}
+function resetWordStack(){remainingWords=[...activeWords()]}
 function chooseWord(){
   if(!remainingWords.length)resetWordStack();
   return remainingWords.splice(Math.floor(Math.random()*remainingWords.length),1)[0];
@@ -75,15 +76,20 @@ function setHighScore(v){
 }
 function updateScore(){highScoreEl.textContent=getHighScore()}
 function selectVocabMode(nextMode){
-  mode=nextMode;hideAllScreens();startScreen.classList.remove("hidden");scoreBox.classList.remove("hidden");
+  mode=nextMode;hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
+  $("stackModeTitle").textContent=mode==="speaking"?"Speaking/Writing · Choose a Vocab Stack":"Listening/Reading · Choose a Vocab Stack";
+  subtitle.textContent="Vocab · Choose a stack.";
+}
+function selectVocabStack(stack){
+  vocabStack=stack;hideAllScreens();startScreen.classList.remove("hidden");scoreBox.classList.remove("hidden");
   if(mode==="speaking"){
-    modeTitle.textContent="Speaking/Writing";
+    modeTitle.textContent=`Speaking/Writing · Vocab Stack ${vocabStack}`;
     modeInstructions.textContent="An image appears for 2 seconds. After the level-based memory delay, type or speak the Korean word.";
-    subtitle.textContent="Vocab · Image → Korean";
+    subtitle.textContent=`Vocab · Stack ${vocabStack} · Image → Korean`;
   }else{
-    modeTitle.textContent="Listening/Reading";
+    modeTitle.textContent=`Listening/Reading · Vocab Stack ${vocabStack}`;
     modeInstructions.textContent="A Korean word appears for 2 seconds and is announced once. After the level-based memory delay, choose its image from four choices.";
-    subtitle.textContent="Vocab · Korean → Image";
+    subtitle.textContent=`Vocab · Stack ${vocabStack} · Korean → Image`;
   }
   updateScore();
 }
@@ -111,7 +117,7 @@ function startListeningLevel(){
   timers.push(setTimeout(()=>{wordStage.classList.add("hidden");blankStage.classList.remove("hidden");statusEl.textContent="Remember it."},2000));
   timers.push(setTimeout(()=>{blankStage.classList.add("hidden");showChoices();statusEl.textContent="Choose the matching image."},2000+level*1000));
 }
-function getDistractors(){return shuffle(WORDS.filter(w=>w!==currentWord)).slice(0,3)}
+function getDistractors(){return shuffle(activeWords().filter(w=>w!==currentWord)).slice(0,3)}
 function showChoices(){
   choiceStage.classList.remove("hidden");choiceGrid.innerHTML="";
   shuffle([currentWord,...getDistractors()]).forEach(word=>{
@@ -255,9 +261,12 @@ $("vocabHomeBtn").addEventListener("click",goMainHome);
 $("grammarHomeBtn").addEventListener("click",goMainHome);
 $("speakingModeBtn").addEventListener("click",()=>selectVocabMode("speaking"));
 $("listeningModeBtn").addEventListener("click",()=>selectVocabMode("listening"));
+$("vocabStack1Btn").addEventListener("click",()=>selectVocabStack(1));
+$("vocabStack2Btn").addEventListener("click",()=>selectVocabStack(2));
+$("stackBackBtn").addEventListener("click",openVocabMenu);
 $("answerQuestionBtn").addEventListener("click",startGrammarGame);
 $("startBtn").addEventListener("click",startVocabGame);
-$("startBackBtn").addEventListener("click",openVocabMenu);
+$("startBackBtn").addEventListener("click",()=>selectVocabMode(mode));
 $("gameHomeBtn").addEventListener("click",goMainHome);
 $("wrongHomeBtn").addEventListener("click",goMainHome);
 $("restartBtn").addEventListener("click",startVocabGame);

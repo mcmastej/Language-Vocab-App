@@ -86,8 +86,20 @@ the same answer, and a final period does not affect correctness.
 - English translation and linguistic analysis are confined to the breakdown panel.
 
 
-## V8.3.1 separate breakdown controls
+## V8.4 separate breakdown controls
 - `Breakdown question` is available with the Korean question.
 - `Breakdown answer` remains hidden until the learner submits an answer.
 - Question and answer breakdowns open independently.
 - English translations and linguistic analysis remain confined to breakdown content.
+
+
+## V8.4 — 50-word vocab bank and stacks
+- Vocabulary expanded from 30 to 50 words/images.
+- Stack 1: 000–024 (25 words).
+- Stack 2: 025–049 (25 words).
+- Stack selection appears after choosing Speaking/Writing or Listening/Reading.
+- Each selected stack shuffles independently; Listening/Reading distractors come from the active stack.
+- Existing Grammar behavior and V8.3.1 question/answer breakdowns are preserved.
+
+### Download packaging
+The ZIP is organized into `Images/` and `App-Files/` only for easier file management. When publishing to GitHub Pages, upload the contents of both folders together into the repository root, as before. The application itself still uses root-level image paths.

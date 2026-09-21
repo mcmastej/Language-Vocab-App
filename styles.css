@@ -172,3 +172,7 @@
 .breakdown-row{display:grid;grid-template-columns:minmax(90px,.8fr) minmax(150px,1.35fr) minmax(130px,1.2fr);gap:10px;padding:9px 0;border-bottom:1px solid #e3e7ee}
 .breakdown-row strong{font-size:1.05rem}
 @media(max-width:600px){.breakdown-row{grid-template-columns:1fr;gap:3px}.breakdown-row span{font-size:.92rem}}
+
+/* V8.4 Vocab stack selection */
+#vocabStackMenu .mode-card{text-align:center}
+#vocabStackMenu .mode-card strong{font-size:1.3rem}

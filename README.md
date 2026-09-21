@@ -199,3 +199,12 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - 100.jpg–124.jpg are verified individual 600×600 high-quality JPEGs.
 - Each Stack 5 slot uses a distinct source tile; no image file is reused.
 - Visible footer updated and verified as V8.7.0.
+
+## V8.7.1
+- Replaced 102.jpg (운동 / exercise) with a person lifting weights.
+- Replaced 122.jpg (여행 / travel) with a traveler carrying a suitcase at an airport.
+- Both replacement images are verified 600×600 high-quality JPEGs.
+- Added additional vertical spacing before Home/Back navigation controls.
+- Grammar answer input no longer receives automatic focus when a card loads.
+- On mobile, the keyboard now remains closed until the learner manually taps the answer field.
+- Visible footer updated and verified as V8.7.1.

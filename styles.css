@@ -176,3 +176,13 @@
 /* V8.4 Vocab stack selection */
 #vocabStackMenu .mode-card{text-align:center}
 #vocabStackMenu .mode-card strong{font-size:1.3rem}
+
+/* V8.7.1 navigation spacing */
+#vocabMenu > .actions,
+#vocabStackMenu > .actions,
+#grammarMenu > .actions {
+  margin-top: 30px;
+}
+#startScreen > .actions {
+  margin-top: 26px;
+}

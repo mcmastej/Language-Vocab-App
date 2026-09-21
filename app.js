@@ -218,7 +218,7 @@ function showNextGrammarCard(){
   grammarStatus.textContent="Answer the question.";
   // The Korean question is announced once when the card first appears.
   speakKorean(currentGrammarCard.promptKo);
-  grammarAnswerInput.focus();
+  grammarAnswerInput.blur();
 }
 function submitGrammarAnswer(){
   if(grammarAwaitingNext||!currentGrammarCard)return;

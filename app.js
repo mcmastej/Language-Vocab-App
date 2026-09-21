@@ -8,6 +8,7 @@ const imageStage=$("imageStage"),wordStage=$("wordStage"),blankStage=$("blankSta
 const answerStage=$("answerStage"),choiceStage=$("choiceStage"),correctStage=$("correctStage"),wrongStage=$("wrongStage");
 const wordImage=$("wordImage"),partOfSpeech=$("partOfSpeech"),presentedWord=$("presentedWord");
 const answerInput=$("answerInput"),correctAnswer=$("correctAnswer"),choiceGrid=$("choiceGrid"),speechNote=$("speechNote");
+const translationBtn=$("translationBtn"),translationText=$("translationText");
 
 let mode=null,vocabStack=1,level=1,currentWord=null,remainingWords=[],timers=[],roundLocked=false;
 let grammarStack=[],currentGrammarCard=null,grammarCompletedCount=0,grammarAwaitingNext=false;
@@ -130,9 +131,14 @@ function markSpeakingCorrect(){
   clearTimers();setHighScore(level);hideStages();correctStage.classList.remove("hidden");statusEl.textContent="Correct!";
   timers.push(setTimeout(()=>{level++;startVocabLevel()},700));
 }
+function prepareVocabTranslation(){
+  translationText.textContent=currentWord.meaning;
+  translationText.classList.add("hidden");
+  translationBtn.textContent="Translation";
+}
 function markSpeakingWrong(){
   clearTimers();hideStages();wrongStage.classList.remove("hidden");statusEl.textContent="Game over";
-  correctAnswer.textContent=currentWord.ko;setHighScore(level-1);
+  correctAnswer.textContent=currentWord.ko;prepareVocabTranslation();setHighScore(level-1);
 }
 function handleImageChoice(btn,word){
   if(roundLocked)return;roundLocked=true;
@@ -143,7 +149,7 @@ function handleImageChoice(btn,word){
   }else{
     btn.classList.add("wrong-choice");
     const correctBtn=buttons.find(b=>b.dataset.correct==="true");if(correctBtn)correctBtn.classList.add("correct-choice");
-    setHighScore(level-1);statusEl.textContent="Game over";correctAnswer.textContent=currentWord.ko;
+    setHighScore(level-1);statusEl.textContent="Game over";correctAnswer.textContent=currentWord.ko;prepareVocabTranslation();
     wrongStage.classList.remove("hidden");wrongStage.classList.add("choice-feedback");
   }
 }
@@ -271,6 +277,10 @@ $("gameHomeBtn").addEventListener("click",goMainHome);
 $("wrongHomeBtn").addEventListener("click",goMainHome);
 $("restartBtn").addEventListener("click",startVocabGame);
 $("hearBtn").addEventListener("click",()=>currentWord&&speakKorean(currentWord.ko));
+translationBtn.addEventListener("click",()=>{
+  const hidden=translationText.classList.toggle("hidden");
+  translationBtn.textContent=hidden?"Translation":"Hide translation";
+});
 $("answerForm").addEventListener("submit",e=>{
   e.preventDefault();
   normalize(answerInput.value)===normalize(currentWord.ko)?markSpeakingCorrect():markSpeakingWrong();

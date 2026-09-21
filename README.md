@@ -1,4 +1,4 @@
-# V8.0 Korean Memory Game — Vocab + Grammar
+# V8.1 Korean Memory Game — Vocab + Grammar
 
 V8.0 preserves the verified V7.2 Vocab games and introduces a separate Grammar branch.
 
@@ -34,3 +34,16 @@ The first Grammar deck uses two existing images:
 - Grammar reuses existing images rather than duplicating them.
 - Grammar content is stored separately in `grammar.js` for future expansion.
 - Service worker remains disabled during development/testing.
+
+## V8.1
+Grammar → Answering a Question now contains 10 cards using images 000.jpg–009.jpg.
+Cards 002–009 add beginner grammar practice involving counters, colors, alternatives,
+location particles, possession/content, and progressive actions.
+
+The established Grammar behavior is unchanged:
+- Korean question is spoken automatically once.
+- Speaker button replays the Korean question.
+- English and Korean prompts remain visible.
+- Exact Korean answer checking is retained.
+- Incorrect cards show the correct answer and return to the back of the stack.
+- The game completes only after all 10 cards have been answered correctly.

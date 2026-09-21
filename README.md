@@ -1,4 +1,4 @@
-# V7.1 Korean Memory Game — Two Learning Modes
+# V7.2 Korean Memory Game — Two Learning Modes
 
 Built from the verified V6.1 30-word build.
 
@@ -21,3 +21,7 @@ Built from the verified V6.1 30-word build.
 - Home controls allow returning to mode selection.
 - Existing root-level image structure is preserved for GitHub web uploads.
 - Service worker remains disabled during development/testing.
+
+## V7.2 change
+- Speaking/Writing image presentation reduced from 3 seconds to 2 seconds.
+- Listening/Reading remains at 2 seconds.

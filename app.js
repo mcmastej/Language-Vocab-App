@@ -94,11 +94,11 @@ function startSpeakingLevel(){
   partOfSpeech.textContent=`(${currentWord.type})`;
   timers.push(setTimeout(()=>{
     imageStage.classList.add("hidden");blankStage.classList.remove("hidden");statusEl.textContent="Remember it.";
-  },3000));
+  },2000));
   timers.push(setTimeout(()=>{
     blankStage.classList.add("hidden");answerStage.classList.remove("hidden");statusEl.textContent="What was it?";
     answerInput.value="";answerInput.focus();
-  },3000+level*1000));
+  },2000+level*1000));
 }
 function startListeningLevel(){
   statusEl.textContent="Read and listen.";

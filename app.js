@@ -271,6 +271,7 @@ $("vocabStack1Btn").addEventListener("click",()=>selectVocabStack(1));
 $("vocabStack2Btn").addEventListener("click",()=>selectVocabStack(2));
 $("vocabStack3Btn").addEventListener("click",()=>selectVocabStack(3));
 $("vocabStack4Btn").addEventListener("click",()=>selectVocabStack(4));
+$("vocabStack5Btn").addEventListener("click",()=>selectVocabStack(5));
 $("stackBackBtn").addEventListener("click",openVocabMenu);
 $("answerQuestionBtn").addEventListener("click",startGrammarGame);
 $("startBtn").addEventListener("click",startVocabGame);

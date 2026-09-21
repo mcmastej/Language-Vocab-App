@@ -698,5 +698,180 @@ const WORDS = [
     "meaning": "rainbow",
     "form": "무지개",
     "image": "099.jpg"
+  },
+  {
+    "ko": "잠",
+    "type": "noun",
+    "meaning": "sleep",
+    "form": "잠",
+    "image": "100.jpg"
+  },
+  {
+    "ko": "식사",
+    "type": "noun",
+    "meaning": "meal",
+    "form": "식사",
+    "image": "101.jpg"
+  },
+  {
+    "ko": "운동",
+    "type": "noun",
+    "meaning": "exercise",
+    "form": "운동",
+    "image": "102.jpg"
+  },
+  {
+    "ko": "산책",
+    "type": "noun",
+    "meaning": "walk / stroll",
+    "form": "산책",
+    "image": "103.jpg"
+  },
+  {
+    "ko": "시각",
+    "type": "noun",
+    "meaning": "time / hour",
+    "form": "시각",
+    "image": "104.jpg"
+  },
+  {
+    "ko": "대화",
+    "type": "noun",
+    "meaning": "conversation",
+    "form": "대화",
+    "image": "105.jpg"
+  },
+  {
+    "ko": "우산",
+    "type": "noun",
+    "meaning": "umbrella",
+    "form": "우산",
+    "image": "106.jpg"
+  },
+  {
+    "ko": "반려견",
+    "type": "noun",
+    "meaning": "pet dog",
+    "form": "반려견",
+    "image": "107.jpg"
+  },
+  {
+    "ko": "대중교통",
+    "type": "noun",
+    "meaning": "public transportation",
+    "form": "대중교통",
+    "image": "108.jpg"
+  },
+  {
+    "ko": "쌀",
+    "type": "noun",
+    "meaning": "uncooked rice",
+    "form": "쌀",
+    "image": "109.jpg"
+  },
+  {
+    "ko": "음료",
+    "type": "noun",
+    "meaning": "beverage",
+    "form": "음료",
+    "image": "110.jpg"
+  },
+  {
+    "ko": "경치",
+    "type": "noun",
+    "meaning": "scenery",
+    "form": "경치",
+    "image": "111.jpg"
+  },
+  {
+    "ko": "손잡이",
+    "type": "noun",
+    "meaning": "handle",
+    "form": "손잡이",
+    "image": "112.jpg"
+  },
+  {
+    "ko": "침실",
+    "type": "noun",
+    "meaning": "bedroom",
+    "form": "침실",
+    "image": "113.jpg"
+  },
+  {
+    "ko": "장보기",
+    "type": "noun",
+    "meaning": "grocery shopping",
+    "form": "장보기",
+    "image": "114.jpg"
+  },
+  {
+    "ko": "추위",
+    "type": "noun",
+    "meaning": "cold weather / coldness",
+    "form": "추위",
+    "image": "115.jpg"
+  },
+  {
+    "ko": "더위",
+    "type": "noun",
+    "meaning": "heat / hot weather",
+    "form": "더위",
+    "image": "116.jpg"
+  },
+  {
+    "ko": "숙제",
+    "type": "noun",
+    "meaning": "homework",
+    "form": "숙제",
+    "image": "117.jpg"
+  },
+  {
+    "ko": "소나기",
+    "type": "noun",
+    "meaning": "rain shower",
+    "form": "소나기",
+    "image": "118.jpg"
+  },
+  {
+    "ko": "선물",
+    "type": "noun",
+    "meaning": "gift",
+    "form": "선물",
+    "image": "119.jpg"
+  },
+  {
+    "ko": "화장실",
+    "type": "noun",
+    "meaning": "restroom",
+    "form": "화장실",
+    "image": "120.jpg"
+  },
+  {
+    "ko": "해변",
+    "type": "noun",
+    "meaning": "beach",
+    "form": "해변",
+    "image": "121.jpg"
+  },
+  {
+    "ko": "여행",
+    "type": "noun",
+    "meaning": "travel / trip",
+    "form": "여행",
+    "image": "122.jpg"
+  },
+  {
+    "ko": "찌개",
+    "type": "noun",
+    "meaning": "stew",
+    "form": "찌개",
+    "image": "123.jpg"
+  },
+  {
+    "ko": "도시",
+    "type": "noun",
+    "meaning": "city",
+    "form": "도시",
+    "image": "124.jpg"
   }
 ];

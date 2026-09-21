@@ -190,3 +190,12 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Replaced 075.jpg (목말라요) with a visibly thirsty person holding water.
 - Both are verified 600×600 JPEGs using the spaced-grid safety-margin method.
 - Footer verified as V8.6.5.
+
+## V8.7.0
+- Added Vocab Stack 5 (100–124) to Speaking/Writing and Listening/Reading.
+- Vocabulary bank expanded to 125 entries.
+- Exact Korean duplicate audit passed: 125/125 unique strings.
+- Stack 5 images use the accepted spaced-grid + inward-safety-margin extraction standard.
+- 100.jpg–124.jpg are verified individual 600×600 high-quality JPEGs.
+- Each Stack 5 slot uses a distinct source tile; no image file is reused.
+- Visible footer updated and verified as V8.7.0.

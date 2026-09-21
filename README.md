@@ -1,4 +1,4 @@
-# V8.1 Korean Memory Game — Vocab + Grammar
+# V8.2 Korean Memory Game — Vocab + Grammar
 
 V8.0 preserves the verified V7.2 Vocab games and introduces a separate Grammar branch.
 
@@ -47,3 +47,13 @@ The established Grammar behavior is unchanged:
 - Exact Korean answer checking is retained.
 - Incorrect cards show the correct answer and return to the back of the stack.
 - The game completes only after all 10 cards have been answered correctly.
+
+## V8.2
+Grammar incorrect-answer feedback now includes:
+- the learner's submitted answer;
+- the correct Korean answer;
+- a speaker button that plays the correct Korean answer for study.
+
+The answer-audio button currently uses the same browser speech-synthesis system as the
+question audio. Dedicated prerecorded/generated Korean audio assets are intentionally
+deferred to the next audio-focused iteration.

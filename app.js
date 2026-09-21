@@ -144,6 +144,8 @@ const grammarImage=$("grammarImage"),grammarPromptEn=$("grammarPromptEn"),gramma
 const grammarAnswerInput=$("grammarAnswerInput"),grammarFeedback=$("grammarFeedback");
 const grammarFeedbackTitle=$("grammarFeedbackTitle"),grammarFeedbackLabel=$("grammarFeedbackLabel");
 const grammarCorrectAnswer=$("grammarCorrectAnswer"),grammarNextBtn=$("grammarNextBtn"),grammarSpeechNote=$("grammarSpeechNote");
+const grammarUserAnswerBlock=$("grammarUserAnswerBlock"),grammarUserAnswer=$("grammarUserAnswer");
+const grammarCorrectAnswerBlock=$("grammarCorrectAnswerBlock");
 
 function startGrammarGame(){
   clearTimers();speechSynthesis?.cancel();
@@ -158,6 +160,10 @@ function showNextGrammarCard(){
   if(!grammarStack.length){finishGrammarGame();return}
   currentGrammarCard=grammarStack.shift();grammarAwaitingNext=false;
   grammarFeedback.classList.add("hidden");
+  grammarUserAnswerBlock.classList.add("hidden");
+  grammarCorrectAnswerBlock.classList.add("hidden");
+  grammarUserAnswer.textContent="";
+  grammarCorrectAnswer.textContent="";
   $("grammarAnswerForm").classList.remove("hidden");grammarSpeechNote.classList.remove("hidden");
   grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));
   grammarPromptEn.textContent=currentGrammarCard.promptEn;
@@ -171,23 +177,26 @@ function showNextGrammarCard(){
 function submitGrammarAnswer(){
   if(grammarAwaitingNext||!currentGrammarCard)return;
   grammarAwaitingNext=true;
+  const submittedAnswer=grammarAnswerInput.value.trim();
   grammarAnswerInput.disabled=true;
   $("grammarAnswerForm").classList.add("hidden");grammarSpeechNote.classList.add("hidden");
   grammarFeedback.classList.remove("hidden");
+  grammarUserAnswerBlock.classList.add("hidden");
+  grammarCorrectAnswerBlock.classList.add("hidden");
   if(normalize(grammarAnswerInput.value)===normalize(currentGrammarCard.answer)){
     grammarCompletedCount++;grammarCompleted.textContent=grammarCompletedCount;
     grammarStatus.textContent="Correct!";
     grammarFeedbackTitle.textContent="Correct!";
-    grammarFeedbackLabel.textContent="";
-    grammarCorrectAnswer.textContent="";
     grammarNextBtn.textContent="Next card";
   }else{
     // Incorrect cards go to the back and must later be answered correctly.
     grammarStack.push(currentGrammarCard);
     grammarStatus.textContent="Incorrect";
     grammarFeedbackTitle.textContent="Incorrect";
-    grammarFeedbackLabel.textContent="The correct answer is:";
+    grammarUserAnswer.textContent=submittedAnswer || "(No answer entered)";
     grammarCorrectAnswer.textContent=currentGrammarCard.answer;
+    grammarUserAnswerBlock.classList.remove("hidden");
+    grammarCorrectAnswerBlock.classList.remove("hidden");
     grammarNextBtn.textContent="Try later";
   }
 }
@@ -222,6 +231,7 @@ $("grammarGameHomeBtn").addEventListener("click",goMainHome);
 $("grammarCompleteHomeBtn").addEventListener("click",goMainHome);
 $("grammarRestartBtn").addEventListener("click",startGrammarGame);
 $("grammarHearQuestionBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.promptKo));
+$("grammarHearAnswerBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.answer));
 $("grammarNextBtn").addEventListener("click",showNextGrammarCard);
 $("grammarAnswerForm").addEventListener("submit",e=>{e.preventDefault();submitGrammarAnswer()});
 

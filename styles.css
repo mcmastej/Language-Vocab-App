@@ -148,3 +148,11 @@
   .grammar-prompt-en{font-size:1.1rem}
   .grammar-prompt-ko{font-size:1.2rem}
 }
+
+/* V8.2 Grammar incorrect-answer review */
+.grammar-answer-review{margin:14px auto;max-width:560px;text-align:left}
+.review-label{font-weight:700;margin:0 0 6px}
+.review-answer{padding:12px 14px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;font-size:1.15rem}
+.answer-audio-row{display:flex;align-items:center;gap:10px}
+.answer-audio-row .correct-answer{flex:1;margin:0}
+.answer-audio-row .round-control{flex:0 0 44px}

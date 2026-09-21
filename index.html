@@ -146,8 +146,20 @@
 
       <div id="grammarFeedback" class="grammar-feedback hidden">
         <h2 id="grammarFeedbackTitle"></h2>
-        <p id="grammarFeedbackLabel"></p>
-        <div id="grammarCorrectAnswer" class="correct-answer" lang="ko"></div>
+
+        <div id="grammarUserAnswerBlock" class="grammar-answer-review hidden">
+          <p class="review-label">Your answer:</p>
+          <div id="grammarUserAnswer" class="review-answer" lang="ko"></div>
+        </div>
+
+        <div id="grammarCorrectAnswerBlock" class="grammar-answer-review hidden">
+          <p id="grammarFeedbackLabel" class="review-label">Correct answer:</p>
+          <div class="answer-audio-row">
+            <div id="grammarCorrectAnswer" class="correct-answer" lang="ko"></div>
+            <button id="grammarHearAnswerBtn" class="round-control" type="button" aria-label="Hear correct answer">🔊</button>
+          </div>
+        </div>
+
         <button id="grammarNextBtn" class="primary" type="button">Next card</button>
       </div>
     </div>
@@ -162,7 +174,7 @@
     </div>
   </section>
 
-  <footer><span>V8.1 · Vocab + Grammar · 10-card grammar deck</span></footer>
+  <footer><span>V8.2 · Vocab + Grammar · answer review</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

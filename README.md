@@ -1,4 +1,4 @@
-# V7.0 Korean Memory Game — Two Learning Modes
+# V7.1 Korean Memory Game — Two Learning Modes
 
 Built from the verified V6.1 30-word build.
 
@@ -7,7 +7,7 @@ Built from the verified V6.1 30-word build.
 - Listening/Reading: new Korean → Image mode.
 
 ## Listening/Reading flow
-1. Korean word appears for 3 seconds and is spoken once.
+1. Korean word appears for 2 seconds and is spoken once.
 2. Screen clears for the level number of seconds.
 3. Four shuffled images appear: one correct and three distractors.
 4. Correct selection is highlighted green, `Correct!` is shown, and the next level begins automatically.

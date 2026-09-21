@@ -108,10 +108,10 @@ function startListeningLevel(){
   speakKorean(currentWord.ko);
   timers.push(setTimeout(()=>{
     wordStage.classList.add("hidden");blankStage.classList.remove("hidden");statusEl.textContent="Remember it.";
-  },3000));
+  },2000));
   timers.push(setTimeout(()=>{
     blankStage.classList.add("hidden");showChoices();statusEl.textContent="Choose the matching image.";
-  },3000+level*1000));
+  },2000+level*1000));
 }
 function getDistractors(){
   return shuffle(WORDS.filter(w=>w!==currentWord)).slice(0,3);

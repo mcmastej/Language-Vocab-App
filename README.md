@@ -130,3 +130,13 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Vocabulary and game behavior are unchanged.
 - All 75 vocabulary entries remain unique.
 - Page footer updated to V8.5.2.
+
+## V8.5.3 Stack 3 image audit
+- Audited every Stack 3 vocabulary image from 050 through 074.
+- Replaced all 25 Stack 3 image assets with clean, realistic/semi-realistic image cues.
+- Removed source-grid numbers, labels, adjacent-image fragments, and icon-style placeholders.
+- Verified every Stack 3 image is a 600×600 JPEG.
+- Verified each image filename 050.jpg–074.jpg maps directly to vocabulary slot 050–074 in words.js.
+- Vocabulary content and game logic are unchanged.
+- All 75 vocabulary entries remain unique.
+- Page footer updated to V8.5.3.

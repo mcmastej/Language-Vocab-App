@@ -184,3 +184,9 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Filename-to-vocabulary mapping was verified.
 - Duplicate word+meaning audit against 000–074 passed.
 - Visible footer updated and verified as V8.6.4.
+
+## V8.6.5
+- Replaced 090.jpg (인터넷) with a computer connected to the internet.
+- Replaced 075.jpg (목말라요) with a visibly thirsty person holding water.
+- Both are verified 600×600 JPEGs using the spaced-grid safety-margin method.
+- Footer verified as V8.6.5.

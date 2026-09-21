@@ -84,3 +84,10 @@ the same answer, and a final period does not affect correctness.
 - A Break it down panel contains the English translation and word/root/particle/conjugation analysis.
 - The answer breakdown and grammar note become available only after the learner submits, so the help panel cannot reveal the answer beforehand.
 - English translation and linguistic analysis are confined to the breakdown panel.
+
+
+## V8.3.1 separate breakdown controls
+- `Breakdown question` is available with the Korean question.
+- `Breakdown answer` remains hidden until the learner submits an answer.
+- Question and answer breakdowns open independently.
+- English translations and linguistic analysis remain confined to breakdown content.

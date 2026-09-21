@@ -133,11 +133,8 @@
         </div>
       </div>
 
-      <button id="grammarBreakdownBtn" class="breakdown-toggle" type="button" aria-expanded="false">Break it down</button>
-      <div id="grammarBreakdown" class="breakdown-panel hidden">
-        <div id="grammarQuestionBreakdown"></div>
-        <div id="grammarAnswerBreakdown" class="hidden"></div>
-      </div>
+      <button id="grammarQuestionBreakdownBtn" class="breakdown-toggle" type="button" aria-expanded="false">Breakdown question</button>
+      <div id="grammarQuestionBreakdown" class="breakdown-panel hidden"></div>
 
       <form id="grammarAnswerForm" class="grammar-answer-form" autocomplete="off">
         <label for="grammarAnswerInput">Your answer</label>
@@ -165,6 +162,9 @@
           </div>
         </div>
 
+        <button id="grammarAnswerBreakdownBtn" class="breakdown-toggle hidden" type="button" aria-expanded="false">Breakdown answer</button>
+        <div id="grammarAnswerBreakdown" class="breakdown-panel hidden"></div>
+
         <button id="grammarNextBtn" class="primary" type="button">Next card</button>
       </div>
     </div>
@@ -179,7 +179,7 @@
     </div>
   </section>
 
-  <footer><span>V8.3 · Vocab + Grammar · Korean-first breakdown</span></footer>
+  <footer><span>V8.3.1 · Vocab + Grammar · separate question/answer breakdowns</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

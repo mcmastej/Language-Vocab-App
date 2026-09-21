@@ -145,7 +145,8 @@ function handleImageChoice(btn,word){
 /* ---------- Grammar: Answering a Question ---------- */
 const grammarCompleted=$("grammarCompleted"),grammarTotal=$("grammarTotal"),grammarStatus=$("grammarStatus");
 const grammarImage=$("grammarImage"),grammarPromptKo=$("grammarPromptKo");
-const grammarBreakdown=$("grammarBreakdown"),grammarBreakdownBtn=$("grammarBreakdownBtn"),grammarQuestionBreakdown=$("grammarQuestionBreakdown"),grammarAnswerBreakdown=$("grammarAnswerBreakdown");
+const grammarQuestionBreakdownBtn=$("grammarQuestionBreakdownBtn"),grammarQuestionBreakdown=$("grammarQuestionBreakdown");
+const grammarAnswerBreakdownBtn=$("grammarAnswerBreakdownBtn"),grammarAnswerBreakdown=$("grammarAnswerBreakdown");
 const grammarAnswerInput=$("grammarAnswerInput"),grammarFeedback=$("grammarFeedback");
 const grammarFeedbackTitle=$("grammarFeedbackTitle"),grammarFeedbackLabel=$("grammarFeedbackLabel");
 const grammarCorrectAnswer=$("grammarCorrectAnswer"),grammarNextBtn=$("grammarNextBtn"),grammarSpeechNote=$("grammarSpeechNote");
@@ -156,19 +157,25 @@ const grammarCorrectAnswerBlock=$("grammarCorrectAnswerBlock");
 function breakdownTable(rows){
   return `<div class="breakdown-table">${rows.map(r=>`<div class="breakdown-row"><strong lang="ko">${r[0]}</strong><span>${r[1]}</span><span>${r[2]}</span></div>`).join("")}</div>`;
 }
-function renderGrammarBreakdown(includeAnswer){
+function renderQuestionBreakdown(){
   if(!currentGrammarCard)return;
   grammarQuestionBreakdown.innerHTML=`<h3>Question</h3><p class="breakdown-translation">${currentGrammarCard.promptEn}</p>${breakdownTable(currentGrammarCard.questionBreakdown)}`;
-  if(includeAnswer){
-    grammarAnswerBreakdown.innerHTML=`<h3>Answer</h3>${breakdownTable(currentGrammarCard.answerBreakdown)}<h3>Grammar note</h3><p>${currentGrammarCard.grammarNote}</p>`;
-    grammarAnswerBreakdown.classList.remove("hidden");
-  }else{grammarAnswerBreakdown.innerHTML="";grammarAnswerBreakdown.classList.add("hidden");}
 }
-function toggleGrammarBreakdown(){
-  const opening=grammarBreakdown.classList.contains("hidden");
-  grammarBreakdown.classList.toggle("hidden");
-  grammarBreakdownBtn.setAttribute("aria-expanded",String(opening));
-  grammarBreakdownBtn.textContent=opening?"Hide breakdown":"Break it down";
+function renderAnswerBreakdown(){
+  if(!currentGrammarCard)return;
+  grammarAnswerBreakdown.innerHTML=`<h3>Answer</h3>${breakdownTable(currentGrammarCard.answerBreakdown)}<h3>Grammar note</h3><p>${currentGrammarCard.grammarNote}</p>`;
+}
+function toggleQuestionBreakdown(){
+  const opening=grammarQuestionBreakdown.classList.contains("hidden");
+  grammarQuestionBreakdown.classList.toggle("hidden");
+  grammarQuestionBreakdownBtn.setAttribute("aria-expanded",String(opening));
+  grammarQuestionBreakdownBtn.textContent=opening?"Hide question breakdown":"Breakdown question";
+}
+function toggleAnswerBreakdown(){
+  const opening=grammarAnswerBreakdown.classList.contains("hidden");
+  grammarAnswerBreakdown.classList.toggle("hidden");
+  grammarAnswerBreakdownBtn.setAttribute("aria-expanded",String(opening));
+  grammarAnswerBreakdownBtn.textContent=opening?"Hide answer breakdown":"Breakdown answer";
 }
 
 function startGrammarGame(){
@@ -191,9 +198,10 @@ function showNextGrammarCard(){
   $("grammarAnswerForm").classList.remove("hidden");grammarSpeechNote.classList.remove("hidden");
   grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));
   grammarPromptKo.textContent=currentGrammarCard.promptKo;
-  grammarBreakdown.classList.add("hidden"); grammarBreakdownBtn.setAttribute("aria-expanded","false");
-  grammarBreakdownBtn.textContent="Break it down"; grammarAnswerBreakdown.classList.add("hidden");
-  renderGrammarBreakdown(false);
+  grammarQuestionBreakdown.classList.add("hidden"); grammarQuestionBreakdownBtn.setAttribute("aria-expanded","false");
+  grammarQuestionBreakdownBtn.textContent="Breakdown question"; renderQuestionBreakdown();
+  grammarAnswerBreakdown.classList.add("hidden"); grammarAnswerBreakdownBtn.classList.add("hidden");
+  grammarAnswerBreakdownBtn.setAttribute("aria-expanded","false"); grammarAnswerBreakdownBtn.textContent="Breakdown answer";
   grammarAnswerInput.value="";grammarAnswerInput.disabled=false;
   grammarStatus.textContent="Answer the question.";
   // The Korean question is announced once when the card first appears.
@@ -214,7 +222,8 @@ function submitGrammarAnswer(){
     grammarStatus.textContent="Correct!";
     grammarFeedbackTitle.textContent="Correct!";
     grammarNextBtn.textContent="Next card";
-    renderGrammarBreakdown(true);
+    renderAnswerBreakdown();
+    grammarAnswerBreakdownBtn.classList.remove("hidden");
   }else{
     // Incorrect cards go to the back and must later be answered correctly.
     grammarStack.push(currentGrammarCard);
@@ -227,7 +236,8 @@ function submitGrammarAnswer(){
     // Keep the review controls visible before the learner advances.
     grammarFeedback.classList.remove("hidden");
     grammarNextBtn.textContent="Try later";
-    renderGrammarBreakdown(true);
+    renderAnswerBreakdown();
+    grammarAnswerBreakdownBtn.classList.remove("hidden");
   }
 }
 function finishGrammarGame(){
@@ -260,7 +270,8 @@ $("answerForm").addEventListener("submit",e=>{
 $("grammarGameHomeBtn").addEventListener("click",goMainHome);
 $("grammarCompleteHomeBtn").addEventListener("click",goMainHome);
 $("grammarRestartBtn").addEventListener("click",startGrammarGame);
-grammarBreakdownBtn.addEventListener("click",toggleGrammarBreakdown);
+grammarQuestionBreakdownBtn.addEventListener("click",toggleQuestionBreakdown);
+grammarAnswerBreakdownBtn.addEventListener("click",toggleAnswerBreakdown);
 $("grammarHearQuestionBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.promptKo));
 $("grammarHearAnswerBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.answer));
 $("grammarNextBtn").addEventListener("click",showNextGrammarCard);

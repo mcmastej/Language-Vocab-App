@@ -197,6 +197,8 @@ function submitGrammarAnswer(){
     grammarCorrectAnswer.textContent=currentGrammarCard.answer;
     grammarUserAnswerBlock.classList.remove("hidden");
     grammarCorrectAnswerBlock.classList.remove("hidden");
+    // Keep the review controls visible before the learner advances.
+    grammarFeedback.classList.remove("hidden");
     grammarNextBtn.textContent="Try later";
   }
 }

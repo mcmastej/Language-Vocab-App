@@ -156,3 +156,9 @@
 .answer-audio-row{display:flex;align-items:center;gap:10px}
 .answer-audio-row .correct-answer{flex:1;margin:0}
 .answer-audio-row .round-control{flex:0 0 44px}
+
+/* V8.2.1 hotfix: visibility must always win over component display rules */
+.hidden{display:none !important}
+.grammar-feedback:not(.hidden){display:block}
+.grammar-answer-review:not(.hidden){display:block}
+.answer-audio-row{display:flex;align-items:center;gap:10px}

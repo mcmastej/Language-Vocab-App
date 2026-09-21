@@ -1,4 +1,4 @@
-# V8.2 Korean Memory Game — Vocab + Grammar
+# V8.2.1 Korean Memory Game — Vocab + Grammar
 
 V8.0 preserves the verified V7.2 Vocab games and introduces a separate Grammar branch.
 
@@ -57,3 +57,14 @@ Grammar incorrect-answer feedback now includes:
 The answer-audio button currently uses the same browser speech-synthesis system as the
 question audio. Dedicated prerecorded/generated Korean audio assets are intentionally
 deferred to the next audio-focused iteration.
+
+## V8.2.1 hotfix
+Fixes the Grammar incorrect-answer review visibility regression.
+After an incorrect answer, the learner now sees:
+- their submitted answer;
+- the correct answer;
+- the speaker button for the correct answer;
+- the Try later button.
+
+The global `.hidden` utility is now authoritative (`display:none !important`) so
+component display rules cannot accidentally reveal/hide the wrong feedback elements.

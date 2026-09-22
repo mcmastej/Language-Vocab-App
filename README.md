@@ -218,3 +218,8 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Applies to Speaking/Writing and Listening/Reading.
 - Replaced 109.jpg (쌀) with a bag of uncooked rice.
 - Footer updated to V8.8.0.
+
+## V8.8.2
+- Corrected Stack 1 using caption-free imagery and gutter-based extraction.
+- Stack 1 replaced with the user-selected 25 words and corresponding 600×600 JPEGs.
+- Stacks 2–5 and Grammar unchanged.

@@ -1,177 +1,177 @@
 const WORDS = [
   {
-    "ko": "사과",
+    "ko": "근황",
     "type": "noun",
-    "meaning": "apple",
-    "form": "사과",
+    "meaning": "recent news / how things have been",
+    "form": "근황",
     "image": "000.jpg"
   },
   {
-    "ko": "고양이",
-    "type": "noun",
-    "meaning": "cat",
-    "form": "고양이",
+    "ko": "요즘",
+    "type": "adverb",
+    "meaning": "these days / lately",
+    "form": "요즘",
     "image": "001.jpg"
   },
   {
-    "ko": "책",
+    "ko": "기분",
     "type": "noun",
-    "meaning": "book",
-    "form": "책",
+    "meaning": "feeling / mood",
+    "form": "기분",
     "image": "002.jpg"
   },
   {
-    "ko": "자동차",
+    "ko": "하루",
     "type": "noun",
-    "meaning": "car",
-    "form": "자동차",
+    "meaning": "day / one day",
+    "form": "하루",
     "image": "003.jpg"
   },
   {
-    "ko": "집",
+    "ko": "일",
     "type": "noun",
-    "meaning": "house",
-    "form": "집",
+    "meaning": "work",
+    "form": "일",
     "image": "004.jpg"
   },
   {
-    "ko": "강아지",
+    "ko": "생활",
     "type": "noun",
-    "meaning": "dog",
-    "form": "강아지",
+    "meaning": "daily life / living",
+    "form": "생활",
     "image": "005.jpg"
   },
   {
-    "ko": "커피",
+    "ko": "건강",
     "type": "noun",
-    "meaning": "coffee",
-    "form": "커피",
+    "meaning": "health",
+    "form": "건강",
     "image": "006.jpg"
   },
   {
-    "ko": "물",
+    "ko": "상태",
     "type": "noun",
-    "meaning": "water",
-    "form": "물",
+    "meaning": "condition / state",
+    "form": "상태",
     "image": "007.jpg"
+  },
+  {
+    "ko": "스트레스",
+    "type": "noun",
+    "meaning": "stress",
+    "form": "스트레스",
+    "image": "008.jpg"
+  },
+  {
+    "ko": "걱정",
+    "type": "noun",
+    "meaning": "worry / concern",
+    "form": "걱정",
+    "image": "009.jpg"
+  },
+  {
+    "ko": "지내요",
+    "type": "verb",
+    "meaning": "get along / spend time / be doing",
+    "form": "지내다",
+    "image": "010.jpg"
+  },
+  {
+    "ko": "해요",
+    "type": "verb",
+    "meaning": "do",
+    "form": "하다",
+    "image": "011.jpg"
+  },
+  {
+    "ko": "쉬어요",
+    "type": "verb",
+    "meaning": "rest",
+    "form": "쉬다",
+    "image": "012.jpg"
+  },
+  {
+    "ko": "자요",
+    "type": "verb",
+    "meaning": "sleep",
+    "form": "자다",
+    "image": "013.jpg"
   },
   {
     "ko": "먹어요",
     "type": "verb",
     "meaning": "eat",
-    "form": "먹어요",
-    "image": "008.jpg"
+    "form": "먹다",
+    "image": "014.jpg"
   },
   {
-    "ko": "커요",
+    "ko": "바빠요",
     "type": "adjective",
-    "meaning": "big",
-    "form": "커요",
-    "image": "009.jpg"
+    "meaning": "busy",
+    "form": "바쁘다",
+    "image": "015.jpg"
+  },
+  {
+    "ko": "괜찮아요",
+    "type": "adjective",
+    "meaning": "okay / all right",
+    "form": "괜찮다",
+    "image": "016.jpg"
   },
   {
     "ko": "좋아요",
     "type": "adjective",
     "meaning": "good / like",
-    "form": "좋아요",
-    "image": "010.jpg"
-  },
-  {
-    "ko": "걸어요",
-    "type": "verb",
-    "meaning": "walk",
-    "form": "걸어요",
-    "image": "011.jpg"
-  },
-  {
-    "ko": "나무",
-    "type": "noun",
-    "meaning": "tree",
-    "form": "나무",
-    "image": "012.jpg"
-  },
-  {
-    "ko": "해",
-    "type": "noun",
-    "meaning": "sun",
-    "form": "해",
-    "image": "013.jpg"
-  },
-  {
-    "ko": "달",
-    "type": "noun",
-    "meaning": "moon",
-    "form": "달",
-    "image": "014.jpg"
-  },
-  {
-    "ko": "의자",
-    "type": "noun",
-    "meaning": "chair",
-    "form": "의자",
-    "image": "015.jpg"
-  },
-  {
-    "ko": "펜",
-    "type": "noun",
-    "meaning": "pen",
-    "form": "펜",
-    "image": "016.jpg"
-  },
-  {
-    "ko": "문",
-    "type": "noun",
-    "meaning": "door",
-    "form": "문",
+    "form": "좋다",
     "image": "017.jpg"
   },
   {
-    "ko": "침대",
-    "type": "noun",
-    "meaning": "bed",
-    "form": "침대",
+    "ko": "힘들어요",
+    "type": "adjective",
+    "meaning": "difficult / having a hard time",
+    "form": "힘들다",
     "image": "018.jpg"
   },
   {
-    "ko": "시계",
-    "type": "noun",
-    "meaning": "clock",
-    "form": "시계",
+    "ko": "피곤해요",
+    "type": "adjective",
+    "meaning": "tired",
+    "form": "피곤하다",
     "image": "019.jpg"
   },
   {
-    "ko": "밥",
-    "type": "noun",
-    "meaning": "cooked rice",
-    "form": "밥",
+    "ko": "아파요",
+    "type": "adjective",
+    "meaning": "sick / hurt",
+    "form": "아프다",
     "image": "020.jpg"
   },
   {
-    "ko": "빵",
-    "type": "noun",
-    "meaning": "bread",
-    "form": "빵",
+    "ko": "행복해요",
+    "type": "adjective",
+    "meaning": "happy",
+    "form": "행복하다",
     "image": "021.jpg"
   },
   {
-    "ko": "바나나",
-    "type": "noun",
-    "meaning": "banana",
-    "form": "바나나",
+    "ko": "재미있어요",
+    "type": "adjective",
+    "meaning": "fun / interesting",
+    "form": "재미있다",
     "image": "022.jpg"
   },
   {
-    "ko": "계란",
-    "type": "noun",
-    "meaning": "egg",
-    "form": "계란",
+    "ko": "편해요",
+    "type": "adjective",
+    "meaning": "comfortable / at ease",
+    "form": "편하다",
     "image": "023.jpg"
   },
   {
-    "ko": "오렌지",
-    "type": "noun",
-    "meaning": "orange",
-    "form": "오렌지",
+    "ko": "정신없어요",
+    "type": "adjective",
+    "meaning": "hectic / overwhelmed",
+    "form": "정신없다",
     "image": "024.jpg"
   },
   {

@@ -175,178 +175,178 @@ const WORDS = [
     "image": "024.jpg"
   },
   {
-    "ko": "우유",
+    "ko": "직장",
     "type": "noun",
-    "meaning": "milk",
-    "form": "우유",
+    "meaning": "workplace",
+    "form": "직장",
     "image": "025.jpg"
   },
   {
-    "ko": "휴대폰",
+    "ko": "회사",
     "type": "noun",
-    "meaning": "mobile phone",
-    "form": "휴대폰",
+    "meaning": "company",
+    "form": "회사",
     "image": "026.jpg"
   },
   {
-    "ko": "가방",
+    "ko": "프로젝트",
     "type": "noun",
-    "meaning": "bag",
-    "form": "가방",
+    "meaning": "project",
+    "form": "프로젝트",
     "image": "027.jpg"
   },
   {
-    "ko": "책상",
+    "ko": "업무",
     "type": "noun",
-    "meaning": "desk",
-    "form": "책상",
+    "meaning": "work / task / duties",
+    "form": "업무",
     "image": "028.jpg"
   },
   {
-    "ko": "자요",
-    "type": "verb",
-    "meaning": "sleep",
-    "form": "자요",
+    "ko": "직업",
+    "type": "noun",
+    "meaning": "occupation / job",
+    "form": "직업",
     "image": "029.jpg"
   },
   {
-    "ko": "사람",
+    "ko": "직원",
     "type": "noun",
-    "meaning": "person",
-    "form": "사람",
+    "meaning": "employee",
+    "form": "직원",
     "image": "030.jpg"
   },
   {
-    "ko": "여자",
+    "ko": "동료",
     "type": "noun",
-    "meaning": "woman",
-    "form": "여자",
+    "meaning": "coworker / colleague",
+    "form": "동료",
     "image": "031.jpg"
   },
   {
-    "ko": "남자",
+    "ko": "상사",
     "type": "noun",
-    "meaning": "man",
-    "form": "남자",
+    "meaning": "boss / supervisor",
+    "form": "상사",
     "image": "032.jpg"
   },
   {
-    "ko": "아이",
+    "ko": "월급",
     "type": "noun",
-    "meaning": "child",
-    "form": "아이",
+    "meaning": "salary / monthly pay",
+    "form": "월급",
     "image": "033.jpg"
   },
   {
-    "ko": "친구",
+    "ko": "회의",
     "type": "noun",
-    "meaning": "friend",
-    "form": "친구",
+    "meaning": "meeting",
+    "form": "회의",
     "image": "034.jpg"
   },
   {
-    "ko": "학교",
+    "ko": "출근",
     "type": "noun",
-    "meaning": "school",
-    "form": "학교",
+    "meaning": "going to work / commute to work",
+    "form": "출근",
     "image": "035.jpg"
   },
   {
-    "ko": "돈",
+    "ko": "퇴근",
     "type": "noun",
-    "meaning": "money",
-    "form": "돈",
+    "meaning": "leaving work / commute home",
+    "form": "퇴근",
     "image": "036.jpg"
   },
   {
-    "ko": "시간",
-    "type": "noun",
-    "meaning": "time",
-    "form": "시간",
+    "ko": "일해요",
+    "type": "verb",
+    "meaning": "work",
+    "form": "일하다",
     "image": "037.jpg"
   },
   {
-    "ko": "가요",
+    "ko": "출근해요",
     "type": "verb",
-    "meaning": "go",
-    "form": "가다",
+    "meaning": "go to work",
+    "form": "출근하다",
     "image": "038.jpg"
   },
   {
-    "ko": "와요",
+    "ko": "퇴근해요",
     "type": "verb",
-    "meaning": "come",
-    "form": "오다",
+    "meaning": "leave work / get off work",
+    "form": "퇴근하다",
     "image": "039.jpg"
   },
   {
-    "ko": "봐요",
+    "ko": "시작해요",
     "type": "verb",
-    "meaning": "see / watch / look",
-    "form": "보다",
+    "meaning": "start / begin",
+    "form": "시작하다",
     "image": "040.jpg"
   },
   {
-    "ko": "해요",
+    "ko": "끝나요",
     "type": "verb",
-    "meaning": "do",
-    "form": "하다",
+    "meaning": "end / finish",
+    "form": "끝나다",
     "image": "041.jpg"
   },
   {
-    "ko": "말해요",
+    "ko": "맡아요",
     "type": "verb",
-    "meaning": "speak / say",
-    "form": "말하다",
+    "meaning": "take charge of / be responsible for",
+    "form": "맡다",
     "image": "042.jpg"
   },
   {
-    "ko": "마셔요",
-    "type": "verb",
-    "meaning": "drink",
-    "form": "마시다",
+    "ko": "승진",
+    "type": "noun",
+    "meaning": "promotion",
+    "form": "승진",
     "image": "043.jpg"
   },
   {
-    "ko": "읽어요",
-    "type": "verb",
-    "meaning": "read",
-    "form": "읽다",
+    "ko": "야근",
+    "type": "noun",
+    "meaning": "overtime / working late",
+    "form": "야근",
     "image": "044.jpg"
   },
   {
-    "ko": "작아요",
+    "ko": "쉬워요",
     "type": "adjective",
-    "meaning": "small",
-    "form": "작다",
+    "meaning": "easy",
+    "form": "쉽다",
     "image": "045.jpg"
   },
   {
-    "ko": "많아요",
+    "ko": "어려워요",
     "type": "adjective",
-    "meaning": "many / a lot",
-    "form": "많다",
+    "meaning": "difficult",
+    "form": "어렵다",
     "image": "046.jpg"
   },
   {
-    "ko": "빨라요",
-    "type": "adjective",
-    "meaning": "fast",
-    "form": "빠르다",
+    "ko": "휴가",
+    "type": "noun",
+    "meaning": "vacation / leave",
+    "form": "휴가",
     "image": "047.jpg"
   },
   {
-    "ko": "더워요",
-    "type": "adjective",
-    "meaning": "hot",
-    "form": "덥다",
+    "ko": "사무실",
+    "type": "noun",
+    "meaning": "office",
+    "form": "사무실",
     "image": "048.jpg"
   },
   {
-    "ko": "추워요",
+    "ko": "만족해요",
     "type": "adjective",
-    "meaning": "cold",
-    "form": "춥다",
+    "meaning": "satisfied",
+    "form": "만족하다",
     "image": "049.jpg"
   },
   {

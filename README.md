@@ -223,3 +223,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Corrected Stack 1 using caption-free imagery and gutter-based extraction.
 - Stack 1 replaced with the user-selected 25 words and corresponding 600×600 JPEGs.
 - Stacks 2–5 and Grammar unchanged.
+
+## V8.8.3
+- Built from the V8.8.2 benchmark.
+- Replaced Vocab Stack 2 (025–049) with the user-selected workplace vocabulary.
+- Replaced 025.jpg–049.jpg using the validated gutter-detection image workflow.
+- Final images are 600×600 JPEGs.
+- Stack 1 and Stacks 3–5 unchanged; Grammar unchanged.
+- Footer updated to V8.8.3.

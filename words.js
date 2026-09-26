@@ -1,352 +1,352 @@
 const WORDS = [
   {
-    "ko": "근황",
-    "type": "noun",
-    "meaning": "recent news / how things have been",
-    "form": "근황",
-    "image": "000.jpg"
-  },
-  {
-    "ko": "요즘",
-    "type": "adverb",
-    "meaning": "these days / lately",
-    "form": "요즘",
-    "image": "001.jpg"
-  },
-  {
-    "ko": "기분",
-    "type": "noun",
-    "meaning": "feeling / mood",
-    "form": "기분",
-    "image": "002.jpg"
-  },
-  {
-    "ko": "하루",
-    "type": "noun",
-    "meaning": "day / one day",
-    "form": "하루",
-    "image": "003.jpg"
-  },
-  {
-    "ko": "일",
-    "type": "noun",
-    "meaning": "work",
-    "form": "일",
-    "image": "004.jpg"
-  },
-  {
-    "ko": "생활",
-    "type": "noun",
-    "meaning": "daily life / living",
-    "form": "생활",
-    "image": "005.jpg"
-  },
-  {
-    "ko": "건강",
-    "type": "noun",
-    "meaning": "health",
-    "form": "건강",
-    "image": "006.jpg"
-  },
-  {
-    "ko": "상태",
-    "type": "noun",
-    "meaning": "condition / state",
-    "form": "상태",
-    "image": "007.jpg"
-  },
-  {
-    "ko": "스트레스",
-    "type": "noun",
-    "meaning": "stress",
-    "form": "스트레스",
-    "image": "008.jpg"
-  },
-  {
-    "ko": "걱정",
-    "type": "noun",
-    "meaning": "worry / concern",
-    "form": "걱정",
-    "image": "009.jpg"
-  },
-  {
-    "ko": "지내요",
-    "type": "verb",
-    "meaning": "get along / spend time / be doing",
-    "form": "지내다",
-    "image": "010.jpg"
-  },
-  {
-    "ko": "해요",
-    "type": "verb",
-    "meaning": "do",
-    "form": "하다",
-    "image": "011.jpg"
-  },
-  {
-    "ko": "쉬어요",
-    "type": "verb",
-    "meaning": "rest",
-    "form": "쉬다",
-    "image": "012.jpg"
-  },
-  {
-    "ko": "자요",
-    "type": "verb",
-    "meaning": "sleep",
-    "form": "자다",
-    "image": "013.jpg"
-  },
-  {
-    "ko": "먹어요",
-    "type": "verb",
-    "meaning": "eat",
-    "form": "먹다",
-    "image": "014.jpg"
-  },
-  {
-    "ko": "바빠요",
-    "type": "adjective",
-    "meaning": "busy",
-    "form": "바쁘다",
-    "image": "015.jpg"
-  },
-  {
-    "ko": "괜찮아요",
-    "type": "adjective",
-    "meaning": "okay / all right",
-    "form": "괜찮다",
-    "image": "016.jpg"
-  },
-  {
-    "ko": "좋아요",
-    "type": "adjective",
-    "meaning": "good / like",
-    "form": "좋다",
-    "image": "017.jpg"
-  },
-  {
-    "ko": "힘들어요",
-    "type": "adjective",
-    "meaning": "difficult / having a hard time",
-    "form": "힘들다",
-    "image": "018.jpg"
-  },
-  {
-    "ko": "피곤해요",
-    "type": "adjective",
-    "meaning": "tired",
-    "form": "피곤하다",
-    "image": "019.jpg"
-  },
-  {
-    "ko": "아파요",
-    "type": "adjective",
-    "meaning": "sick / hurt",
-    "form": "아프다",
-    "image": "020.jpg"
-  },
-  {
-    "ko": "행복해요",
-    "type": "adjective",
-    "meaning": "happy",
-    "form": "행복하다",
-    "image": "021.jpg"
-  },
-  {
-    "ko": "재미있어요",
-    "type": "adjective",
-    "meaning": "fun / interesting",
-    "form": "재미있다",
-    "image": "022.jpg"
-  },
-  {
-    "ko": "편해요",
-    "type": "adjective",
-    "meaning": "comfortable / at ease",
-    "form": "편하다",
-    "image": "023.jpg"
-  },
-  {
-    "ko": "정신없어요",
-    "type": "adjective",
-    "meaning": "hectic / overwhelmed",
-    "form": "정신없다",
-    "image": "024.jpg"
-  },
-  {
     "ko": "가요",
     "type": "verb",
     "meaning": "go",
     "form": "가다",
-    "image": "025.jpg"
+    "image": "000.jpg"
   },
   {
     "ko": "와요",
     "type": "verb",
     "meaning": "come",
     "form": "오다",
-    "image": "026.jpg"
+    "image": "001.jpg"
   },
   {
     "ko": "봐요",
     "type": "verb",
     "meaning": "see / watch / look",
     "form": "보다",
-    "image": "027.jpg"
+    "image": "002.jpg"
   },
   {
     "ko": "사요",
     "type": "verb",
     "meaning": "buy",
     "form": "사다",
-    "image": "028.jpg"
+    "image": "003.jpg"
   },
   {
     "ko": "만나요",
     "type": "verb",
     "meaning": "meet",
     "form": "만나다",
-    "image": "029.jpg"
+    "image": "004.jpg"
   },
   {
     "ko": "기다려요",
     "type": "verb",
     "meaning": "wait",
     "form": "기다리다",
-    "image": "030.jpg"
+    "image": "005.jpg"
   },
   {
     "ko": "좋아해요",
     "type": "verb",
     "meaning": "like",
     "form": "좋아하다",
-    "image": "031.jpg"
+    "image": "006.jpg"
   },
   {
     "ko": "필요해요",
     "type": "adjective",
     "meaning": "need / be necessary",
     "form": "필요하다",
-    "image": "032.jpg"
+    "image": "007.jpg"
   },
   {
     "ko": "알아요",
     "type": "verb",
     "meaning": "know",
     "form": "알다",
-    "image": "033.jpg"
+    "image": "008.jpg"
   },
   {
     "ko": "몰라요",
     "type": "verb",
     "meaning": "don't know",
     "form": "모르다",
-    "image": "034.jpg"
+    "image": "009.jpg"
   },
   {
     "ko": "있어요",
     "type": "adjective",
     "meaning": "have / there is",
     "form": "있다",
-    "image": "035.jpg"
+    "image": "010.jpg"
   },
   {
     "ko": "없어요",
     "type": "adjective",
     "meaning": "don't have / there isn't",
     "form": "없다",
-    "image": "036.jpg"
+    "image": "011.jpg"
   },
   {
     "ko": "비싸요",
     "type": "adjective",
     "meaning": "expensive",
     "form": "비싸다",
-    "image": "037.jpg"
+    "image": "012.jpg"
   },
   {
     "ko": "싸요",
     "type": "adjective",
     "meaning": "cheap / inexpensive",
     "form": "싸다",
-    "image": "038.jpg"
+    "image": "013.jpg"
   },
   {
     "ko": "가까워요",
     "type": "adjective",
     "meaning": "close / nearby",
     "form": "가깝다",
-    "image": "039.jpg"
+    "image": "014.jpg"
   },
   {
     "ko": "멀어요",
     "type": "adjective",
     "meaning": "far",
     "form": "멀다",
-    "image": "040.jpg"
+    "image": "015.jpg"
   },
   {
     "ko": "사람",
     "type": "noun",
     "meaning": "person / people",
     "form": "사람",
-    "image": "041.jpg"
+    "image": "016.jpg"
   },
   {
     "ko": "친구",
     "type": "noun",
     "meaning": "friend",
     "form": "친구",
-    "image": "042.jpg"
+    "image": "017.jpg"
   },
   {
     "ko": "집",
     "type": "noun",
     "meaning": "home / house",
     "form": "집",
-    "image": "043.jpg"
+    "image": "018.jpg"
   },
   {
     "ko": "시간",
     "type": "noun",
     "meaning": "time",
     "form": "시간",
-    "image": "044.jpg"
+    "image": "019.jpg"
   },
   {
     "ko": "차",
     "type": "noun",
     "meaning": "car",
     "form": "차",
-    "image": "045.jpg"
+    "image": "020.jpg"
   },
   {
     "ko": "가게",
     "type": "noun",
     "meaning": "store / shop",
     "form": "가게",
-    "image": "046.jpg"
+    "image": "021.jpg"
   },
   {
     "ko": "사진",
     "type": "noun",
     "meaning": "photo / picture",
     "form": "사진",
-    "image": "047.jpg"
+    "image": "022.jpg"
   },
   {
     "ko": "이번 주",
     "type": "noun",
     "meaning": "this week",
     "form": "이번 주",
-    "image": "048.jpg"
+    "image": "023.jpg"
   },
   {
     "ko": "다음 주",
     "type": "noun",
     "meaning": "next week",
     "form": "다음 주",
+    "image": "024.jpg"
+  },
+  {
+    "ko": "먹어요",
+    "type": "verb",
+    "meaning": "eat",
+    "form": "먹다",
+    "image": "025.jpg"
+  },
+  {
+    "ko": "마셔요",
+    "type": "verb",
+    "meaning": "drink",
+    "form": "마시다",
+    "image": "026.jpg"
+  },
+  {
+    "ko": "해요",
+    "type": "verb",
+    "meaning": "do",
+    "form": "하다",
+    "image": "027.jpg"
+  },
+  {
+    "ko": "들어요",
+    "type": "verb",
+    "meaning": "hear / listen",
+    "form": "듣다",
+    "image": "028.jpg"
+  },
+  {
+    "ko": "말해요",
+    "type": "verb",
+    "meaning": "say / speak / tell",
+    "form": "말하다",
+    "image": "029.jpg"
+  },
+  {
+    "ko": "물어봐요",
+    "type": "verb",
+    "meaning": "ask",
+    "form": "물어보다",
+    "image": "030.jpg"
+  },
+  {
+    "ko": "줘요",
+    "type": "verb",
+    "meaning": "give",
+    "form": "주다",
+    "image": "031.jpg"
+  },
+  {
+    "ko": "받아요",
+    "type": "verb",
+    "meaning": "receive / get",
+    "form": "받다",
+    "image": "032.jpg"
+  },
+  {
+    "ko": "찍어요",
+    "type": "verb",
+    "meaning": "take (a photo)",
+    "form": "찍다",
+    "image": "033.jpg"
+  },
+  {
+    "ko": "걸어요",
+    "type": "verb",
+    "meaning": "walk",
+    "form": "걷다",
+    "image": "034.jpg"
+  },
+  {
+    "ko": "타요",
+    "type": "verb",
+    "meaning": "ride / take transportation",
+    "form": "타다",
+    "image": "035.jpg"
+  },
+  {
+    "ko": "살아요",
+    "type": "verb",
+    "meaning": "live",
+    "form": "살다",
+    "image": "036.jpg"
+  },
+  {
+    "ko": "놀아요",
+    "type": "verb",
+    "meaning": "hang out / play",
+    "form": "놀다",
+    "image": "037.jpg"
+  },
+  {
+    "ko": "바꿔요",
+    "type": "verb",
+    "meaning": "change / switch",
+    "form": "바꾸다",
+    "image": "038.jpg"
+  },
+  {
+    "ko": "찾아요",
+    "type": "verb",
+    "meaning": "look for / find",
+    "form": "찾다",
+    "image": "039.jpg"
+  },
+  {
+    "ko": "많아요",
+    "type": "adjective",
+    "meaning": "many / a lot",
+    "form": "많다",
+    "image": "040.jpg"
+  },
+  {
+    "ko": "적어요",
+    "type": "adjective",
+    "meaning": "few / not many",
+    "form": "적다",
+    "image": "041.jpg"
+  },
+  {
+    "ko": "커요",
+    "type": "adjective",
+    "meaning": "big",
+    "form": "크다",
+    "image": "042.jpg"
+  },
+  {
+    "ko": "작아요",
+    "type": "adjective",
+    "meaning": "small",
+    "form": "작다",
+    "image": "043.jpg"
+  },
+  {
+    "ko": "새로워요",
+    "type": "adjective",
+    "meaning": "new",
+    "form": "새롭다",
+    "image": "044.jpg"
+  },
+  {
+    "ko": "오늘",
+    "type": "adverb",
+    "meaning": "today",
+    "form": "오늘",
+    "image": "045.jpg"
+  },
+  {
+    "ko": "내일",
+    "type": "adverb",
+    "meaning": "tomorrow",
+    "form": "내일",
+    "image": "046.jpg"
+  },
+  {
+    "ko": "어제",
+    "type": "adverb",
+    "meaning": "yesterday",
+    "form": "어제",
+    "image": "047.jpg"
+  },
+  {
+    "ko": "지금",
+    "type": "adverb",
+    "meaning": "now / right now",
+    "form": "지금",
+    "image": "048.jpg"
+  },
+  {
+    "ko": "나중에",
+    "type": "adverb",
+    "meaning": "later",
+    "form": "나중에",
     "image": "049.jpg"
   },
   {

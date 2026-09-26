@@ -238,10 +238,9 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Vocabulary, other stacks, Grammar, and gameplay unchanged.
 - Footer V8.8.4.
 
-## V8.8.7
-- Corrected Stack 2 calendar image mapping.
-- 045 오늘: 15 circled, arrow at 15.
-- 046 내일: 15 circled, arrow at 16.
-- 047 어제: 15 circled, arrow at 14.
-- All other vocabulary, images, Grammar, and gameplay unchanged.
-- Footer updated to V8.8.7.
+## V8.9
+- Built from tested V8.8.6.
+- Added Alphabet home section with Speaking/Writing and Reading/Listening.
+- Added Alphabet 1, 2, and 3 as list-only screens.
+- Vocab and Grammar unchanged.
+- Footer V8.9.

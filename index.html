@@ -29,6 +29,10 @@
       <button id="grammarSectionBtn" class="mode-card">
         <strong>Grammar</strong>
         <span>Practice producing complete Korean answers to questions.</span>
+      </button>      
+      <button id="alphabetSectionBtn" class="mode-card">
+        <strong>Alphabet</strong>
+        <span>Learn Hangul letters and syllable blocks.</span>
       </button>
     </div>
   </section>
@@ -158,6 +162,35 @@
     </div>
   </section>
 
+  <!-- Alphabet -->
+  <section id="alphabetMenu" class="panel home-panel hidden">
+    <h2>Alphabet</h2>
+    <p class="sub">Choose a mode</p>
+    <div class="mode-grid">
+      <button id="alphabetSpeakingBtn" class="mode-card"><strong>Speaking/Writing</strong><span>Explore Hangul letter sets.</span></button>
+      <button id="alphabetReadingBtn" class="mode-card"><strong>Reading/Listening</strong><span>Explore Hangul letter sets.</span></button>
+    </div>
+    <div class="actions"><button id="alphabetHomeBtn" type="button">Home</button></div>
+  </section>
+
+  <section id="alphabetStackMenu" class="panel home-panel hidden">
+    <h2 id="alphabetModeTitle">Alphabet</h2>
+    <p class="sub">Choose a stack</p>
+    <div class="mode-grid">
+      <button class="mode-card alphabet-stack-btn" data-stack="1"><strong>Alphabet 1</strong><span>Individual letters</span></button>
+      <button class="mode-card alphabet-stack-btn" data-stack="2"><strong>Alphabet 2</strong><span>Combined forms</span></button>
+      <button class="mode-card alphabet-stack-btn" data-stack="3"><strong>Alphabet 3</strong><span>Letter structures in words</span></button>
+    </div>
+    <div class="actions"><button id="alphabetStackBackBtn" type="button">Back</button></div>
+  </section>
+
+  <section id="alphabetListScreen" class="panel home-panel hidden">
+    <h2 id="alphabetListTitle">Alphabet</h2>
+    <p id="alphabetListSubtitle" class="sub"></p>
+    <div id="alphabetList" class="alphabet-list"></div>
+    <div class="actions"><button id="alphabetListBackBtn" type="button">Back</button></div>
+  </section>
+
   <!-- Grammar: Answering a Question -->
   <section id="grammarGame" class="hidden">
     <div class="levelbar">
@@ -222,7 +255,7 @@
     </div>
   </section>
 
-  <footer><span>V8.8.7 · 125 vocab words · five stacks</span></footer>
+  <footer><span>V8.9 · 125 vocab words · five stacks</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

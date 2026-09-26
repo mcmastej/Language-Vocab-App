@@ -189,3 +189,8 @@
 
 /* V8.8.0 — perfect 25/25 stack completion */
 .vocab-complete{text-align:center;max-width:620px;margin:0 auto}.completion-trophy{width:82px;height:82px;margin:8px auto 18px;border-radius:50%;display:grid;place-items:center;font-size:42px;font-weight:900;background:#fef3c7;color:#d97706}.vocab-complete h2{font-size:2rem;margin-bottom:10px}.completion-score{font-size:1.35rem;font-weight:800;margin:22px 0 8px}.completion-actions{margin:30px auto 0;gap:14px}
+
+/* V8.9 Alphabet */
+.alphabet-list{width:min(760px,100%);display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:18px auto 24px}
+.alphabet-item{background:#fff;border:1px solid #dfe4ea;border-radius:14px;padding:16px 10px;text-align:center;font-size:1.25rem;font-weight:700;line-height:1.4;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow-wrap:anywhere}
+#alphabetMenu>.actions,#alphabetStackMenu>.actions,#alphabetListScreen>.actions{margin-top:30px}

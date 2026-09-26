@@ -237,3 +237,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Used gutter detection, inward safety margin, square crop, and 600×600 JPEG output.
 - Vocabulary, other stacks, Grammar, and gameplay unchanged.
 - Footer V8.8.4.
+
+## V8.8.7
+- Corrected Stack 2 calendar image mapping.
+- 045 오늘: 15 circled, arrow at 15.
+- 046 내일: 15 circled, arrow at 16.
+- 047 어제: 15 circled, arrow at 14.
+- All other vocabulary, images, Grammar, and gameplay unchanged.
+- Footer updated to V8.8.7.

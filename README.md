@@ -231,3 +231,9 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Final images are 600×600 JPEGs.
 - Stack 1 and Stacks 3–5 unchanged; Grammar unchanged.
 - Footer updated to V8.8.3.
+
+## V8.8.4
+- Replaced Stack 1 images 000–024 with the approved regenerated set.
+- Used gutter detection, inward safety margin, square crop, and 600×600 JPEG output.
+- Vocabulary, other stacks, Grammar, and gameplay unchanged.
+- Footer V8.8.4.

@@ -238,9 +238,15 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Vocabulary, other stacks, Grammar, and gameplay unchanged.
 - Footer V8.8.4.
 
-## V8.9
+## V8.9.1
 - Built from tested V8.8.6.
 - Added Alphabet home section with Speaking/Writing and Reading/Listening.
 - Added Alphabet 1, 2, and 3 as list-only screens.
 - Vocab and Grammar unchanged.
-- Footer V8.9.
+- Footer V8.9.1.
+
+## V8.9.1
+- Home order changed to Alphabet → Vocab → Grammar.
+- Alphabet 3 now displays only the 15 Korean words.
+- Removed English translations and jamo breakdowns from Alphabet 3.
+- Existing Vocab and Grammar behavior unchanged.

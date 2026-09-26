@@ -340,12 +340,11 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9 Alphabet: list-only foundation.
+// V8.9.1 Alphabet: list-only foundation.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:["ㅂ","ㅈ","ㄷ","ㄱ","ㅅ","ㅃ","ㅉ","ㄸ","ㄲ","ㅆ","ㅁ","ㄴ","ㅇ","ㄹ","ㅎ","ㅋ","ㅌ","ㅊ","ㅍ","ㅛ","ㅕ","ㅑ","ㅐ","ㅔ","ㅒ","ㅖ","ㅗ","ㅓ","ㅏ","ㅣ","ㅠ","ㅜ","ㅡ"]},
 2:{title:"Alphabet 2",subtitle:"Combined Hangul forms",items:["요","여","야","애","에","얘","예","오","어","아","이","유","우","으","와","외","워","위","의"]},
-3:{title:"Alphabet 3",subtitle:"Letter structures inside real words",items:[
-"괜찮아요 — okay / alright — 찮 = ㅊ + ㅏ + ㄴ + ㅎ","읽어요 — read — 읽 = ㅇ + ㅣ + ㄹ + ㄱ","없어요 — there isn't / don't have — 없 = ㅇ + ㅓ + ㅂ + ㅅ","앉아요 — sit — 앉 = ㅇ + ㅏ + ㄴ + ㅈ","많아요 — many / a lot — 많 = ㅁ + ㅏ + ㄴ + ㅎ","않아요 — do not / isn't — 않 = ㅇ + ㅏ + ㄴ + ㅎ","값 — price / value — 값 = ㄱ + ㅏ + ㅂ + ㅅ","넓어요 — wide / spacious — 넓 = ㄴ + ㅓ + ㄹ + ㅂ","젊어요 — young — 젊 = ㅈ + ㅓ + ㄹ + ㅁ","짧아요 — short — 짧 = ㅉ + ㅏ + ㄹ + ㅂ","밝아요 — bright — 밝 = ㅂ + ㅏ + ㄹ + ㄱ","좋아요 — good / like — 좋 = ㅈ + ㅗ + ㅎ","공원 — park — 공 = ㄱ + ㅗ + ㅇ","방 — room — 방 = ㅂ + ㅏ + ㅇ","강아지 — puppy / dog — 강 = ㄱ + ㅏ + ㅇ"]}};
+3:{title:"Alphabet 3",subtitle:"Letter structures inside real words",items:["괜찮아요","읽어요","없어요","앉아요","많아요","않아요","값","넓어요","젊어요","짧아요","밝아요","좋아요","공원","방","강아지"]}};
 let alphabetMode="Speaking/Writing";
 function showAlphabetScreen(id){
  document.querySelectorAll("main > section").forEach(s=>s.classList.add("hidden"));

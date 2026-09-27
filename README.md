@@ -280,3 +280,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Removed the separate Alphabet 3 input instruction label.
 - Added "Type or speak the Korean word" as the input placeholder.
 - Existing target word, audio replay, Translation, microphone, Submit, and mastery-queue behavior retained.
+
+## V8.9.5
+- Built from V8.9.4.
+- Alphabet 3 now uses one action button instead of separate Submit and Next buttons.
+- Each new card begins with Submit.
+- After either Correct or Incorrect feedback, the same button changes to Next.
+- Pressing Next advances to the next queued card, then resets the button to Submit.
+- Existing mastery queue, audio, translation, typing, and speech recognition are unchanged.

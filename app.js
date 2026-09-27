@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.4 Alphabet gameplay.
+// V8.9.5 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -442,7 +442,8 @@ function nextAlphabet3Card(){
   $("alphabet3TranslationBtn").textContent="Translation";
   $("alphabet3AnswerInput").value="";
   $("alphabet3Feedback").textContent="";
-  $("alphabet3NextBtn").classList.add("hidden");
+  $("alphabet3ActionBtn").textContent="Submit";
+  $("alphabet3ActionBtn").type="submit";
   alphabetSpeak(alphabet3Current);
   $("alphabet3AnswerInput").focus();
 }
@@ -453,12 +454,14 @@ function submitAlphabet3(){
   if(ok){
     $("alphabet3Feedback").textContent="Correct!";
     $("alphabet3Status").textContent="Correct!";
-    $("alphabet3NextBtn").classList.remove("hidden");
+    $("alphabet3ActionBtn").textContent="Next";
+    $("alphabet3ActionBtn").type="button";
   }else{
     alphabet3Queue.push(alphabet3Current);
     $("alphabet3Feedback").textContent="Incorrect";
     $("alphabet3Status").textContent="Incorrect — retry later.";
-    $("alphabet3NextBtn").classList.remove("hidden");
+    $("alphabet3ActionBtn").textContent="Next";
+    $("alphabet3ActionBtn").type="button";
   }
 }
 function toggleAlphabet3Translation(){
@@ -480,7 +483,12 @@ $("alphabet3AnswerForm")?.addEventListener("submit",e=>{e.preventDefault();submi
 $("alphabet3HearBtn")?.addEventListener("click",()=>alphabetSpeak(alphabet3Current));
 $("alphabet3TranslationBtn")?.addEventListener("click",toggleAlphabet3Translation);
 $("alphabet3MicBtn")?.addEventListener("click",startAlphabet3Speech);
-$("alphabet3NextBtn")?.addEventListener("click",nextAlphabet3Card);
+$("alphabet3ActionBtn")?.addEventListener("click",e=>{
+  if($("alphabet3ActionBtn").type==="button"){
+    e.preventDefault();
+    nextAlphabet3Card();
+  }
+});
 $("alphabet3HomeBtn")?.addEventListener("click",goMainHome);
 $("alphabet3RestartBtn")?.addEventListener("click",startAlphabet3);
 $("alphabet3BackBtn")?.addEventListener("click",openAlphabetStacks);

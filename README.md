@@ -300,3 +300,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 3 explanation focuses on complex syllables and word structure.
 - Back navigation follows the new hierarchy.
 - Existing Alphabet gameplay mechanics are unchanged.
+
+## V8.9.7
+- Built from V8.9.6.
+- Alphabet pre-game screens now show only the purpose of the stack; gameplay explanations were removed.
+- Alphabet 1 and 2 pre-game headings are now two lines: stack name first, selected mode underneath.
+- Alphabet 3 retains a single-line Alphabet 3 heading.
+- Alphabet 3 purpose changed to: "Learn how letters combine into complex words."
+- Existing Start game / Back navigation and all gameplay are unchanged.

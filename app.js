@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.6 Alphabet gameplay.
+// V8.9.7 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -383,26 +383,17 @@ function openAlphabetModeMenu(){
 function openAlphabetStartScreen(){
  const d=ALPHABET_STACKS[alphabetStackNumber];
  alphabetShowScreen("alphabetStartScreen");
- $("alphabetStartTitle").textContent=alphabetStackNumber===3?d.title:`${alphabetMode} · ${d.title}`;
+ if(alphabetStackNumber===3){
+   $("alphabetStartTitle").innerHTML="Alphabet 3";
+ }else{
+   $("alphabetStartTitle").innerHTML=`<span class="alphabet-start-stack">${d.title}</span><span class="alphabet-start-mode">${alphabetMode}</span>`;
+ }
  const purpose=alphabetStackNumber===1
    ?"Learn individual Hangul letters and their basic sounds."
    :alphabetStackNumber===2
      ?"Learn how Hangul letters combine to form complete syllable blocks."
-     :"Learn how jamo combine into complex syllables and how those syllables are organized inside real Korean words.";
- let explanation;
- if(alphabetStackNumber===3){
-   explanation="A Korean word appears and is spoken once. Copy the word by typing or speaking it in Korean. Use the audio and translation buttons whenever needed.";
- }else if(alphabetMode==="Reading/Listening"){
-   explanation=alphabetStackNumber===1
-     ?"A Korean letter appears and is spoken once. After 2 seconds, choose the correct romanization from four options."
-     :"A Korean syllable appears and is spoken once. After 2 seconds, choose the correct romanization from four options.";
- }else{
-   explanation=alphabetStackNumber===1
-     ?"Romanization appears for 2 seconds. Then type the corresponding Korean letter."
-     :"Romanization appears for 2 seconds. Then type the corresponding Korean syllable.";
- }
+     :"Learn how letters combine into complex words.";
  $("alphabetStartPurpose").textContent=purpose;
- $("alphabetStartExplanation").textContent=explanation;
  subtitle.textContent=`Alphabet · ${d.title}${alphabetStackNumber===3?"":` · ${alphabetMode}`}`;
 }
 function chooseAlphabetStack(n){

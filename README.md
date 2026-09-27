@@ -308,3 +308,12 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 3 retains a single-line Alphabet 3 heading.
 - Alphabet 3 purpose changed to: "Learn how letters combine into complex words."
 - Existing Start game / Back navigation and all gameplay are unchanged.
+
+## V8.9.8
+- Built from V8.9.7.
+- Removed the redundant Focus subheading from Alphabet 1 and Alphabet 2 mode-selection screens.
+- Alphabet pre-game explanation screens now use a consistent Title -> Subtitle -> Body hierarchy.
+- Alphabet 1/2 title is the stack name; subtitle is Reading/Listening or Speaking/Writing.
+- Alphabet 2 body is now: "Combine letters and complete syllables."
+- Alphabet 3 uses title "Alphabet 3", subtitle "Word Structure", and body "Learn how letters combine into complex words."
+- Gameplay and navigation are unchanged.

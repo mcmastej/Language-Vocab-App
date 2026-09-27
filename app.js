@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.7 Alphabet gameplay.
+// V8.9.8 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -375,23 +375,17 @@ function openAlphabetModeMenu(){
  const d=ALPHABET_STACKS[alphabetStackNumber];
  alphabetShowScreen("alphabetModeMenu");
  $("alphabetModeStackTitle").textContent=d.title;
- $("alphabetModePurpose").textContent=alphabetStackNumber===1
-   ?"Focus: individual Hangul letters and their basic sounds."
-   :"Focus: combined letters and complete Hangul syllable blocks.";
  subtitle.textContent=`Alphabet · ${d.title} · Choose a mode`;
 }
 function openAlphabetStartScreen(){
  const d=ALPHABET_STACKS[alphabetStackNumber];
  alphabetShowScreen("alphabetStartScreen");
- if(alphabetStackNumber===3){
-   $("alphabetStartTitle").innerHTML="Alphabet 3";
- }else{
-   $("alphabetStartTitle").innerHTML=`<span class="alphabet-start-stack">${d.title}</span><span class="alphabet-start-mode">${alphabetMode}</span>`;
- }
+ $("alphabetStartTitle").textContent=d.title;
+ $("alphabetStartSubtitle").textContent=alphabetStackNumber===3?"Word Structure":alphabetMode;
  const purpose=alphabetStackNumber===1
    ?"Learn individual Hangul letters and their basic sounds."
    :alphabetStackNumber===2
-     ?"Learn how Hangul letters combine to form complete syllable blocks."
+     ?"Combine letters and complete syllables."
      :"Learn how letters combine into complex words.";
  $("alphabetStartPurpose").textContent=purpose;
  subtitle.textContent=`Alphabet · ${d.title}${alphabetStackNumber===3?"":` · ${alphabetMode}`}`;

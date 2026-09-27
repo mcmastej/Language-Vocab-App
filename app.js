@@ -43,7 +43,7 @@ function imageElement(path){
   return img;
 }
 function hideAllScreens(){
-  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,grammarSpeakingMenu,startScreen,game,vocabComplete,grammarGame,grammarComplete,$("alphabetMenu"),$("alphabetStackMenu"),$("alphabetListScreen"),$("alphabetGame"),$("alphabetComplete"),$("alphabet3Game"),$("alphabet3Complete")].filter(Boolean).forEach(x=>x.classList.add("hidden"));
+  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,grammarSpeakingMenu,startScreen,game,vocabComplete,grammarGame,grammarComplete,$("alphabetMenu"),$("alphabetModeMenu"),$("alphabetStartScreen"),$("alphabetListScreen"),$("alphabetGame"),$("alphabetComplete"),$("alphabet3Game"),$("alphabet3Complete")].filter(Boolean).forEach(x=>x.classList.add("hidden"));
 }
 function goMainHome(){
   clearTimers();speechSynthesis?.cancel();mode=null;
@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.5 Alphabet gameplay.
+// V8.9.6 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -368,12 +368,53 @@ let alphabetMode="Reading/Listening",alphabetStackNumber=1,alphabetQueue=[],alph
 function alphabetHideStages(){["alphabetPromptStage","alphabetAnswerStage","alphabetChoiceStage","alphabetFeedbackStage"].forEach(id=>$(id)?.classList.add("hidden"))}
 function alphabetSpeak(card){if(card)speakKorean(card.audio||card.ko)}
 function alphabetShowScreen(id){hideAllScreens();$(id)?.classList.remove("hidden");scoreBox.classList.add("hidden")}
-function openAlphabetMenu(){clearTimers();clearTimeout(alphabetTimer);speechSynthesis?.cancel();alphabetShowScreen("alphabetMenu");subtitle.textContent="Choose an Alphabet mode."}
-function openAlphabetStacks(){alphabetShowScreen("alphabetStackMenu");$("alphabetModeTitle").textContent=`Alphabet · ${alphabetMode}`;subtitle.textContent="Alphabet · Choose a stack."}
-function startAlphabetStack(n){
- alphabetStackNumber=n;const d=ALPHABET_STACKS[n];
- if(n===3){startAlphabet3();return}
- alphabetQueue=shuffle(d.items);alphabetShowScreen("alphabetGame");subtitle.textContent=`Alphabet · ${d.title} · ${alphabetMode}`;nextAlphabetCard()
+function openAlphabetMenu(){
+ clearTimers();clearTimeout(alphabetTimer);speechSynthesis?.cancel();alphabetShowScreen("alphabetMenu");subtitle.textContent="Alphabet · Choose a stack.";
+}
+function openAlphabetModeMenu(){
+ const d=ALPHABET_STACKS[alphabetStackNumber];
+ alphabetShowScreen("alphabetModeMenu");
+ $("alphabetModeStackTitle").textContent=d.title;
+ $("alphabetModePurpose").textContent=alphabetStackNumber===1
+   ?"Focus: individual Hangul letters and their basic sounds."
+   :"Focus: combined letters and complete Hangul syllable blocks.";
+ subtitle.textContent=`Alphabet · ${d.title} · Choose a mode`;
+}
+function openAlphabetStartScreen(){
+ const d=ALPHABET_STACKS[alphabetStackNumber];
+ alphabetShowScreen("alphabetStartScreen");
+ $("alphabetStartTitle").textContent=alphabetStackNumber===3?d.title:`${alphabetMode} · ${d.title}`;
+ const purpose=alphabetStackNumber===1
+   ?"Learn individual Hangul letters and their basic sounds."
+   :alphabetStackNumber===2
+     ?"Learn how Hangul letters combine to form complete syllable blocks."
+     :"Learn how jamo combine into complex syllables and how those syllables are organized inside real Korean words.";
+ let explanation;
+ if(alphabetStackNumber===3){
+   explanation="A Korean word appears and is spoken once. Copy the word by typing or speaking it in Korean. Use the audio and translation buttons whenever needed.";
+ }else if(alphabetMode==="Reading/Listening"){
+   explanation=alphabetStackNumber===1
+     ?"A Korean letter appears and is spoken once. After 2 seconds, choose the correct romanization from four options."
+     :"A Korean syllable appears and is spoken once. After 2 seconds, choose the correct romanization from four options.";
+ }else{
+   explanation=alphabetStackNumber===1
+     ?"Romanization appears for 2 seconds. Then type the corresponding Korean letter."
+     :"Romanization appears for 2 seconds. Then type the corresponding Korean syllable.";
+ }
+ $("alphabetStartPurpose").textContent=purpose;
+ $("alphabetStartExplanation").textContent=explanation;
+ subtitle.textContent=`Alphabet · ${d.title}${alphabetStackNumber===3?"":` · ${alphabetMode}`}`;
+}
+function chooseAlphabetStack(n){
+ alphabetStackNumber=n;
+ if(n===3){alphabetMode="Alphabet 3";openAlphabetStartScreen()}
+ else openAlphabetModeMenu();
+}
+function startSelectedAlphabetGame(){
+ if(alphabetStackNumber===3){startAlphabet3();return}
+ const d=ALPHABET_STACKS[alphabetStackNumber];
+ alphabetQueue=shuffle(d.items);alphabetShowScreen("alphabetGame");
+ subtitle.textContent=`Alphabet · ${d.title} · ${alphabetMode}`;nextAlphabetCard();
 }
 function nextAlphabetCard(){
  clearTimeout(alphabetTimer);speechSynthesis?.cancel();alphabetHideStages();alphabetLocked=false;
@@ -408,18 +449,19 @@ function submitAlphabetAnswer(){
 function finishAlphabetStack(){alphabetShowScreen("alphabetComplete");$("alphabetCompleteText").textContent=`You completed ${ALPHABET_STACKS[alphabetStackNumber].title}.`;subtitle.textContent=`Alphabet · ${ALPHABET_STACKS[alphabetStackNumber].title} · Complete`}
 $("alphabetSectionBtn")?.addEventListener("click",openAlphabetMenu);
 $("alphabetHomeBtn")?.addEventListener("click",goMainHome);
-$("alphabetReadingBtn")?.addEventListener("click",()=>{alphabetMode="Reading/Listening";openAlphabetStacks()});
-$("alphabetSpeakingBtn")?.addEventListener("click",()=>{alphabetMode="Speaking/Writing";openAlphabetStacks()});
-$("alphabetStackBackBtn")?.addEventListener("click",openAlphabetMenu);
-document.querySelectorAll(".alphabet-stack-btn").forEach(b=>b.addEventListener("click",()=>startAlphabetStack(+b.dataset.stack)));
-$("alphabetListBackBtn")?.addEventListener("click",openAlphabetStacks);
+document.querySelectorAll(".alphabet-stack-btn").forEach(b=>b.addEventListener("click",()=>chooseAlphabetStack(+b.dataset.stack)));
+$("alphabetReadingBtn")?.addEventListener("click",()=>{alphabetMode="Reading/Listening";openAlphabetStartScreen()});
+$("alphabetSpeakingBtn")?.addEventListener("click",()=>{alphabetMode="Speaking/Writing";openAlphabetStartScreen()});
+$("alphabetModeBackBtn")?.addEventListener("click",openAlphabetMenu);
+$("alphabetStartBackBtn")?.addEventListener("click",()=>alphabetStackNumber===3?openAlphabetMenu():openAlphabetModeMenu());
+$("alphabetStartBtn")?.addEventListener("click",startSelectedAlphabetGame);
+$("alphabetListBackBtn")?.addEventListener("click",openAlphabetMenu);
 $("alphabetGameHomeBtn")?.addEventListener("click",goMainHome);
 $("alphabetAnswerForm")?.addEventListener("submit",e=>{e.preventDefault();submitAlphabetAnswer()});
 $("alphabetHearBtn")?.addEventListener("click",()=>alphabetSpeak(alphabetCurrent));
 $("alphabetNextBtn")?.addEventListener("click",nextAlphabetCard);
-$("alphabetRestartBtn")?.addEventListener("click",()=>startAlphabetStack(alphabetStackNumber));
-$("alphabetBackToStacksBtn")?.addEventListener("click",openAlphabetStacks);
-
+$("alphabetRestartBtn")?.addEventListener("click",startSelectedAlphabetGame);
+$("alphabetBackToStacksBtn")?.addEventListener("click",openAlphabetMenu);
 $("alphabetChoiceNextBtn")?.addEventListener("click",nextAlphabetCard);
 
 // Alphabet 3 uses the same copy-the-word mastery game in both Alphabet modes.
@@ -491,5 +533,5 @@ $("alphabet3ActionBtn")?.addEventListener("click",e=>{
 });
 $("alphabet3HomeBtn")?.addEventListener("click",goMainHome);
 $("alphabet3RestartBtn")?.addEventListener("click",startAlphabet3);
-$("alphabet3BackBtn")?.addEventListener("click",openAlphabetStacks);
+$("alphabet3BackBtn")?.addEventListener("click",openAlphabetMenu);
 

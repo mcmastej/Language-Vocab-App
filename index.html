@@ -180,23 +180,33 @@
   <!-- Alphabet -->
   <section id="alphabetMenu" class="panel home-panel hidden">
     <h2>Alphabet</h2>
-    <p class="sub">Choose a mode</p>
+    <p class="sub">Choose an alphabet stack</p>
     <div class="mode-grid">
-      <button id="alphabetReadingBtn" class="mode-card"><strong>Reading/Listening</strong><span>See and hear Hangul, then identify its romanization.</span></button>
-      <button id="alphabetSpeakingBtn" class="mode-card"><strong>Speaking/Writing</strong><span>See romanization, then produce the Hangul.</span></button>
+      <button class="mode-card alphabet-stack-btn" data-stack="1"><strong>Alphabet 1</strong><span>Learn individual Hangul letters and their basic sounds.</span></button>
+      <button class="mode-card alphabet-stack-btn" data-stack="2"><strong>Alphabet 2</strong><span>Learn combined letters and complete Hangul syllable blocks.</span></button>
+      <button class="mode-card alphabet-stack-btn" data-stack="3"><strong>Alphabet 3</strong><span>Learn complex syllables and word structure using real Korean words.</span></button>
     </div>
     <div class="actions"><button id="alphabetHomeBtn" type="button">Home</button></div>
   </section>
 
-  <section id="alphabetStackMenu" class="panel home-panel hidden">
-    <h2 id="alphabetModeTitle">Alphabet</h2>
-    <p class="sub">Choose a stack</p>
+  <section id="alphabetModeMenu" class="panel home-panel hidden">
+    <h2 id="alphabetModeStackTitle">Alphabet</h2>
+    <p id="alphabetModePurpose" class="sub"></p>
     <div class="mode-grid">
-      <button class="mode-card alphabet-stack-btn" data-stack="1"><strong>Alphabet 1</strong><span>Individual letters</span></button>
-      <button class="mode-card alphabet-stack-btn" data-stack="2"><strong>Alphabet 2</strong><span>Combined forms</span></button>
-      <button class="mode-card alphabet-stack-btn" data-stack="3"><strong>Alphabet 3</strong><span>Letter structures in words</span></button>
+      <button id="alphabetReadingBtn" class="mode-card"><strong>Reading/Listening</strong><span>Read and hear Hangul, then identify its romanization.</span></button>
+      <button id="alphabetSpeakingBtn" class="mode-card"><strong>Speaking/Writing</strong><span>See romanization, then produce the Hangul.</span></button>
     </div>
-    <div class="actions"><button id="alphabetStackBackBtn" type="button">Back</button></div>
+    <div class="actions"><button id="alphabetModeBackBtn" type="button">Back</button></div>
+  </section>
+
+  <section id="alphabetStartScreen" class="panel home-panel hidden">
+    <h2 id="alphabetStartTitle">Alphabet</h2>
+    <p id="alphabetStartPurpose" class="alphabet-start-purpose"></p>
+    <p id="alphabetStartExplanation" class="alphabet-start-explanation"></p>
+    <div class="actions">
+      <button id="alphabetStartBtn" class="primary" type="button">Start game</button>
+      <button id="alphabetStartBackBtn" type="button">Back</button>
+    </div>
   </section>
 
   <section id="alphabetListScreen" class="panel home-panel hidden">
@@ -342,7 +352,7 @@
     </div>
   </section>
 
-  <footer><span>V8.9.5 · 125 vocab words · five stacks</span></footer>
+  <footer><span>V8.9.6 · 125 vocab words · five stacks</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

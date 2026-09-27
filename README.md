@@ -288,3 +288,15 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - After either Correct or Incorrect feedback, the same button changes to Next.
 - Pressing Next advances to the next queued card, then resets the button to Submit.
 - Existing mastery queue, audio, translation, typing, and speech recognition are unchanged.
+
+## V8.9.6
+- Built from V8.9.5.
+- Alphabet navigation is now stack-first: Alphabet → Alphabet 1/2/3.
+- Alphabet 1 and 2 then offer Reading/Listening first and Speaking/Writing second.
+- Alphabet 3 bypasses mode selection and goes directly to its single shared game flow.
+- Added Vocab-style pre-game explanation screens for all Alphabet game modes.
+- Alphabet 1 explanation focuses on individual Hangul letters.
+- Alphabet 2 explanation focuses on combined letters and syllable blocks.
+- Alphabet 3 explanation focuses on complex syllables and word structure.
+- Back navigation follows the new hierarchy.
+- Existing Alphabet gameplay mechanics are unchanged.

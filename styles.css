@@ -206,7 +206,7 @@
 .mode-card:disabled{cursor:default;opacity:.65;background:#f8fafc}
 @media(max-width:620px){.roman-choice{min-height:105px;padding:14px}.alphabet-prompt-stage{min-height:270px}}
 
-/* V8.9.5 Alphabet feedback + Alphabet 3 */
+/* V8.9.6 Alphabet feedback + Alphabet 3 */
 .alphabet-choice-next{width:min(650px,100%);margin:18px auto 0;display:block}
 .alphabet3-stage{display:flex;flex-direction:column;align-items:center;gap:18px}
 .alphabet3-target-row{display:flex;align-items:center;justify-content:center;gap:12px;width:100%}
@@ -216,3 +216,9 @@
 .alphabet3-translation{font-size:1.15rem;font-weight:700;text-align:center}
 #alphabet3AnswerForm{width:min(560px,100%)}
 .alphabet3-feedback{min-height:30px;font-size:1.1rem;font-weight:750;text-align:center}
+
+/* V8.9.6 Alphabet stack-first navigation and pre-game screens */
+#alphabetMenu>.actions,#alphabetModeMenu>.actions,#alphabetStartScreen>.actions{margin-top:30px}
+#alphabetStartScreen .actions{margin-top:26px}
+.alphabet-start-purpose{font-size:1.15rem;font-weight:750;line-height:1.5;margin:22px 0 12px}
+.alphabet-start-explanation{font-size:1.08rem;line-height:1.6;color:#59616c;margin:0 0 8px}

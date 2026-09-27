@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.3 Alphabet gameplay.
+// V8.9.4 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -453,10 +453,10 @@ function submitAlphabet3(){
   if(ok){
     $("alphabet3Feedback").textContent="Correct!";
     $("alphabet3Status").textContent="Correct!";
-    setTimeout(nextAlphabet3Card,650);
+    $("alphabet3NextBtn").classList.remove("hidden");
   }else{
     alphabet3Queue.push(alphabet3Current);
-    $("alphabet3Feedback").textContent=`Incorrect — copy: ${alphabet3Current.ko}`;
+    $("alphabet3Feedback").textContent="Incorrect";
     $("alphabet3Status").textContent="Incorrect — retry later.";
     $("alphabet3NextBtn").classList.remove("hidden");
   }

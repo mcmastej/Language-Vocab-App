@@ -270,3 +270,13 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 3 displays a Korean word, automatically plays Korean audio once, and keeps the target visible while the learner copies it.
 - Added replay-audio, Translation reveal, typed Korean input, and Korean speech recognition for Alphabet 3.
 - Incorrect Alphabet 3 cards return to the back of the queue until mastered.
+
+## V8.9.4
+- Built from the V8.9.3 benchmark candidate.
+- Alphabet 3 correct answers no longer auto-advance; Correct! remains visible and Next is shown.
+- Alphabet 3 incorrect feedback now says only Incorrect; the correct word is not revealed in feedback.
+- Incorrect cards remain queued at the back for later retry.
+- Submission remains locked after either result, preventing same-card resubmission.
+- Removed the separate Alphabet 3 input instruction label.
+- Added "Type or speak the Korean word" as the input placeholder.
+- Existing target word, audio replay, Translation, microphone, Submit, and mastery-queue behavior retained.

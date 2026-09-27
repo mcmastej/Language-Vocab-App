@@ -262,3 +262,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 3 remains a Korean-only list.
 - Existing Grammar Answering a Question is under Speaking/Writing. Reading/Listening is shown first as a disabled placeholder until its gameplay is defined.
 - Existing Vocab gameplay is preserved.
+
+## V8.9.3
+- Built from V8.9.2.
+- Alphabet 1/2 Reading/Listening incorrect answers now keep all four choices visible; wrong stays red, correct stays green, and Next appears below the choices.
+- Alphabet 3 now uses identical gameplay in Reading/Listening and Speaking/Writing.
+- Alphabet 3 displays a Korean word, automatically plays Korean audio once, and keeps the target visible while the learner copies it.
+- Added replay-audio, Translation reveal, typed Korean input, and Korean speech recognition for Alphabet 3.
+- Incorrect Alphabet 3 cards return to the back of the queue until mastered.

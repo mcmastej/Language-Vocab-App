@@ -43,7 +43,7 @@ function imageElement(path){
   return img;
 }
 function hideAllScreens(){
-  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,grammarSpeakingMenu,startScreen,game,vocabComplete,grammarGame,grammarComplete,$("alphabetMenu"),$("alphabetStackMenu"),$("alphabetListScreen"),$("alphabetGame"),$("alphabetComplete")].filter(Boolean).forEach(x=>x.classList.add("hidden"));
+  [homeScreen,vocabMenu,vocabStackMenu,grammarMenu,grammarSpeakingMenu,startScreen,game,vocabComplete,grammarGame,grammarComplete,$("alphabetMenu"),$("alphabetStackMenu"),$("alphabetListScreen"),$("alphabetGame"),$("alphabetComplete"),$("alphabet3Game"),$("alphabet3Complete")].filter(Boolean).forEach(x=>x.classList.add("hidden"));
 }
 function goMainHome(){
   clearTimers();speechSynthesis?.cancel();mode=null;
@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.2 Alphabet gameplay.
+// V8.9.3 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},
@@ -358,7 +358,12 @@ const ALPHABET_STACKS={
 {ko:"요",roman:"yo"},{ko:"여",roman:"yeo"},{ko:"야",roman:"ya"},{ko:"애",roman:"ae"},{ko:"에",roman:"e"},{ko:"얘",roman:"yae"},{ko:"예",roman:"ye"},
 {ko:"오",roman:"o"},{ko:"어",roman:"eo"},{ko:"아",roman:"a"},{ko:"이",roman:"i"},{ko:"유",roman:"yu"},{ko:"우",roman:"u"},{ko:"으",roman:"eu"},
 {ko:"와",roman:"wa"},{ko:"외",roman:"oe"},{ko:"워",roman:"wo"},{ko:"위",roman:"wi"},{ko:"의",roman:"ui"}]},
-3:{title:"Alphabet 3",subtitle:"Letter structures inside real words",items:["괜찮아요","읽어요","없어요","앉아요","많아요","않아요","값","넓어요","젊어요","짧아요","밝아요","좋아요","공원","방","강아지"]}};
+3:{title:"Alphabet 3",subtitle:"Letter structures inside real words",items:[
+{ko:"괜찮아요",translation:"okay / alright"},{ko:"읽어요",translation:"read"},{ko:"없어요",translation:"there isn't / don't have"},
+{ko:"앉아요",translation:"sit"},{ko:"많아요",translation:"many / a lot"},{ko:"않아요",translation:"do not / isn't"},
+{ko:"값",translation:"price / value"},{ko:"넓어요",translation:"wide / spacious"},{ko:"젊어요",translation:"young"},
+{ko:"짧아요",translation:"short"},{ko:"밝아요",translation:"bright"},{ko:"좋아요",translation:"good / like"},
+{ko:"공원",translation:"park"},{ko:"방",translation:"room"},{ko:"강아지",translation:"puppy / dog"}]}};
 let alphabetMode="Reading/Listening",alphabetStackNumber=1,alphabetQueue=[],alphabetCurrent=null,alphabetLocked=false,alphabetTimer=null;
 function alphabetHideStages(){["alphabetPromptStage","alphabetAnswerStage","alphabetChoiceStage","alphabetFeedbackStage"].forEach(id=>$(id)?.classList.add("hidden"))}
 function alphabetSpeak(card){if(card)speakKorean(card.audio||card.ko)}
@@ -367,14 +372,12 @@ function openAlphabetMenu(){clearTimers();clearTimeout(alphabetTimer);speechSynt
 function openAlphabetStacks(){alphabetShowScreen("alphabetStackMenu");$("alphabetModeTitle").textContent=`Alphabet · ${alphabetMode}`;subtitle.textContent="Alphabet · Choose a stack."}
 function startAlphabetStack(n){
  alphabetStackNumber=n;const d=ALPHABET_STACKS[n];
- if(n===3){$("alphabetListTitle").textContent=d.title;$("alphabetListSubtitle").textContent=alphabetMode+" · "+d.subtitle;$("alphabetList").innerHTML="";
- d.items.forEach(x=>{const e=document.createElement("div");e.className="alphabet-item";e.textContent=x;$("alphabetList").appendChild(e)});
- alphabetShowScreen("alphabetListScreen");subtitle.textContent=`Alphabet · ${d.title}`;return}
+ if(n===3){startAlphabet3();return}
  alphabetQueue=shuffle(d.items);alphabetShowScreen("alphabetGame");subtitle.textContent=`Alphabet · ${d.title} · ${alphabetMode}`;nextAlphabetCard()
 }
 function nextAlphabetCard(){
  clearTimeout(alphabetTimer);speechSynthesis?.cancel();alphabetHideStages();alphabetLocked=false;
- $("alphabetNextBtn").classList.add("hidden");$("alphabetHearBtn").classList.add("hidden");
+ $("alphabetNextBtn").classList.add("hidden");$("alphabetChoiceNextBtn").classList.add("hidden");$("alphabetHearBtn").classList.add("hidden");
  if(!alphabetQueue.length){finishAlphabetStack();return}
  alphabetCurrent=alphabetQueue.shift();$("alphabetRemaining").textContent=alphabetQueue.length+1;
  $("alphabetStatus").textContent=alphabetMode==="Reading/Listening"?"Read and listen.":"Remember the romanization.";
@@ -393,8 +396,7 @@ function selectAlphabetChoice(button,card,grid){
  if(alphabetLocked)return;alphabetLocked=true;[...grid.children].forEach(b=>b.disabled=true);
  if(card.roman===alphabetCurrent.roman){button.classList.add("correct-choice");$("alphabetStatus").textContent="Correct!";setTimeout(nextAlphabetCard,650)}
  else{button.classList.add("wrong-choice");[...grid.children].find(b=>b.textContent===alphabetCurrent.roman)?.classList.add("correct-choice");alphabetQueue.push(alphabetCurrent);
- $("alphabetStatus").textContent="Incorrect — retry later.";setTimeout(()=>{$("alphabetChoiceStage").classList.add("hidden");$("alphabetFeedbackStage").classList.remove("hidden");
- $("alphabetFeedbackTitle").textContent="Incorrect";$("alphabetCorrectLabel").classList.add("hidden");$("alphabetCorrectAnswer").classList.add("hidden");$("alphabetHearBtn").classList.add("hidden");$("alphabetNextBtn").classList.remove("hidden")},450)}
+ $("alphabetStatus").textContent="Incorrect — retry later.";$("alphabetChoiceNextBtn").classList.remove("hidden")}
 }
 function submitAlphabetAnswer(){
  if(alphabetLocked||!alphabetCurrent)return;alphabetLocked=true;const correct=normalize($("alphabetAnswerInput").value)===normalize(alphabetCurrent.ko);
@@ -417,3 +419,69 @@ $("alphabetHearBtn")?.addEventListener("click",()=>alphabetSpeak(alphabetCurrent
 $("alphabetNextBtn")?.addEventListener("click",nextAlphabetCard);
 $("alphabetRestartBtn")?.addEventListener("click",()=>startAlphabetStack(alphabetStackNumber));
 $("alphabetBackToStacksBtn")?.addEventListener("click",openAlphabetStacks);
+
+$("alphabetChoiceNextBtn")?.addEventListener("click",nextAlphabetCard);
+
+// Alphabet 3 uses the same copy-the-word mastery game in both Alphabet modes.
+let alphabet3Queue=[],alphabet3Current=null,alphabet3Locked=false,alphabet3Recognition=null;
+function startAlphabet3(){
+  alphabet3Queue=shuffle(ALPHABET_STACKS[3].items);
+  alphabetShowScreen("alphabet3Game");
+  subtitle.textContent=`Alphabet · Alphabet 3 · ${alphabetMode}`;
+  nextAlphabet3Card();
+}
+function nextAlphabet3Card(){
+  speechSynthesis?.cancel();alphabet3Locked=false;
+  if(!alphabet3Queue.length){alphabetShowScreen("alphabet3Complete");subtitle.textContent="Alphabet · Alphabet 3 · Complete";return}
+  alphabet3Current=alphabet3Queue.shift();
+  $("alphabet3Remaining").textContent=alphabet3Queue.length+1;
+  $("alphabet3Status").textContent="Copy the Korean word.";
+  $("alphabet3Target").textContent=alphabet3Current.ko;
+  $("alphabet3Translation").textContent=alphabet3Current.translation;
+  $("alphabet3Translation").classList.add("hidden");
+  $("alphabet3TranslationBtn").textContent="Translation";
+  $("alphabet3AnswerInput").value="";
+  $("alphabet3Feedback").textContent="";
+  $("alphabet3NextBtn").classList.add("hidden");
+  alphabetSpeak(alphabet3Current);
+  $("alphabet3AnswerInput").focus();
+}
+function submitAlphabet3(){
+  if(alphabet3Locked||!alphabet3Current)return;
+  alphabet3Locked=true;
+  const ok=normalize($("alphabet3AnswerInput").value)===normalize(alphabet3Current.ko);
+  if(ok){
+    $("alphabet3Feedback").textContent="Correct!";
+    $("alphabet3Status").textContent="Correct!";
+    setTimeout(nextAlphabet3Card,650);
+  }else{
+    alphabet3Queue.push(alphabet3Current);
+    $("alphabet3Feedback").textContent=`Incorrect — copy: ${alphabet3Current.ko}`;
+    $("alphabet3Status").textContent="Incorrect — retry later.";
+    $("alphabet3NextBtn").classList.remove("hidden");
+  }
+}
+function toggleAlphabet3Translation(){
+  const el=$("alphabet3Translation"),hidden=el.classList.toggle("hidden");
+  $("alphabet3TranslationBtn").textContent=hidden?"Translation":"Hide translation";
+}
+function startAlphabet3Speech(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){$("alphabet3Feedback").textContent="Speech recognition is not available in this browser.";return}
+  try{alphabet3Recognition?.abort()}catch(e){}
+  alphabet3Recognition=new SR();alphabet3Recognition.lang="ko-KR";alphabet3Recognition.interimResults=false;alphabet3Recognition.maxAlternatives=1;
+  $("alphabet3MicBtn").textContent="…";
+  alphabet3Recognition.onresult=e=>{$("alphabet3AnswerInput").value=e.results[0][0].transcript};
+  alphabet3Recognition.onerror=()=>{$("alphabet3Feedback").textContent="Speech recognition did not capture an answer."};
+  alphabet3Recognition.onend=()=>{$("alphabet3MicBtn").textContent="🎤"};
+  alphabet3Recognition.start();
+}
+$("alphabet3AnswerForm")?.addEventListener("submit",e=>{e.preventDefault();submitAlphabet3()});
+$("alphabet3HearBtn")?.addEventListener("click",()=>alphabetSpeak(alphabet3Current));
+$("alphabet3TranslationBtn")?.addEventListener("click",toggleAlphabet3Translation);
+$("alphabet3MicBtn")?.addEventListener("click",startAlphabet3Speech);
+$("alphabet3NextBtn")?.addEventListener("click",nextAlphabet3Card);
+$("alphabet3HomeBtn")?.addEventListener("click",goMainHome);
+$("alphabet3RestartBtn")?.addEventListener("click",startAlphabet3);
+$("alphabet3BackBtn")?.addEventListener("click",openAlphabetStacks);
+

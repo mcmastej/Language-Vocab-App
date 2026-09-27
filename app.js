@@ -344,7 +344,7 @@ if(SpeechRecognition){
 }
 goMainHome();
 
-// V8.9.8 Alphabet gameplay.
+// V8.9.9 Alphabet gameplay.
 const ALPHABET_STACKS={
 1:{title:"Alphabet 1",subtitle:"Individual Hangul letters",items:[
 {ko:"ㅂ",roman:"ba",audio:"바"},{ko:"ㅈ",roman:"ja",audio:"자"},{ko:"ㄷ",roman:"da",audio:"다"},{ko:"ㄱ",roman:"ga",audio:"가"},{ko:"ㅅ",roman:"sa",audio:"사"},

@@ -317,3 +317,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 2 body is now: "Combine letters and complete syllables."
 - Alphabet 3 uses title "Alphabet 3", subtitle "Word Structure", and body "Learn how letters combine into complex words."
 - Gameplay and navigation are unchanged.
+
+## V8.9.9
+- Built from V8.9.8.
+- Updated every Alphabet pre-game explanation screen to match the established Vocab pre-game typography.
+- Alphabet stack title is large, bold, dark, and left-aligned.
+- Reading/Listening, Speaking/Writing, and Alphabet 3's Word Structure subtitle are bold and the same dark color as the title.
+- Purpose text is regular-weight gray, matching the explanatory copy used on Vocab pre-game screens.
+- Existing Alphabet wording, navigation, and gameplay are unchanged.

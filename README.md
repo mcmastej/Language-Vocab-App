@@ -250,3 +250,15 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Alphabet 3 now displays only the 15 Korean words.
 - Removed English translations and jamo breakdowns from Alphabet 3.
 - Existing Vocab and Grammar behavior unchanged.
+
+## V8.9.2
+- Built from V8.9.1 benchmark.
+- Reading/Listening now appears before Speaking/Writing in Alphabet, Vocab, and Grammar.
+- Alphabet 1 and 2 now have mastery-queue gameplay in both modes.
+- Romanization added, including ㅇ = ng.
+- Reading/Listening: Hangul + Korean TTS for 2 seconds, then four randomized romanization choices.
+- Speaking/Writing: romanization for 2 seconds, then typed Hangul response.
+- Incorrect Alphabet cards go to the back of the queue until mastered.
+- Alphabet 3 remains a Korean-only list.
+- Existing Grammar Answering a Question is under Speaking/Writing. Reading/Listening is shown first as a disabled placeholder until its gameplay is defined.
+- Existing Vocab gameplay is preserved.

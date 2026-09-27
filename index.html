@@ -41,13 +41,13 @@
   <section id="vocabMenu" class="panel home-panel hidden">
     <h2>Vocab</h2>
     <div class="mode-grid">
+      <button id="listeningModeBtn" class="mode-card">
+        <strong>Reading/Listening</strong>
+        <span>See and hear a Korean word, remember it, then choose the correct image.</span>
+      </button>
       <button id="speakingModeBtn" class="mode-card">
         <strong>Speaking/Writing</strong>
         <span>See an image, remember it, then produce the Korean word.</span>
-      </button>
-      <button id="listeningModeBtn" class="mode-card">
-        <strong>Listening/Reading</strong>
-        <span>See and hear a Korean word, remember it, then choose the correct image.</span>
       </button>
     </div>
     <div class="actions"><button id="vocabHomeBtn" type="button">Home</button></div>
@@ -85,13 +85,28 @@
   <!-- Grammar submenu -->
   <section id="grammarMenu" class="panel home-panel hidden">
     <h2>Grammar</h2>
+    <div class="mode-grid">
+      <button id="grammarReadingModeBtn" class="mode-card" disabled>
+        <strong>Reading/Listening</strong>
+        <span>Gameplay coming in a later update.</span>
+      </button>
+      <button id="grammarSpeakingModeBtn" class="mode-card">
+        <strong>Speaking/Writing</strong>
+        <span>Produce complete Korean answers to questions.</span>
+      </button>
+    </div>
+    <div class="actions"><button id="grammarHomeBtn" type="button">Home</button></div>
+  </section>
+
+  <section id="grammarSpeakingMenu" class="panel home-panel hidden">
+    <h2>Grammar · Speaking/Writing</h2>
     <div class="mode-grid single-mode">
       <button id="answerQuestionBtn" class="mode-card">
         <strong>Answering a Question</strong>
         <span>Read and hear a question, then answer it with a complete Korean sentence.</span>
       </button>
     </div>
-    <div class="actions"><button id="grammarHomeBtn" type="button">Home</button></div>
+    <div class="actions"><button id="grammarSpeakingBackBtn" type="button">Back</button></div>
   </section>
 
   <!-- Existing vocab pre-game screen -->
@@ -167,8 +182,8 @@
     <h2>Alphabet</h2>
     <p class="sub">Choose a mode</p>
     <div class="mode-grid">
-      <button id="alphabetSpeakingBtn" class="mode-card"><strong>Speaking/Writing</strong><span>Explore Hangul letter sets.</span></button>
-      <button id="alphabetReadingBtn" class="mode-card"><strong>Reading/Listening</strong><span>Explore Hangul letter sets.</span></button>
+      <button id="alphabetReadingBtn" class="mode-card"><strong>Reading/Listening</strong><span>See and hear Hangul, then identify its romanization.</span></button>
+      <button id="alphabetSpeakingBtn" class="mode-card"><strong>Speaking/Writing</strong><span>See romanization, then produce the Hangul.</span></button>
     </div>
     <div class="actions"><button id="alphabetHomeBtn" type="button">Home</button></div>
   </section>
@@ -189,6 +204,41 @@
     <p id="alphabetListSubtitle" class="sub"></p>
     <div id="alphabetList" class="alphabet-list"></div>
     <div class="actions"><button id="alphabetListBackBtn" type="button">Back</button></div>
+  </section>
+
+  <section id="alphabetGame" class="hidden">
+    <div class="levelbar">
+      <strong>Remaining <span id="alphabetRemaining">0</span></strong>
+      <span id="alphabetStatus"></span>
+      <button id="alphabetGameHomeBtn" class="home-button" type="button">Home</button>
+    </div>
+    <div id="alphabetPromptStage" class="stage alphabet-prompt-stage hidden"><div id="alphabetPrompt" class="alphabet-prompt"></div></div>
+    <div id="alphabetAnswerStage" class="stage answer-stage hidden">
+      <form id="alphabetAnswerForm" autocomplete="off">
+        <label for="alphabetAnswerInput">Your answer</label>
+        <div class="answer-row"><input id="alphabetAnswerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type Korean"></div>
+        <button class="primary" type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="alphabetChoiceStage" class="stage choice-stage hidden"><div id="alphabetChoiceGrid" class="choice-grid alphabet-choice-grid"></div></div>
+    <div id="alphabetFeedbackStage" class="stage result hidden">
+      <h2 id="alphabetFeedbackTitle"></h2>
+      <p id="alphabetCorrectLabel" class="hidden">Correct answer:</p>
+      <div id="alphabetCorrectAnswer" class="correct-answer hidden" lang="ko"></div>
+      <div class="actions">
+        <button id="alphabetHearBtn" class="hidden" type="button">Hear answer</button>
+        <button id="alphabetNextBtn" class="hidden primary" type="button">Next</button>
+      </div>
+    </div>
+  </section>
+  <section id="alphabetComplete" class="panel result vocab-complete hidden">
+    <div class="completion-trophy" aria-hidden="true">★</div>
+    <h2>Congratulations!</h2>
+    <p id="alphabetCompleteText">You completed the alphabet stack.</p>
+    <div class="actions completion-actions">
+      <button id="alphabetRestartBtn" class="primary" type="button">Restart Stack</button>
+      <button id="alphabetBackToStacksBtn" type="button">Back to Alphabet Stacks</button>
+    </div>
   </section>
 
   <!-- Grammar: Answering a Question -->
@@ -255,7 +305,7 @@
     </div>
   </section>
 
-  <footer><span>V8.9.1.1 · 125 vocab words · five stacks</span></footer>
+  <footer><span>V8.9.2 · 125 vocab words · five stacks</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

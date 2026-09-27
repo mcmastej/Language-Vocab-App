@@ -190,7 +190,18 @@
 /* V8.8.0 — perfect 25/25 stack completion */
 .vocab-complete{text-align:center;max-width:620px;margin:0 auto}.completion-trophy{width:82px;height:82px;margin:8px auto 18px;border-radius:50%;display:grid;place-items:center;font-size:42px;font-weight:900;background:#fef3c7;color:#d97706}.vocab-complete h2{font-size:2rem;margin-bottom:10px}.completion-score{font-size:1.35rem;font-weight:800;margin:22px 0 8px}.completion-actions{margin:30px auto 0;gap:14px}
 
-/* V8.9.1 Alphabet */
+/* V8.9.2 Alphabet */
 .alphabet-list{width:min(760px,100%);display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:18px auto 24px}
 .alphabet-item{background:#fff;border:1px solid #dfe4ea;border-radius:14px;padding:16px 10px;text-align:center;font-size:1.25rem;font-weight:700;line-height:1.4;box-shadow:0 2px 8px rgba(0,0,0,.05);overflow-wrap:anywhere}
 #alphabetMenu>.actions,#alphabetStackMenu>.actions,#alphabetListScreen>.actions{margin-top:30px}
+
+/* V8.9.2 Alphabet gameplay */
+.alphabet-prompt-stage{display:flex;align-items:center;justify-content:center;min-height:330px}
+.alphabet-prompt{font-size:clamp(3.2rem,16vw,7rem);font-weight:850;text-align:center;letter-spacing:.02em}
+.alphabet-choice-grid{max-width:650px}
+.roman-choice{min-height:130px;padding:20px;border:4px solid transparent;border-radius:18px;background:#f8fafc;font-size:clamp(1.5rem,7vw,2.5rem);font-weight:800;cursor:pointer;transition:border-color .12s,transform .12s}
+.roman-choice:not(:disabled):active{transform:scale(.98)}
+.roman-choice.correct-choice{border-color:#22c55e;background:#dcfce7}.roman-choice.wrong-choice{border-color:#ef4444;background:#fee2e2}.roman-choice:disabled{cursor:default;opacity:1}
+#alphabetFeedbackStage .actions,#grammarSpeakingMenu>.actions{margin-top:24px}
+.mode-card:disabled{cursor:default;opacity:.65;background:#f8fafc}
+@media(max-width:620px){.roman-choice{min-height:105px;padding:14px}.alphabet-prompt-stage{min-height:270px}}

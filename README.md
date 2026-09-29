@@ -325,3 +325,10 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Reading/Listening, Speaking/Writing, and Alphabet 3's Word Structure subtitle are bold and the same dark color as the title.
 - Purpose text is regular-weight gray, matching the explanatory copy used on Vocab pre-game screens.
 - Existing Alphabet wording, navigation, and gameplay are unchanged.
+
+## V8.10.0
+- Built from the V8.9.9 benchmark.
+- Replaced Vocab Stack 3 (050–074) with the new 25-word set.
+- Replaced images 050.jpg–074.jpg with the approved new image set.
+- Final image assets are 600×600 high-quality JPEGs cropped from detected white-gutter regions.
+- Vocab Stacks 1–2 and 4–5, Alphabet, Grammar, navigation, and gameplay are otherwise unchanged.

@@ -332,3 +332,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Replaced images 050.jpg–074.jpg with the approved new image set.
 - Final image assets are 600×600 high-quality JPEGs cropped from detected white-gutter regions.
 - Vocab Stacks 1–2 and 4–5, Alphabet, Grammar, navigation, and gameplay are otherwise unchanged.
+
+## V8.10.1
+- Built from V8.10.0.
+- Changed Vocab navigation to match the Alphabet stack-first flow.
+- New flow: Vocab → Vocab Stack 1–5 → Reading/Listening or Speaking/Writing → existing pre-game explanation → game.
+- Back from the Vocab mode screen returns to the stack list.
+- Back from the Vocab pre-game explanation returns to the selected stack's mode screen.
+- Vocab gameplay, words, images, Alphabet, and Grammar are unchanged.

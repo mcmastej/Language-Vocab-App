@@ -53,7 +53,7 @@ function goMainHome(){
 function openVocabMenu(){
   clearTimers();speechSynthesis?.cancel();mode=null;
   hideAllScreens();vocabMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
-  subtitle.textContent="Choose a Vocab mode.";
+  subtitle.textContent="Vocab · Choose a stack.";
 }
 function openGrammarMenu(){
   clearTimers();speechSynthesis?.cancel();mode=null;
@@ -76,13 +76,13 @@ function setHighScore(v){
   highScoreEl.textContent=getHighScore();
 }
 function updateScore(){highScoreEl.textContent=getHighScore()}
-function selectVocabMode(nextMode){
-  mode=nextMode;hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
-  $("stackModeTitle").textContent=mode==="speaking"?"Speaking/Writing · Choose a Vocab Stack":"Reading/Listening · Choose a Vocab Stack";
-  subtitle.textContent="Vocab · Choose a stack.";
-}
 function selectVocabStack(stack){
-  vocabStack=stack;hideAllScreens();startScreen.classList.remove("hidden");scoreBox.classList.remove("hidden");
+  vocabStack=stack;mode=null;hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
+  $("stackModeTitle").textContent=`Vocab Stack ${vocabStack}`;
+  subtitle.textContent=`Vocab · Stack ${vocabStack} · Choose a mode.`;
+}
+function selectVocabMode(nextMode){
+  mode=nextMode;hideAllScreens();startScreen.classList.remove("hidden");scoreBox.classList.remove("hidden");
   if(mode==="speaking"){
     modeTitle.textContent=`Speaking/Writing · Vocab Stack ${vocabStack}`;
     modeInstructions.textContent="An image appears for 2 seconds. After the level-based memory delay, type or speak the Korean word.";
@@ -111,9 +111,7 @@ function completeVocabStack(){
 }
 function restartCompletedVocabStack(){startVocabGame()}
 function backToVocabStacks(){
-  clearTimers();speechSynthesis?.cancel();hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
-  $("stackModeTitle").textContent=mode==="speaking"?"Speaking/Writing · Choose a Vocab Stack":"Reading/Listening · Choose a Vocab Stack";
-  subtitle.textContent="Vocab · Choose a stack.";
+  clearTimers();speechSynthesis?.cancel();openVocabMenu();
 }
 function startSpeakingLevel(){
   statusEl.textContent="Look carefully.";imageStage.classList.remove("hidden");
@@ -299,7 +297,7 @@ $("grammarSpeakingModeBtn").addEventListener("click",()=>{
 $("grammarSpeakingBackBtn").addEventListener("click",openGrammarMenu);
 $("answerQuestionBtn").addEventListener("click",startGrammarGame);
 $("startBtn").addEventListener("click",startVocabGame);
-$("startBackBtn").addEventListener("click",()=>selectVocabMode(mode));
+$("startBackBtn").addEventListener("click",()=>selectVocabStack(vocabStack));
 $("gameHomeBtn").addEventListener("click",goMainHome);
 $("wrongHomeBtn").addEventListener("click",goMainHome);
 $("restartBtn").addEventListener("click",startVocabGame);

@@ -340,3 +340,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Back from the Vocab mode screen returns to the stack list.
 - Back from the Vocab pre-game explanation returns to the selected stack's mode screen.
 - Vocab gameplay, words, images, Alphabet, and Grammar are unchanged.
+
+## V8.10.2
+- Built from the V8.10.1 benchmark.
+- Rebuilt the 10-card Speaking/Writing Grammar deck as Grammar 1.
+- Grammar 1 reuses selected Vocab Stack 1 images and target vocabulary.
+- Cards use images 000, 002, 003, 004, 005, 012, 013, 017, 018, and 020.
+- Each card asks a Korean question and expects a complete Korean sentence using the associated vocabulary.
+- Existing Grammar gameplay, question/answer audio, breakdown controls, retry behavior, normalization, speech input, Alphabet, and Vocab gameplay are unchanged.

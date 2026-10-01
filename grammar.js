@@ -1,51 +1,12 @@
 const GRAMMAR_CARDS = [
-  {image:"000.jpg",promptEn:"Is this person going or coming?",promptKo:"이 사람은 가요, 와요?",answer:"이 사람은 가요.",
-   questionBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["가요","가다 → 가요","go / is going"],["와요?","오다 → 와요","come / is coming?"]],
-   answerBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["가요","가다 → 가요","goes / is going"]],
-   grammarNote:"은/는 marks the topic. 가다 becomes 가요 in the polite present tense."},
-
-  {image:"002.jpg",promptEn:"What is this person watching?",promptKo:"이 사람은 뭐를 봐요?",answer:"이 사람은 텔레비전을 봐요.",
-   questionBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["뭐를","뭐 + 를","what + object particle"],["봐요?","보다 → 봐요","see / watch?"]],
-   answerBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["텔레비전을","텔레비전 + 을","television + object particle"],["봐요","보다 → 봐요","watches"]],
-   grammarNote:"을/를 marks the direct object. 보다 contracts to 봐요 in polite present speech."},
-
-  {image:"003.jpg",promptEn:"What is this person buying?",promptKo:"이 사람은 뭐를 사요?",answer:"이 사람은 옷을 사요.",
-   questionBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["뭐를","뭐 + 를","what + object particle"],["사요?","사다 → 사요","buy?"]],
-   answerBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["옷을","옷 + 을","clothes + object particle"],["사요","사다 → 사요","buys"]],
-   grammarNote:"사다 means ‘to buy.’ Because 옷 ends in a consonant, the object particle 을 is used."},
-
-  {image:"004.jpg",promptEn:"What are these two people doing?",promptKo:"두 사람이 뭐 해요?",answer:"두 사람이 만나요.",
-   questionBreakdown:[["두 사람이","두 사람 + 이","two people + subject particle"],["뭐","what","what"],["해요?","하다 → 해요","do / are doing?"]],
-   answerBreakdown:[["두 사람이","두 사람 + 이","two people + subject particle"],["만나요","만나다 → 만나요","meet / are meeting"]],
-   grammarNote:"이/가 marks the subject. 만나다 becomes 만나요 in the polite present tense."},
-
-  {image:"005.jpg",promptEn:"What is this person waiting for?",promptKo:"이 사람은 뭐를 기다려요?",answer:"이 사람은 버스를 기다려요.",
-   questionBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["뭐를","뭐 + 를","what + object particle"],["기다려요?","기다리다 → 기다려요","wait for?"]],
-   answerBreakdown:[["이 사람은","이 사람 + 은","this person + topic particle"],["버스를","버스 + 를","bus + object particle"],["기다려요","기다리다 → 기다려요","waits for"]],
-   grammarNote:"기다리다 takes the thing being waited for as an object with 을/를."},
-
-  {image:"012.jpg",promptEn:"Is this expensive or cheap?",promptKo:"이거 비싸요, 싸요?",answer:"이거 비싸요.",
-   questionBreakdown:[["이거","이것 → 이거","this thing; common spoken form"],["비싸요","비싸다 → 비싸요","is expensive"],["싸요?","싸다 → 싸요","is cheap?"]],
-   answerBreakdown:[["이거","이것 → 이거","this thing"],["비싸요","비싸다 → 비싸요","is expensive"]],
-   grammarNote:"Descriptive verbs such as 비싸다 can function as complete predicates without a copula."},
-
-  {image:"013.jpg",promptEn:"Is this expensive or cheap?",promptKo:"이거 비싸요, 싸요?",answer:"이거 싸요.",
-   questionBreakdown:[["이거","이것 → 이거","this thing; common spoken form"],["비싸요","비싸다 → 비싸요","is expensive"],["싸요?","싸다 → 싸요","is cheap?"]],
-   answerBreakdown:[["이거","이것 → 이거","this thing"],["싸요","싸다 → 싸요","is cheap"]],
-   grammarNote:"싸다 means ‘to be cheap/inexpensive.’ 싸요 is its polite present form."},
-
-  {image:"017.jpg",promptEn:"What is the relationship between these two people?",promptKo:"두 사람은 어떤 사이예요?",answer:"두 사람은 친구예요.",
-   questionBreakdown:[["두 사람은","두 사람 + 은","the two people + topic particle"],["어떤","what kind of","asks about type or relationship"],["사이예요?","사이 + 예요","what relationship are they?"]],
-   answerBreakdown:[["두 사람은","두 사람 + 은","the two people + topic particle"],["친구예요","친구 + 예요","are friends"]],
-   grammarNote:"예요 is the polite copula after a noun ending in a vowel. 친구예요 means ‘is/are friends.’"},
-
-  {image:"018.jpg",promptEn:"What is this place?",promptKo:"여기는 어디예요?",answer:"여기는 집이에요.",
-   questionBreakdown:[["여기는","여기 + 는","here / this place + topic particle"],["어디예요?","어디 + 예요","where is it? / what place is this?"]],
-   answerBreakdown:[["여기는","여기 + 는","as for this place"],["집이에요","집 + 이에요","is a house / home"]],
-   grammarNote:"이에요 is the polite copula after a noun ending in a consonant, as in 집이에요."},
-
-  {image:"020.jpg",promptEn:"What is this?",promptKo:"이게 뭐예요?",answer:"이게 차예요.",
-   questionBreakdown:[["이게","이것이 → 이게","this + subject particle; contracted form"],["뭐예요?","뭐 + 예요","what is it?"]],
-   answerBreakdown:[["이게","이것이 → 이게","this + subject particle"],["차예요","차 + 예요","is a car"]],
-   grammarNote:"이게 is the common contraction of 이것이. 차 ends in a vowel, so 예요 is used."}
+{image:"024.jpg",promptEn:"Is our trip this week or next week?",promptKo:"우리 여행은 이번 주예요, 아니면 다음 주예요?",answer:"우리 여행은 다음 주예요.",questionBreakdown:[["우리 여행은","우리 여행 + 은","our trip + topic"],["이번 주예요","이번 주 + 예요","is this week"],["아니면","or","or"],["다음 주예요?","다음 주 + 예요","is next week?"]],answerBreakdown:[["우리 여행은","우리 여행 + 은","our trip + topic"],["다음 주예요","다음 주 + 예요","is next week"]],grammarNote:"아니면 connects alternatives. 다음 주 means ‘next week.’"},
+{image:"011.jpg",promptEn:"Are there things in this box?",promptKo:"이 상자에 물건이 있어요?",answer:"아니요, 이 상자에 물건이 없어요.",questionBreakdown:[["이 상자에","이 상자 + 에","in this box"],["물건이","물건 + 이","things + subject"],["있어요?","있다 → 있어요","are there?"]],answerBreakdown:[["아니요","no","no"],["이 상자에","이 상자 + 에","in this box"],["물건이","물건 + 이","things + subject"],["없어요","없다 → 없어요","there aren't"]],grammarNote:"있어요 and 없어요 express existence. 에 marks the location."},
+{image:"020.jpg",promptEn:"What kind of car is in this picture?",promptKo:"이 사진에 어떤 차가 있어요?",answer:"이 사진에 흰색 차가 있어요.",questionBreakdown:[["이 사진에","이 사진 + 에","in this picture"],["어떤","what kind of","what kind of"],["차가","차 + 가","car + subject"],["있어요?","있다 → 있어요","is there?"]],answerBreakdown:[["이 사진에","이 사진 + 에","in this picture"],["흰색 차가","흰색 차 + 가","white car + subject"],["있어요","있다 → 있어요","there is"]],grammarNote:"어떤 asks ‘what kind of.’ 이/가 marks the thing that exists."},
+{image:"015.jpg",promptEn:"Is it near or far from work to home?",promptKo:"회사에서 집까지 가까워요, 아니면 멀어요?",answer:"회사에서 집까지 멀어요.",questionBreakdown:[["회사에서","회사 + 에서","from work"],["집까지","집 + 까지","to home"],["가까워요","가깝다 → 가까워요","is near"],["아니면","or","or"],["멀어요?","멀다 → 멀어요","is far?"]],answerBreakdown:[["회사에서","회사 + 에서","from work"],["집까지","집 + 까지","to home"],["멀어요","멀다 → 멀어요","is far"]],grammarNote:"에서 ... 까지 can express a range from one place to another."},
+{image:"017.jpg",promptEn:"Are these two people friends?",promptKo:"이 두 사람은 친구예요?",answer:"네, 이 두 사람은 친구예요.",questionBreakdown:[["이 두 사람은","이 두 사람 + 은","these two people + topic"],["친구예요?","친구 + 예요","are friends?"]],answerBreakdown:[["네","yes","yes"],["이 두 사람은","이 두 사람 + 은","these two people + topic"],["친구예요","친구 + 예요","are friends"]],grammarNote:"예요 is the polite copula after a noun ending in a vowel."},
+{image:"018.jpg",promptEn:"What kind of building is this?",promptKo:"이 건물은 뭐예요?",answer:"이건 집이에요.",questionBreakdown:[["이 건물은","이 건물 + 은","this building + topic"],["뭐예요?","뭐 + 예요","what is it?"]],answerBreakdown:[["이건","이것은 → 이건","this + topic"],["집이에요","집 + 이에요","is a house"]],grammarNote:"이건 is a common contraction of 이것은. 이에요 follows a consonant-ending noun."},
+{image:"005.jpg",promptEn:"Is this person waiting for the bus?",promptKo:"저 사람은 버스를 기다리고 있어요?",answer:"네, 버스를 기다리고 있어요.",questionBreakdown:[["저 사람은","저 사람 + 은","that person + topic"],["버스를","버스 + 를","bus + object"],["기다리고 있어요?","기다리다 + -고 있다","is waiting?"]],answerBreakdown:[["네","yes","yes"],["버스를","버스 + 를","bus + object"],["기다리고 있어요","기다리다 + -고 있다","is waiting"]],grammarNote:"-고 있어요 describes an action in progress."},
+{image:"003.jpg",promptEn:"What is that woman buying?",promptKo:"저 여자는 뭘 사고 있어요?",answer:"저 여자는 옷을 사고 있어요.",questionBreakdown:[["저 여자는","저 여자 + 는","that woman + topic"],["뭘","뭐 + 를 → 뭘","what + object"],["사고 있어요?","사다 + -고 있다","is buying?"]],answerBreakdown:[["저 여자는","저 여자 + 는","that woman + topic"],["옷을","옷 + 을","clothes + object"],["사고 있어요","사다 + -고 있다","is buying"]],grammarNote:"뭘 is the common contraction of 뭐를. -고 있어요 describes an action happening now."},
+{image:"009.jpg",promptEn:"Does she understand what you're saying?",promptKo:"그녀는 무슨 말인지 알아요?",answer:"아니요, 무슨 말인지 몰라요.",questionBreakdown:[["그녀는","그녀 + 는","she + topic"],["무슨 말인지","무슨 말 + 인지","what is being said / what it means"],["알아요?","알다 → 알아요","does she know?"]],answerBreakdown:[["아니요","no","no"],["무슨 말인지","무슨 말 + 인지","what is being said / what it means"],["몰라요","모르다 → 몰라요","doesn't know"]],grammarNote:"-인지 can embed an indirect question. 알아요 and 몰라요 contrast knowing and not knowing."},
+{image:"002.jpg",promptEn:"What is that guy watching?",promptKo:"저 남자는 뭘 보고 있어요?",answer:"저 남자는 텔레비전을 보고 있어요.",questionBreakdown:[["저 남자는","저 남자 + 는","that man + topic"],["뭘","뭐 + 를 → 뭘","what + object"],["보고 있어요?","보다 + -고 있다","is watching?"]],answerBreakdown:[["저 남자는","저 남자 + 는","that man + topic"],["텔레비전을","텔레비전 + 을","television + object"],["보고 있어요","보다 + -고 있다","is watching"]],grammarNote:"보다 becomes 보고 있어요 with -고 있다 for an action happening now."}
 ];

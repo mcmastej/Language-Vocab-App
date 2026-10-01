@@ -348,3 +348,9 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Cards use images 000, 002, 003, 004, 005, 012, 013, 017, 018, and 020.
 - Each card asks a Korean question and expects a complete Korean sentence using the associated vocabulary.
 - Existing Grammar gameplay, question/answer audio, breakdown controls, retry behavior, normalization, speech input, Alphabet, and Vocab gameplay are unchanged.
+
+## V8.10.3
+- Revised all 10 Grammar 1 prompts, answers, breakdowns, and associated image selection.
+- Grammar 1 images: 024, 011, 020, 015, 017, 018, 005, 003, 009, 002.
+- Questions and answers use more natural conversational Korean while reinforcing the associated Vocab Stack 1 words.
+- Existing gameplay, Vocab, Alphabet, and image assets are unchanged.

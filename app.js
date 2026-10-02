@@ -76,6 +76,19 @@ function setHighScore(v){
   highScoreEl.textContent=getHighScore();
 }
 function updateScore(){highScoreEl.textContent=getHighScore()}
+function renderVocabReference(){
+  const rows=$("vocabReferenceRows");
+  if(!rows)return;
+  const start=(vocabStack-1)*25;
+  rows.innerHTML="";
+  WORDS.slice(start,start+25).forEach(word=>{
+    const row=document.createElement("div"); row.className="vocab-reference-row";
+    const ko=document.createElement("span"); ko.className="vocab-reference-ko"; ko.textContent=word.ko;
+    const en=document.createElement("span"); en.className="vocab-reference-en"; en.textContent=word.meaning;
+    row.append(ko,en); rows.appendChild(row);
+  });
+}
+
 function selectVocabStack(stack){
   vocabStack=stack;mode=null;hideAllScreens();vocabStackMenu.classList.remove("hidden");scoreBox.classList.add("hidden");
   $("stackModeTitle").textContent=`Vocab Stack ${vocabStack}`;
@@ -83,6 +96,7 @@ function selectVocabStack(stack){
 }
 function selectVocabMode(nextMode){
   mode=nextMode;hideAllScreens();startScreen.classList.remove("hidden");scoreBox.classList.remove("hidden");
+  renderVocabReference();
   if(mode==="speaking"){
     modeTitle.textContent=`Speaking/Writing · Vocab Stack ${vocabStack}`;
     modeInstructions.textContent="An image appears for 2 seconds. After the level-based memory delay, type or speak the Korean word.";
@@ -270,7 +284,7 @@ function submitGrammarAnswer(){
 }
 function finishGrammarGame(){
   speechSynthesis?.cancel();hideAllScreens();grammarComplete.classList.remove("hidden");
-  subtitle.textContent="Grammar · Complete";
+  subtitle.textContent="Grammar · Stack complete";
 }
 function grammarBackToMenu(){
   clearTimers();speechSynthesis?.cancel();openGrammarMenu();

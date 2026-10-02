@@ -354,3 +354,8 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Grammar 1 images: 024, 011, 020, 015, 017, 018, 005, 003, 009, 002.
 - Questions and answers use more natural conversational Korean while reinforcing the associated Vocab Stack 1 words.
 - Existing gameplay, Vocab, Alphabet, and image assets are unchanged.
+
+## V8.10.4
+- Grammar answers mirror their questions more completely where natural.
+- Grammar completion uses the Congratulations-style completion presentation.
+- Vocab pre-game screens dynamically show all 25 Korean words with English meanings from words.js.

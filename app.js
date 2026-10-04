@@ -326,7 +326,7 @@ $("answerForm").addEventListener("submit",e=>{
 });
 
 $("grammarGameHomeBtn").addEventListener("click",goMainHome);
-$("grammarCompleteHomeBtn").addEventListener("click",goMainHome);
+$("grammarCompleteHomeBtn").addEventListener("click",openGrammarMenu);
 $("grammarRestartBtn").addEventListener("click",startGrammarGame);
 grammarQuestionBreakdownBtn.addEventListener("click",toggleQuestionBreakdown);
 grammarAnswerBreakdownBtn.addEventListener("click",toggleAnswerBreakdown);

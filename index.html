@@ -113,13 +113,13 @@
   <section id="startScreen" class="panel hidden">
     <h2 id="modeTitle"></h2>
     <p id="modeInstructions"></p>
-    <div id="vocabReference" class="vocab-reference" aria-label="Vocabulary in this stack">
-      <div class="vocab-reference-heading"><span>Korean</span><span>English</span></div>
-      <div id="vocabReferenceRows"></div>
-    </div>
     <div class="actions">
       <button id="startBtn" class="primary">Start game</button>
       <button id="startBackBtn" type="button">Back</button>
+    </div>
+    <div id="vocabReference" class="vocab-reference" aria-label="Vocabulary in this stack">
+      <div class="vocab-reference-heading"><span>Korean</span><span>English</span></div>
+      <div id="vocabReferenceRows"></div>
     </div>
   </section>
 
@@ -346,16 +346,18 @@
     </div>
   </section>
 
-  <section id="grammarComplete" class="panel result hidden">
+  <section id="grammarComplete" class="panel result vocab-complete hidden">
+    <div class="completion-trophy" aria-hidden="true">★</div>
     <h2>Congratulations!</h2>
-    <p>You completed all 10 cards!</p>
-    <div class="actions">
-      <button id="grammarRestartBtn" class="primary" type="button">Play again</button>
-      <button id="grammarCompleteHomeBtn" type="button">Home</button>
+    <p>You answered all 10 cards in Grammar Stack 1 correctly.</p>
+    <p class="completion-score">10 / 10 correct</p>
+    <div class="actions completion-actions">
+      <button id="grammarRestartBtn" class="primary" type="button">Restart Stack</button>
+      <button id="grammarCompleteHomeBtn" type="button">Back to Grammar</button>
     </div>
   </section>
 
-  <footer><span>V8.10.4 · 125 vocab words · five stacks</span></footer>
+  <footer><span>V8.10.5 · 125 vocab words · five stacks</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

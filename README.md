@@ -359,3 +359,10 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Grammar answers mirror their questions more completely where natural.
 - Grammar completion uses the Congratulations-style completion presentation.
 - Vocab pre-game screens dynamically show all 25 Korean words with English meanings from words.js.
+
+## V8.10.5
+- Moved Vocab pre-game Start game / Back controls above the 25-word reference table.
+- Replaced 056.jpg (다시) with the approved game-restart image.
+- Replaced 059.jpg (보통) with the approved morning-coffee routine image.
+- Replaced Vocab Stack 4 with finalized vocabulary 075–099 and its approved 25-image set.
+- Grammar Stack 1 completion now mirrors the Vocab completion design with star badge, 10/10 score, Restart Stack, and Back to Grammar.

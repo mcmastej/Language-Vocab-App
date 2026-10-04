@@ -525,178 +525,178 @@ const WORDS = [
     "image": "074.jpg"
   },
   {
-    "ko": "목말라요",
-    "type": "adjective",
-    "meaning": "thirsty",
-    "form": "목마르다",
+    "ko": "뭐",
+    "type": "pronoun",
+    "meaning": "what",
+    "form": "뭐",
     "image": "075.jpg"
   },
   {
-    "ko": "달려요",
-    "type": "verb",
-    "meaning": "run",
-    "form": "달리다",
+    "ko": "누구",
+    "type": "pronoun",
+    "meaning": "who",
+    "form": "누구",
     "image": "076.jpg"
+  },
+  {
+    "ko": "어떻게",
+    "type": "adverb",
+    "meaning": "how",
+    "form": "어떻게",
+    "image": "077.jpg"
+  },
+  {
+    "ko": "몇",
+    "type": "determiner",
+    "meaning": "how many / what (number)",
+    "form": "몇",
+    "image": "078.jpg"
+  },
+  {
+    "ko": "때",
+    "type": "noun",
+    "meaning": "time / when",
+    "form": "때",
+    "image": "079.jpg"
+  },
+  {
+    "ko": "아침",
+    "type": "noun",
+    "meaning": "morning / breakfast",
+    "form": "아침",
+    "image": "080.jpg"
+  },
+  {
+    "ko": "점심",
+    "type": "noun",
+    "meaning": "lunch",
+    "form": "점심",
+    "image": "081.jpg"
+  },
+  {
+    "ko": "저녁",
+    "type": "noun",
+    "meaning": "evening / dinner",
+    "form": "저녁",
+    "image": "082.jpg"
+  },
+  {
+    "ko": "아까",
+    "type": "adverb",
+    "meaning": "earlier / a little while ago",
+    "form": "아까",
+    "image": "083.jpg"
+  },
+  {
+    "ko": "요일",
+    "type": "noun",
+    "meaning": "day of the week",
+    "form": "요일",
+    "image": "084.jpg"
+  },
+  {
+    "ko": "약속",
+    "type": "noun",
+    "meaning": "plans / appointment / promise",
+    "form": "약속",
+    "image": "085.jpg"
+  },
+  {
+    "ko": "전화",
+    "type": "noun",
+    "meaning": "phone call / telephone",
+    "form": "전화",
+    "image": "086.jpg"
+  },
+  {
+    "ko": "문자",
+    "type": "noun",
+    "meaning": "text message",
+    "form": "문자",
+    "image": "087.jpg"
+  },
+  {
+    "ko": "보내요",
+    "type": "verb",
+    "meaning": "send",
+    "form": "보내다",
+    "image": "088.jpg"
+  },
+  {
+    "ko": "연락해요",
+    "type": "verb",
+    "meaning": "contact / get in touch",
+    "form": "연락하다",
+    "image": "089.jpg"
+  },
+  {
+    "ko": "들어가요",
+    "type": "verb",
+    "meaning": "go in / enter",
+    "form": "들어가다",
+    "image": "090.jpg"
+  },
+  {
+    "ko": "나와요",
+    "type": "verb",
+    "meaning": "come out / leave",
+    "form": "나오다",
+    "image": "091.jpg"
+  },
+  {
+    "ko": "가져와요",
+    "type": "verb",
+    "meaning": "bring",
+    "form": "가져오다",
+    "image": "092.jpg"
+  },
+  {
+    "ko": "가져가요",
+    "type": "verb",
+    "meaning": "take / bring along",
+    "form": "가져가다",
+    "image": "093.jpg"
   },
   {
     "ko": "써요",
     "type": "verb",
-    "meaning": "write",
+    "meaning": "use / write",
     "form": "쓰다",
-    "image": "077.jpg"
-  },
-  {
-    "ko": "들어요",
-    "type": "verb",
-    "meaning": "listen / hear",
-    "form": "듣다",
-    "image": "078.jpg"
-  },
-  {
-    "ko": "안녕하세요",
-    "type": "expression",
-    "meaning": "hello",
-    "form": "안녕하세요",
-    "image": "079.jpg"
-  },
-  {
-    "ko": "안녕히 가세요",
-    "type": "expression",
-    "meaning": "goodbye",
-    "form": "안녕히 가세요",
-    "image": "080.jpg"
-  },
-  {
-    "ko": "국",
-    "type": "noun",
-    "meaning": "soup",
-    "form": "국",
-    "image": "081.jpg"
-  },
-  {
-    "ko": "주스",
-    "type": "noun",
-    "meaning": "juice",
-    "form": "주스",
-    "image": "082.jpg"
-  },
-  {
-    "ko": "잔",
-    "type": "noun",
-    "meaning": "glass / cup",
-    "form": "잔",
-    "image": "083.jpg"
-  },
-  {
-    "ko": "선생님",
-    "type": "noun",
-    "meaning": "teacher",
-    "form": "선생님",
-    "image": "084.jpg"
-  },
-  {
-    "ko": "학생",
-    "type": "noun",
-    "meaning": "student",
-    "form": "학생",
-    "image": "085.jpg"
-  },
-  {
-    "ko": "병원",
-    "type": "noun",
-    "meaning": "hospital",
-    "form": "병원",
-    "image": "086.jpg"
-  },
-  {
-    "ko": "은행",
-    "type": "noun",
-    "meaning": "bank",
-    "form": "은행",
-    "image": "087.jpg"
-  },
-  {
-    "ko": "마트",
-    "type": "noun",
-    "meaning": "mart / supermarket",
-    "form": "마트",
-    "image": "088.jpg"
-  },
-  {
-    "ko": "식당",
-    "type": "noun",
-    "meaning": "restaurant",
-    "form": "식당",
-    "image": "089.jpg"
-  },
-  {
-    "ko": "인터넷",
-    "type": "noun",
-    "meaning": "internet",
-    "form": "인터넷",
-    "image": "090.jpg"
-  },
-  {
-    "ko": "텔레비전",
-    "type": "noun",
-    "meaning": "television",
-    "form": "텔레비전",
-    "image": "091.jpg"
-  },
-  {
-    "ko": "동물",
-    "type": "noun",
-    "meaning": "animal",
-    "form": "동물",
-    "image": "092.jpg"
-  },
-  {
-    "ko": "비",
-    "type": "noun",
-    "meaning": "rain",
-    "form": "비",
-    "image": "093.jpg"
-  },
-  {
-    "ko": "겨울",
-    "type": "noun",
-    "meaning": "winter",
-    "form": "겨울",
     "image": "094.jpg"
   },
   {
-    "ko": "바람",
-    "type": "noun",
-    "meaning": "wind",
-    "form": "바람",
+    "ko": "입어요",
+    "type": "verb",
+    "meaning": "wear / put on",
+    "form": "입다",
     "image": "095.jpg"
   },
   {
-    "ko": "구름",
-    "type": "noun",
-    "meaning": "cloud",
-    "form": "구름",
+    "ko": "좋아요",
+    "type": "adjective",
+    "meaning": "good / nice / like it",
+    "form": "좋다",
     "image": "096.jpg"
   },
   {
-    "ko": "하늘",
-    "type": "noun",
-    "meaning": "sky",
-    "form": "하늘",
+    "ko": "추워요",
+    "type": "adjective",
+    "meaning": "cold",
+    "form": "춥다",
     "image": "097.jpg"
   },
   {
-    "ko": "별",
-    "type": "noun",
-    "meaning": "star",
-    "form": "별",
+    "ko": "더워요",
+    "type": "adjective",
+    "meaning": "hot",
+    "form": "덥다",
     "image": "098.jpg"
   },
   {
-    "ko": "무지개",
+    "ko": "날씨",
     "type": "noun",
-    "meaning": "rainbow",
-    "form": "무지개",
+    "meaning": "weather",
+    "form": "날씨",
     "image": "099.jpg"
   },
   {

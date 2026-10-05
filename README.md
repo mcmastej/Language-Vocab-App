@@ -378,3 +378,11 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Incorrect Reading/Listening shows red/green image feedback plus `Breakdown sentence`; incorrect Speaking/Writing shows the correct sentence plus `Breakdown answer`.
 - Grammar completion remains the 10/10 Congratulations screen.
 - Visible footer updated to V8.10.6.
+
+
+## V9.0.0
+- Grammar Reading/Listening sentence presentation is now synchronized to Korean speech playback: the sentence remains visible until TTS finishes.
+- The level-based black memory interval begins only after speech completion (Level 1 = 1 second through Level 10 = 10 seconds).
+- Grammar Speaking/Writing retains the 2-second image presentation followed by the level-based memory interval.
+- Includes a safety fallback for browsers that fail to emit a speech-completion event.
+- Visible footer updated to V9.0.0.

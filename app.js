@@ -29,12 +29,21 @@ function normalize(s){
     .normalize("NFC")
     .replace(/[\s\p{P}\p{S}]+/gu,"");
 }
-function speakKorean(text){
-  if(!("speechSynthesis" in window))return;
+function speakKorean(text,onDone){
+  if(!("speechSynthesis" in window)){if(onDone)onDone();return null}
   speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text);
   u.lang="ko-KR";u.rate=.85;
+  if(onDone){
+    let finished=false;
+    const finish=()=>{if(finished)return;finished=true;onDone()};
+    u.onend=finish;
+    u.onerror=finish;
+    // Safety fallback only if the browser never reports speech completion.
+    timers.push(setTimeout(finish,30000));
+  }
   speechSynthesis.speak(u);
+  return u;
 }
 function imageElement(path){
   const img=document.createElement("img");
@@ -200,7 +209,7 @@ function chooseGrammarCard(){if(!grammarRun.length)return null;return grammarRun
 function selectGrammarMode(nextMode){grammarMode=nextMode;hideAllScreens();grammarSpeakingMenu.classList.remove("hidden");scoreBox.classList.add("hidden");$("grammarModeMenuTitle").textContent=`Grammar · ${nextMode==="listening"?"Reading/Listening":"Speaking/Writing"}`;subtitle.textContent=$("grammarModeMenuTitle").textContent}
 function startGrammarGame(){clearTimers();speechSynthesis?.cancel();grammarLevel=1;grammarRun=[...GRAMMAR_CARDS];grammarLocked=false;grammarCompletedCount=0;grammarCompleted.textContent="0";grammarTotal.textContent=GRAMMAR_CARDS.length;hideAllScreens();grammarGame.classList.remove("hidden");subtitle.textContent=`Grammar · Stack 1 · ${grammarMode==="listening"?"Korean → Image":"Image → Korean"}`;startGrammarLevel()}
 function startGrammarLevel(){clearTimers();grammarLocked=false;if(!grammarRun.length){finishGrammarGame();return}currentGrammarCard=chooseGrammarCard();$("grammarLevel").textContent=grammarLevel;hideGrammarStages();grammarQuestionBreakdown.classList.add("hidden");grammarAnswerBreakdown.classList.add("hidden");grammarQuestionBreakdownBtn.classList.add("hidden");grammarAnswerBreakdownBtn.classList.add("hidden");$("grammarRestartWrongBtn").classList.add("hidden");$("grammarHearQuestionBtn").classList.add("hidden");grammarCorrectAnswerBlock.classList.add("hidden");if(grammarMode==="listening")startGrammarListening();else startGrammarSpeaking()}
-function startGrammarListening(){grammarStatus.textContent="Read and listen.";$("grammarSentenceStage").classList.remove("hidden");grammarPromptKo.textContent=currentGrammarCard.sentence;speakKorean(currentGrammarCard.sentence);timers.push(setTimeout(()=>{$("grammarSentenceStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it."},2000));timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");showGrammarChoices();grammarStatus.textContent="Choose the matching image."},2000+grammarLevel*1000))}
+function startGrammarListening(){grammarStatus.textContent="Read and listen.";$("grammarSentenceStage").classList.remove("hidden");grammarPromptKo.textContent=currentGrammarCard.sentence;speakKorean(currentGrammarCard.sentence,()=>{$("grammarSentenceStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it.";timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");showGrammarChoices();grammarStatus.textContent="Choose the matching image."},grammarLevel*1000))})}
 function startGrammarSpeaking(){grammarStatus.textContent="Look carefully.";$("grammarImageStage").classList.remove("hidden");grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));timers.push(setTimeout(()=>{$("grammarImageStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it."},2000));timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");$("grammarAnswerStage").classList.remove("hidden");grammarStatus.textContent="What was the sentence?";grammarAnswerInput.value="";grammarAnswerInput.disabled=false;grammarAnswerInput.focus()},2000+grammarLevel*1000))}
 function grammarDistractors(){return shuffle(GRAMMAR_CARDS.filter(c=>c!==currentGrammarCard)).slice(0,3)}
 function showGrammarChoices(){$("grammarChoiceStage").classList.remove("hidden");const grid=$("grammarChoiceGrid");grid.innerHTML="";shuffle([currentGrammarCard,...grammarDistractors()]).forEach(card=>{const btn=document.createElement("button");btn.type="button";btn.className="image-choice";btn.dataset.correct=card===currentGrammarCard?"true":"false";btn.appendChild(imageElement(card.image));btn.addEventListener("click",()=>handleGrammarChoice(btn,card));grid.appendChild(btn)})}

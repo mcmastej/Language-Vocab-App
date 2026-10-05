@@ -366,3 +366,15 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 - Replaced 059.jpg (보통) with the approved morning-coffee routine image.
 - Replaced Vocab Stack 4 with finalized vocabulary 075–099 and its approved 25-image set.
 - Grammar Stack 1 completion now mirrors the Vocab completion design with star badge, 10/10 score, Restart Stack, and Back to Grammar.
+
+
+## V8.10.6
+- Renamed all Vocab image assets and `words.js` references to the explicit `V000.jpg`–`V124.jpg` namespace.
+- Added dedicated Grammar Stack 1 images `G000.jpg`–`G009.jpg`, each exported as a 600×600 JPEG from the approved 5×2 rough-draft image set.
+- Replaced Grammar Stack 1 content with the 10 new grammar-function sentences and sentence/grammar breakdown data.
+- Overhauled Grammar Reading/Listening to mirror Vocab memory gameplay: sentence + Korean audio for 2 seconds, level-based blank interval, then four-image selection.
+- Overhauled Grammar Speaking/Writing to mirror Vocab memory gameplay: image for 2 seconds, level-based blank interval, then full-sentence Korean input by typing or speech.
+- Grammar uses 10 randomized unique cards per successful run; correct cards leave the pool and any incorrect answer ends the run and requires Restart Stack.
+- Incorrect Reading/Listening shows red/green image feedback plus `Breakdown sentence`; incorrect Speaking/Writing shows the correct sentence plus `Breakdown answer`.
+- Grammar completion remains the 10/10 Congratulations screen.
+- Visible footer updated to V8.10.6.

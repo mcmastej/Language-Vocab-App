@@ -86,24 +86,24 @@
   <section id="grammarMenu" class="panel home-panel hidden">
     <h2>Grammar</h2>
     <div class="mode-grid">
-      <button id="grammarReadingModeBtn" class="mode-card" disabled>
+      <button id="grammarReadingModeBtn" class="mode-card">
         <strong>Reading/Listening</strong>
-        <span>Gameplay coming in a later update.</span>
+        <span>Read and hear a complete Korean sentence, remember it, then choose the matching image.</span>
       </button>
       <button id="grammarSpeakingModeBtn" class="mode-card">
         <strong>Speaking/Writing</strong>
-        <span>Produce complete Korean answers to questions.</span>
+        <span>See an image, remember it, then produce the complete Korean sentence.</span>
       </button>
     </div>
     <div class="actions"><button id="grammarHomeBtn" type="button">Home</button></div>
   </section>
 
   <section id="grammarSpeakingMenu" class="panel home-panel hidden">
-    <h2>Grammar · Speaking/Writing</h2>
+    <h2 id="grammarModeMenuTitle">Grammar · Stack 1</h2>
     <div class="mode-grid single-mode">
       <button id="answerQuestionBtn" class="mode-card">
-        <strong>Grammar 1 · Answering a Question</strong>
-        <span>Read and hear a question, then answer it with a complete Korean sentence.</span>
+        <strong>Grammar Stack 1</strong>
+        <span>10 sentences · memory challenge</span>
       </button>
     </div>
     <div class="actions"><button id="grammarSpeakingBackBtn" type="button">Back</button></div>
@@ -291,59 +291,35 @@
     </div>
   </section>
 
-  <!-- Grammar: Answering a Question -->
+  <!-- Grammar memory game -->
   <section id="grammarGame" class="hidden">
     <div class="levelbar">
-      <strong>Completed <span id="grammarCompleted">0</span> / <span id="grammarTotal">10</span></strong>
+      <strong>Level <span id="grammarLevel">1</span></strong>
       <span id="grammarStatus"></span>
       <button id="grammarGameHomeBtn" class="home-button" type="button">Home</button>
     </div>
-
-    <div id="grammarCard" class="panel grammar-card">
-      <div id="grammarImage" class="grammar-image"></div>
-
-      <div class="grammar-prompt">
-        <div class="grammar-korean-row">
-          <div id="grammarPromptKo" class="grammar-prompt-ko" lang="ko"></div>
-          <button id="grammarHearQuestionBtn" class="round-control" type="button" aria-label="Hear question">🔊</button>
-        </div>
-      </div>
-
-      <button id="grammarQuestionBreakdownBtn" class="breakdown-toggle" type="button" aria-expanded="false">Breakdown question</button>
-      <div id="grammarQuestionBreakdown" class="breakdown-panel hidden"></div>
-
-      <form id="grammarAnswerForm" class="grammar-answer-form" autocomplete="off">
-        <label for="grammarAnswerInput">Your answer</label>
-        <div class="answer-row">
-          <input id="grammarAnswerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type your Korean answer">
-          <button id="grammarSpeakBtn" type="button" aria-label="Speak answer">Speak</button>
-        </div>
+    <div id="grammarSentenceStage" class="stage hidden"><div id="grammarPromptKo" class="presented-word grammar-sentence" lang="ko"></div></div>
+    <div id="grammarImageStage" class="stage hidden"><div id="grammarImage" class="word-image grammar-image"></div></div>
+    <div id="grammarBlankStage" class="stage blank-stage hidden"></div>
+    <div id="grammarChoiceStage" class="stage choice-stage hidden"><div id="grammarChoiceGrid" class="choice-grid"></div></div>
+    <div id="grammarAnswerStage" class="stage answer-stage hidden">
+      <form id="grammarAnswerForm" autocomplete="off">
+        <label for="grammarAnswerInput">Your sentence</label>
+        <div class="answer-row"><input id="grammarAnswerInput" inputmode="text" lang="ko" autocapitalize="off" spellcheck="false" placeholder="Type or speak the Korean sentence"><button id="grammarSpeakBtn" type="button">Speak</button></div>
         <button class="primary" type="submit">Submit</button>
       </form>
       <p id="grammarSpeechNote" class="note">Speech input is optional. If available, it fills the box; you still press Submit.</p>
-
-      <div id="grammarFeedback" class="grammar-feedback hidden">
-        <h2 id="grammarFeedbackTitle"></h2>
-
-        <div id="grammarUserAnswerBlock" class="grammar-answer-review hidden">
-          <p class="review-label">Your answer:</p>
-          <div id="grammarUserAnswer" class="review-answer" lang="ko"></div>
-        </div>
-
-        <div id="grammarCorrectAnswerBlock" class="grammar-answer-review hidden">
-          <p id="grammarFeedbackLabel" class="review-label">Correct answer:</p>
-          <div class="answer-audio-row">
-            <div id="grammarCorrectAnswer" class="correct-answer" lang="ko"></div>
-            <button id="grammarHearAnswerBtn" class="round-control" type="button" aria-label="Hear correct answer">🔊</button>
-          </div>
-        </div>
-
-        <button id="grammarAnswerBreakdownBtn" class="breakdown-toggle hidden" type="button" aria-expanded="false">Breakdown answer</button>
-        <div id="grammarAnswerBreakdown" class="breakdown-panel hidden"></div>
-
-        <button id="grammarNextBtn" class="primary" type="button">Next card</button>
-      </div>
     </div>
+    <div id="grammarFeedback" class="stage result hidden">
+      <h2 id="grammarFeedbackTitle"></h2>
+      <div id="grammarCorrectAnswerBlock" class="grammar-answer-review hidden"><p class="review-label">Correct sentence:</p><div class="answer-audio-row"><div id="grammarCorrectAnswer" class="correct-answer" lang="ko"></div><button id="grammarHearAnswerBtn" class="round-control" type="button">🔊</button></div></div>
+      <button id="grammarQuestionBreakdownBtn" class="breakdown-toggle hidden" type="button" aria-expanded="false">Breakdown sentence</button>
+      <button id="grammarAnswerBreakdownBtn" class="breakdown-toggle hidden" type="button" aria-expanded="false">Breakdown answer</button>
+      <div id="grammarQuestionBreakdown" class="breakdown-panel hidden"></div>
+      <div id="grammarAnswerBreakdown" class="breakdown-panel hidden"></div>
+      <div class="actions"><button id="grammarRestartWrongBtn" class="primary hidden" type="button">Restart Stack</button><button id="grammarHearQuestionBtn" class="hidden" type="button">Hear sentence</button></div>
+    </div>
+    <span id="grammarCompleted" class="hidden">0</span><span id="grammarTotal" class="hidden">10</span><span id="grammarFeedbackLabel" class="hidden"></span><span id="grammarUserAnswerBlock" class="hidden"></span><span id="grammarUserAnswer" class="hidden"></span><button id="grammarNextBtn" class="hidden" type="button"></button>
   </section>
 
   <section id="grammarComplete" class="panel result vocab-complete hidden">
@@ -357,7 +333,7 @@
     </div>
   </section>
 
-  <footer><span>V8.10.5 · 125 vocab words · five stacks</span></footer>
+  <footer><span>V8.10.6 · 125 vocab words · five stacks · Grammar Stack 1</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

@@ -194,7 +194,7 @@ function handleImageChoice(btn,word){
 }
 
 /* ---------- Grammar memory modes ---------- */
-let grammarMode="speaking",grammarLevel=1,grammarRun=[],grammarLocked=false;
+let grammarMode="speaking",grammarLevel=1,grammarRun=[],grammarLocked=false,grammarStackNumber=1;
 const grammarCompleted=$("grammarCompleted"),grammarTotal=$("grammarTotal"),grammarStatus=$("grammarStatus");
 const grammarImage=$("grammarImage"),grammarPromptKo=$("grammarPromptKo");
 const grammarQuestionBreakdownBtn=$("grammarQuestionBreakdownBtn"),grammarQuestionBreakdown=$("grammarQuestionBreakdown");
@@ -207,17 +207,17 @@ function toggleGrammarBreakdown(btn,panel,label){const opening=panel.classList.c
 function hideGrammarStages(){["grammarSentenceStage","grammarImageStage","grammarBlankStage","grammarChoiceStage","grammarAnswerStage","grammarFeedback"].forEach(id=>$(id).classList.add("hidden"))}
 function chooseGrammarCard(){if(!grammarRun.length)return null;return grammarRun.splice(Math.floor(Math.random()*grammarRun.length),1)[0]}
 function selectGrammarMode(nextMode){grammarMode=nextMode;hideAllScreens();grammarSpeakingMenu.classList.remove("hidden");scoreBox.classList.add("hidden");$("grammarModeMenuTitle").textContent=`Grammar · ${nextMode==="listening"?"Reading/Listening":"Speaking/Writing"}`;subtitle.textContent=$("grammarModeMenuTitle").textContent}
-function startGrammarGame(){clearTimers();speechSynthesis?.cancel();grammarLevel=1;grammarRun=[...GRAMMAR_CARDS];grammarLocked=false;grammarCompletedCount=0;grammarCompleted.textContent="0";grammarTotal.textContent=GRAMMAR_CARDS.length;hideAllScreens();grammarGame.classList.remove("hidden");subtitle.textContent=`Grammar · Stack 1 · ${grammarMode==="listening"?"Korean → Image":"Image → Korean"}`;startGrammarLevel()}
+function startGrammarGame(stack=grammarStackNumber){grammarStackNumber=stack;clearTimers();speechSynthesis?.cancel();grammarLevel=1;grammarRun=GRAMMAR_CARDS.slice((grammarStackNumber-1)*10,grammarStackNumber*10);grammarLocked=false;grammarCompletedCount=0;grammarCompleted.textContent="0";grammarTotal.textContent=grammarRun.length;hideAllScreens();grammarGame.classList.remove("hidden");subtitle.textContent=`Grammar · Stack ${grammarStackNumber} · ${grammarMode==="listening"?"Korean → Image":"Image → Korean"}`;startGrammarLevel()}
 function startGrammarLevel(){clearTimers();grammarLocked=false;if(!grammarRun.length){finishGrammarGame();return}currentGrammarCard=chooseGrammarCard();$("grammarLevel").textContent=grammarLevel;hideGrammarStages();grammarQuestionBreakdown.classList.add("hidden");grammarAnswerBreakdown.classList.add("hidden");grammarQuestionBreakdownBtn.classList.add("hidden");grammarAnswerBreakdownBtn.classList.add("hidden");$("grammarRestartWrongBtn").classList.add("hidden");$("grammarHearQuestionBtn").classList.add("hidden");grammarCorrectAnswerBlock.classList.add("hidden");if(grammarMode==="listening")startGrammarListening();else startGrammarSpeaking()}
 function startGrammarListening(){grammarStatus.textContent="Read and listen.";$("grammarSentenceStage").classList.remove("hidden");grammarPromptKo.textContent=currentGrammarCard.sentence;speakKorean(currentGrammarCard.sentence,()=>{$("grammarSentenceStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it.";timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");showGrammarChoices();grammarStatus.textContent="Choose the matching image."},grammarLevel*1000))})}
 function startGrammarSpeaking(){grammarStatus.textContent="Look carefully.";$("grammarImageStage").classList.remove("hidden");grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));timers.push(setTimeout(()=>{$("grammarImageStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it."},2000));timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");$("grammarAnswerStage").classList.remove("hidden");grammarStatus.textContent="What was the sentence?";grammarAnswerInput.value="";grammarAnswerInput.disabled=false;grammarAnswerInput.focus()},2000+grammarLevel*1000))}
-function grammarDistractors(){return shuffle(GRAMMAR_CARDS.filter(c=>c!==currentGrammarCard)).slice(0,3)}
-function showGrammarChoices(){$("grammarChoiceStage").classList.remove("hidden");const grid=$("grammarChoiceGrid");grid.innerHTML="";shuffle([currentGrammarCard,...grammarDistractors()]).forEach(card=>{const btn=document.createElement("button");btn.type="button";btn.className="image-choice";btn.dataset.correct=card===currentGrammarCard?"true":"false";btn.appendChild(imageElement(card.image));btn.addEventListener("click",()=>handleGrammarChoice(btn,card));grid.appendChild(btn)})}
+function grammarDistractors(){return shuffle(GRAMMAR_CARDS.slice((grammarStackNumber-1)*10,grammarStackNumber*10).filter(c=>c!==currentGrammarCard)).slice(0,3)}
+function showGrammarChoices(){$("grammarChoiceStage").classList.remove("hidden");$("grammarReplayBtn").disabled=false;const grid=$("grammarChoiceGrid");grid.innerHTML="";shuffle([currentGrammarCard,...grammarDistractors()]).forEach(card=>{const btn=document.createElement("button");btn.type="button";btn.className="image-choice";btn.dataset.correct=card===currentGrammarCard?"true":"false";btn.appendChild(imageElement(card.image));btn.addEventListener("click",()=>handleGrammarChoice(btn,card));grid.appendChild(btn)})}
 function grammarCorrect(){grammarLocked=true;grammarCompletedCount++;grammarCompleted.textContent=grammarCompletedCount;grammarStatus.textContent="Correct!";if(!grammarRun.length)timers.push(setTimeout(finishGrammarGame,650));else timers.push(setTimeout(()=>{grammarLevel++;startGrammarLevel()},650))}
 function grammarWrong(){clearTimers();grammarLocked=true;if(grammarMode!=="listening")hideGrammarStages();grammarFeedback.classList.remove("hidden");grammarFeedbackTitle.textContent="Incorrect";grammarStatus.textContent="Game over";grammarCorrectAnswer.textContent=currentGrammarCard.sentence;grammarCorrectAnswerBlock.classList.remove("hidden");$("grammarRestartWrongBtn").classList.remove("hidden");renderGrammarBreakdown(grammarMode==="listening"?grammarQuestionBreakdown:grammarAnswerBreakdown);if(grammarMode==="listening"){grammarQuestionBreakdownBtn.classList.remove("hidden");grammarQuestionBreakdownBtn.textContent="Breakdown sentence";$("grammarHearQuestionBtn").classList.remove("hidden")}else{grammarAnswerBreakdownBtn.classList.remove("hidden");grammarAnswerBreakdownBtn.textContent="Breakdown answer"}}
-function handleGrammarChoice(btn,card){if(grammarLocked)return;grammarLocked=true;const buttons=[...$("grammarChoiceGrid").querySelectorAll(".image-choice")];buttons.forEach(b=>b.disabled=true);if(card===currentGrammarCard){btn.classList.add("correct-choice");grammarCorrect()}else{btn.classList.add("wrong-choice");buttons.find(b=>b.dataset.correct==="true")?.classList.add("correct-choice");timers.push(setTimeout(grammarWrong,450))}}
+function handleGrammarChoice(btn,card){if(grammarLocked)return;grammarLocked=true;$("grammarReplayBtn").disabled=true;speechSynthesis?.cancel();const buttons=[...$("grammarChoiceGrid").querySelectorAll(".image-choice")];buttons.forEach(b=>b.disabled=true);if(card===currentGrammarCard){btn.classList.add("correct-choice");grammarCorrect()}else{btn.classList.add("wrong-choice");buttons.find(b=>b.dataset.correct==="true")?.classList.add("correct-choice");timers.push(setTimeout(grammarWrong,450))}}
 function submitGrammarAnswer(){if(grammarLocked||!currentGrammarCard)return;if(normalize(grammarAnswerInput.value)===normalize(currentGrammarCard.sentence))grammarCorrect();else grammarWrong()}
-function finishGrammarGame(){clearTimers();speechSynthesis?.cancel();hideAllScreens();grammarComplete.classList.remove("hidden");subtitle.textContent="Grammar · Stack 1 · Complete"}
+function finishGrammarGame(){clearTimers();speechSynthesis?.cancel();hideAllScreens();grammarComplete.classList.remove("hidden");subtitle.textContent="Grammar · Stack ${grammarStackNumber} · Complete"}
 function grammarBackToMenu(){clearTimers();speechSynthesis?.cancel();openGrammarMenu()}
 /* ---------- Navigation ---------- */
 $("vocabSectionBtn").addEventListener("click",openVocabMenu);
@@ -237,7 +237,8 @@ $("vocabBackToStacksBtn").addEventListener("click",backToVocabStacks);
 $("grammarSpeakingModeBtn").addEventListener("click",()=>selectGrammarMode("speaking"));
 $("grammarReadingModeBtn").addEventListener("click",()=>selectGrammarMode("listening"));
 $("grammarSpeakingBackBtn").addEventListener("click",openGrammarMenu);
-$("answerQuestionBtn").addEventListener("click",startGrammarGame);
+$("answerQuestionBtn").addEventListener("click",()=>startGrammarGame(1));
+$("grammarStack2Btn").addEventListener("click",()=>startGrammarGame(2));
 $("startBtn").addEventListener("click",startVocabGame);
 $("startBackBtn").addEventListener("click",()=>selectVocabStack(vocabStack));
 $("gameHomeBtn").addEventListener("click",goMainHome);
@@ -255,12 +256,13 @@ $("answerForm").addEventListener("submit",e=>{
 
 $("grammarGameHomeBtn").addEventListener("click",goMainHome);
 $("grammarCompleteHomeBtn").addEventListener("click",openGrammarMenu);
-$("grammarRestartBtn").addEventListener("click",startGrammarGame);
+$("grammarRestartBtn").addEventListener("click",()=>startGrammarGame());
 grammarQuestionBreakdownBtn.addEventListener("click",()=>toggleGrammarBreakdown(grammarQuestionBreakdownBtn,grammarQuestionBreakdown,"sentence"));
 grammarAnswerBreakdownBtn.addEventListener("click",()=>toggleGrammarBreakdown(grammarAnswerBreakdownBtn,grammarAnswerBreakdown,"answer"));
+$("grammarReplayBtn").addEventListener("click",()=>{if(grammarMode==="listening"&&!grammarLocked&&currentGrammarCard&&!$("grammarChoiceStage").classList.contains("hidden"))speakKorean(currentGrammarCard.sentence)});
 $("grammarHearQuestionBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.sentence));
 $("grammarHearAnswerBtn").addEventListener("click",()=>currentGrammarCard&&speakKorean(currentGrammarCard.sentence));
-$("grammarRestartWrongBtn").addEventListener("click",startGrammarGame);
+$("grammarRestartWrongBtn").addEventListener("click",()=>startGrammarGame());
 $("grammarAnswerForm").addEventListener("submit",e=>{e.preventDefault();submitGrammarAnswer()});
 
 /* ---------- Speech recognition ---------- */

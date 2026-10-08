@@ -100,10 +100,14 @@
 
   <section id="grammarSpeakingMenu" class="panel home-panel hidden">
     <h2 id="grammarModeMenuTitle">Grammar · Stack 1</h2>
-    <div class="mode-grid single-mode">
+    <div class="mode-grid">
       <button id="answerQuestionBtn" class="mode-card">
         <strong>Grammar Stack 1</strong>
         <span>10 sentences · memory challenge</span>
+      </button>
+      <button id="grammarStack2Btn" class="mode-card" type="button">
+        <strong>Grammar Stack 2</strong>
+        <span>10 new sentences · memory challenge</span>
       </button>
     </div>
     <div class="actions"><button id="grammarSpeakingBackBtn" type="button">Back</button></div>
@@ -301,7 +305,7 @@
     <div id="grammarSentenceStage" class="stage hidden"><div id="grammarPromptKo" class="presented-word grammar-sentence" lang="ko"></div></div>
     <div id="grammarImageStage" class="stage hidden"><div id="grammarImage" class="word-image grammar-image"></div></div>
     <div id="grammarBlankStage" class="stage blank-stage hidden"></div>
-    <div id="grammarChoiceStage" class="stage choice-stage hidden"><div id="grammarChoiceGrid" class="choice-grid"></div></div>
+    <div id="grammarChoiceStage" class="stage choice-stage hidden"><div id="grammarChoiceGrid" class="choice-grid"></div><div class="actions"><button id="grammarReplayBtn" type="button">Hear sentence</button></div></div>
     <div id="grammarAnswerStage" class="stage answer-stage hidden">
       <form id="grammarAnswerForm" autocomplete="off">
         <label for="grammarAnswerInput">Your sentence</label>
@@ -325,7 +329,7 @@
   <section id="grammarComplete" class="panel result vocab-complete hidden">
     <div class="completion-trophy" aria-hidden="true">★</div>
     <h2>Congratulations!</h2>
-    <p>You answered all 10 cards in Grammar Stack 1 correctly.</p>
+    <p>You answered all 10 cards in <span id="grammarCompleteStack">Grammar Stack 1</span> correctly.</p>
     <p class="completion-score">10 / 10 correct</p>
     <div class="actions completion-actions">
       <button id="grammarRestartBtn" class="primary" type="button">Restart Stack</button>
@@ -333,7 +337,7 @@
     </div>
   </section>
 
-  <footer><span>V9.0.0 · 125 vocab words · five stacks · Grammar Stack 1</span></footer>
+  <footer><span>V9.1.0 · 125 vocab words · five stacks · two Grammar stacks</span></footer>
 </main>
 <script src="words.js"></script>
 <script src="grammar.js"></script>

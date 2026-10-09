@@ -1,3 +1,7 @@
+# V9.1.2 Korean Memory Game
+
+V9.1.2 updates Grammar Speaking/Writing: standalone 좀 and 조금 are interchangeable in submitted answers; on an incorrect answer, the learner’s submitted text is retained above the correct sentence for comparison. Vocab and Alphabet are unchanged.
+
 # V8.2.2 Korean Memory Game — Vocab + Grammar
 
 V8.0 preserves the verified V7.2 Vocab games and introduces a separate Grammar branch.

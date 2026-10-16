@@ -274,3 +274,10 @@
 #grammarChoiceStage #grammarChoiceGrid{width:100%;max-width:650px;flex:0 0 auto;}
 #grammarChoiceStage .grammar-replay-actions{width:100%;max-width:650px;flex:0 0 auto;display:flex;justify-content:center;}
 #grammarChoiceStage #grammarReplayBtn{width:100%;}
+
+/* V9.1.3 Grammar-only multiline composition and answer difference review */
+#grammarAnswerInput{width:100%;min-width:0;flex:1;min-height:90px;max-height:none;resize:none;overflow-y:hidden;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:12px;padding:13px 14px;font:inherit;font-size:1.15rem;line-height:1.5;overflow-wrap:anywhere;white-space:pre-wrap}
+#grammarAnswerStage .answer-row{align-items:flex-start}
+#grammarAnswerStage #grammarSpeakBtn{align-self:flex-start;min-height:52px}
+#grammarSubmittedAnswer,#grammarCorrectAnswer{overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
+.grammar-diff-mark{background:#ffe58b;color:inherit;border-radius:3px;padding:0 1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}

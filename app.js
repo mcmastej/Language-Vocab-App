@@ -215,14 +215,35 @@ function selectGrammarMode(nextMode){grammarMode=nextMode;hideAllScreens();gramm
 function startGrammarGame(stack=grammarStackNumber){grammarStackNumber=stack;clearTimers();speechSynthesis?.cancel();grammarLevel=1;grammarRun=GRAMMAR_CARDS.slice((grammarStackNumber-1)*10,grammarStackNumber*10);grammarLocked=false;grammarCompletedCount=0;grammarCompleted.textContent="0";grammarTotal.textContent=grammarRun.length;hideAllScreens();grammarGame.classList.remove("hidden");subtitle.textContent=`Grammar · Stack ${grammarStackNumber} · ${grammarMode==="listening"?"Korean → Image":"Image → Korean"}`;startGrammarLevel()}
 function startGrammarLevel(){clearTimers();grammarLocked=false;if(!grammarRun.length){finishGrammarGame();return}currentGrammarCard=chooseGrammarCard();$("grammarLevel").textContent=grammarLevel;hideGrammarStages();grammarQuestionBreakdown.classList.add("hidden");grammarAnswerBreakdown.classList.add("hidden");grammarQuestionBreakdownBtn.classList.add("hidden");grammarAnswerBreakdownBtn.classList.add("hidden");$("grammarRestartWrongBtn").classList.add("hidden");$("grammarHearQuestionBtn").classList.add("hidden");grammarCorrectAnswerBlock.classList.add("hidden");$("grammarUserAnswerReview").classList.add("hidden");if(grammarMode==="listening")startGrammarListening();else startGrammarSpeaking()}
 function startGrammarListening(){grammarStatus.textContent="Read and listen.";$("grammarSentenceStage").classList.remove("hidden");grammarPromptKo.textContent=currentGrammarCard.sentence;speakKorean(currentGrammarCard.sentence,()=>{$("grammarSentenceStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it.";timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");showGrammarChoices();grammarStatus.textContent="Choose the matching image."},grammarLevel*1000))})}
-function startGrammarSpeaking(){grammarStatus.textContent="Look carefully.";$("grammarImageStage").classList.remove("hidden");grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));timers.push(setTimeout(()=>{$("grammarImageStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it."},2000));timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");$("grammarAnswerStage").classList.remove("hidden");grammarStatus.textContent="What was the sentence?";grammarAnswerInput.value="";grammarAnswerInput.disabled=false;grammarAnswerInput.focus()},2000+grammarLevel*1000))}
+function startGrammarSpeaking(){grammarStatus.textContent="Look carefully.";$("grammarImageStage").classList.remove("hidden");grammarImage.innerHTML="";grammarImage.appendChild(imageElement(currentGrammarCard.image));timers.push(setTimeout(()=>{$("grammarImageStage").classList.add("hidden");$("grammarBlankStage").classList.remove("hidden");grammarStatus.textContent="Remember it."},2000));timers.push(setTimeout(()=>{$("grammarBlankStage").classList.add("hidden");$("grammarAnswerStage").classList.remove("hidden");grammarStatus.textContent="What was the sentence?";grammarAnswerInput.value="";resizeGrammarAnswer();grammarAnswerInput.disabled=false;grammarAnswerInput.focus()},2000+grammarLevel*1000))}
 function grammarDistractors(){return shuffle(GRAMMAR_CARDS.slice((grammarStackNumber-1)*10,grammarStackNumber*10).filter(c=>c!==currentGrammarCard)).slice(0,3)}
 function showGrammarChoices(){$("grammarChoiceStage").classList.remove("hidden");$("grammarReplayBtn").disabled=false;const grid=$("grammarChoiceGrid");grid.innerHTML="";shuffle([currentGrammarCard,...grammarDistractors()]).forEach(card=>{const btn=document.createElement("button");btn.type="button";btn.className="image-choice";btn.dataset.correct=card===currentGrammarCard?"true":"false";btn.appendChild(imageElement(card.image));btn.addEventListener("click",()=>handleGrammarChoice(btn,card));grid.appendChild(btn)})}
 function grammarCorrect(){grammarLocked=true;grammarCompletedCount++;grammarCompleted.textContent=grammarCompletedCount;grammarStatus.textContent="Correct!";if(!grammarRun.length)timers.push(setTimeout(finishGrammarGame,650));else timers.push(setTimeout(()=>{grammarLevel++;startGrammarLevel()},650))}
-function grammarWrong(){clearTimers();grammarLocked=true;if(grammarMode!=="listening")hideGrammarStages();grammarFeedback.classList.remove("hidden");grammarFeedbackTitle.textContent="Incorrect";grammarStatus.textContent="Game over";grammarCorrectAnswer.textContent=currentGrammarCard.sentence;if(grammarMode==="speaking"){$("grammarUserAnswerReview").classList.remove("hidden");$("grammarSubmittedAnswer").textContent=grammarAnswerInput.value;}else{$("grammarUserAnswerReview").classList.add("hidden");}grammarCorrectAnswerBlock.classList.remove("hidden");$("grammarRestartWrongBtn").classList.remove("hidden");renderGrammarBreakdown(grammarMode==="listening"?grammarQuestionBreakdown:grammarAnswerBreakdown);if(grammarMode==="listening"){grammarQuestionBreakdownBtn.classList.remove("hidden");grammarQuestionBreakdownBtn.textContent="Breakdown sentence";$("grammarHearQuestionBtn").classList.remove("hidden")}else{grammarAnswerBreakdownBtn.classList.remove("hidden");grammarAnswerBreakdownBtn.textContent="Breakdown answer"}}
+
+function resizeGrammarAnswer(){grammarAnswerInput.style.height="auto";grammarAnswerInput.style.height=Math.max(90,grammarAnswerInput.scrollHeight)+"px"}
+grammarAnswerInput.addEventListener("input",resizeGrammarAnswer);
+// Diff by Korean syllable/codepoint, preserving punctuation and spaces visually.
+// First match exact shared spans via LCS; ignore punctuation and whitespace in comparisons.
+function grammarDiffTokens(s){
+ const re=/[\p{L}\p{N}]/gu;const tokens=[];let m;
+ while((m=re.exec(s))!==null)tokens.push({char:m[0],start:m.index,end:m.index+m[0].length});
+ return tokens;
+}
+function renderGrammarDiff(user,expected){
+ const a=grammarDiffTokens(user),b=grammarDiffTokens(expected),n=a.length,m=b.length;
+ const dp=Array.from({length:n+1},()=>new Uint16Array(m+1));
+ for(let i=n-1;i>=0;i--)for(let k=m-1;k>=0;k--)dp[i][k]=a[i].char===b[k].char?dp[i+1][k+1]+1:Math.max(dp[i+1][k],dp[i][k+1]);
+ const goodA=new Set(),goodB=new Set();let i=0,k=0;
+ while(i<n&&k<m){if(a[i].char===b[k].char){goodA.add(i);goodB.add(k);i++;k++}else if(dp[i+1][k]>=dp[i][k+1])i++;else k++}
+ // A synonym that is valid in a correct answer must not be highlighted as an error.
+ function paint(el,raw,tokens,good){el.replaceChildren();let cursor=0;tokens.forEach((t,index)=>{if(t.start>cursor)el.appendChild(document.createTextNode(raw.slice(cursor,t.start)));const node=document.createElement(good.has(index)?"span":"mark");node.textContent=raw.slice(t.start,t.end);if(!good.has(index))node.className="grammar-diff-mark";el.appendChild(node);cursor=t.end});if(cursor<raw.length)el.appendChild(document.createTextNode(raw.slice(cursor)))}
+ paint($("grammarSubmittedAnswer"),user,a,goodA);paint(grammarCorrectAnswer,expected,b,goodB);
+}
+
+function grammarWrong(){clearTimers();grammarLocked=true;if(grammarMode!=="listening")hideGrammarStages();grammarFeedback.classList.remove("hidden");grammarFeedbackTitle.textContent="Incorrect";grammarStatus.textContent="Game over";grammarCorrectAnswer.textContent=currentGrammarCard.sentence;if(grammarMode==="speaking"){$("grammarUserAnswerReview").classList.remove("hidden");renderGrammarDiff(grammarAnswerInput.value,currentGrammarCard.sentence);}else{$("grammarUserAnswerReview").classList.add("hidden");}grammarCorrectAnswerBlock.classList.remove("hidden");$("grammarRestartWrongBtn").classList.remove("hidden");renderGrammarBreakdown(grammarMode==="listening"?grammarQuestionBreakdown:grammarAnswerBreakdown);if(grammarMode==="listening"){grammarQuestionBreakdownBtn.classList.remove("hidden");grammarQuestionBreakdownBtn.textContent="Breakdown sentence";$("grammarHearQuestionBtn").classList.remove("hidden")}else{grammarAnswerBreakdownBtn.classList.remove("hidden");grammarAnswerBreakdownBtn.textContent="Breakdown answer"}}
 function handleGrammarChoice(btn,card){if(grammarLocked)return;grammarLocked=true;$("grammarReplayBtn").disabled=true;speechSynthesis?.cancel();const buttons=[...$("grammarChoiceGrid").querySelectorAll(".image-choice")];buttons.forEach(b=>b.disabled=true);if(card===currentGrammarCard){btn.classList.add("correct-choice");grammarCorrect()}else{btn.classList.add("wrong-choice");buttons.find(b=>b.dataset.correct==="true")?.classList.add("correct-choice");timers.push(setTimeout(grammarWrong,450))}}
 function submitGrammarAnswer(){if(grammarLocked||!currentGrammarCard)return;if(normalizeGrammarAnswer(grammarAnswerInput.value)===normalizeGrammarAnswer(currentGrammarCard.sentence))grammarCorrect();else grammarWrong()}
-function finishGrammarGame(){clearTimers();speechSynthesis?.cancel();hideAllScreens();grammarComplete.classList.remove("hidden");subtitle.textContent="Grammar · Stack ${grammarStackNumber} · Complete"}
+function finishGrammarGame(){clearTimers();speechSynthesis?.cancel();hideAllScreens();grammarComplete.classList.remove("hidden");subtitle.textContent=`Grammar · Stack ${grammarStackNumber} · Complete`}
 function grammarBackToMenu(){clearTimers();speechSynthesis?.cancel();openGrammarMenu()}
 /* ---------- Navigation ---------- */
 $("vocabSectionBtn").addEventListener("click",openVocabMenu);
@@ -244,6 +265,7 @@ $("grammarReadingModeBtn").addEventListener("click",()=>selectGrammarMode("liste
 $("grammarSpeakingBackBtn").addEventListener("click",openGrammarMenu);
 $("answerQuestionBtn").addEventListener("click",()=>startGrammarGame(1));
 $("grammarStack2Btn").addEventListener("click",()=>startGrammarGame(2));
+$("grammarStack3Btn").addEventListener("click",()=>startGrammarGame(3));
 $("startBtn").addEventListener("click",startVocabGame);
 $("startBackBtn").addEventListener("click",()=>selectVocabStack(vocabStack));
 $("gameHomeBtn").addEventListener("click",goMainHome);
@@ -282,7 +304,7 @@ if(SpeechRecognition){
   const grammarRecognition=new SpeechRecognition();
   grammarRecognition.lang="ko-KR";grammarRecognition.interimResults=false;grammarRecognition.maxAlternatives=1;
   $("grammarSpeakBtn").addEventListener("click",()=>{grammarSpeechNote.textContent="Listening…";grammarRecognition.start()});
-  grammarRecognition.onresult=e=>{grammarAnswerInput.value=e.results[0][0].transcript.trim();grammarSpeechNote.textContent="Speech captured. Press Submit."};
+  grammarRecognition.onresult=e=>{grammarAnswerInput.value=e.results[0][0].transcript.trim();resizeGrammarAnswer();grammarSpeechNote.textContent="Speech captured. Press Submit."};
   grammarRecognition.onerror=()=>{grammarSpeechNote.textContent="Speech input was not available. You can type the answer."};
 }else{
   $("speakBtn").disabled=true;$("grammarSpeakBtn").disabled=true;

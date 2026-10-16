@@ -1,3 +1,7 @@
+# V9.1.3 Korean Memory Game
+
+Adds Grammar Stack 3 (G020–G029), multiline auto-expanding Grammar Speaking/Writing input, and automatic highlighting of mismatched text on incorrect answers. Both Grammar modes support all three stacks. The Vocab and Alphabet engines are unchanged.
+
 # V9.1.2 Korean Memory Game
 
 V9.1.2 updates Grammar Speaking/Writing: standalone 좀 and 조금 are interchangeable in submitted answers; on an incorrect answer, the learner’s submitted text is retained above the correct sentence for comparison. Vocab and Alphabet are unchanged.

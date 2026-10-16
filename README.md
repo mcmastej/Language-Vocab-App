@@ -1,3 +1,7 @@
+# V9.1.5 Korean Memory Game
+
+Grammar restart after an incorrect answer now presents the most recently missed card first (Level 1), then randomly draws the other nine cards. This applies to both Grammar modes and all three stacks. Fresh starts from the menu and restarts after completion remain fully randomized. Other gameplay remains unchanged.
+
 # V9.1.3 Korean Memory Game
 
 Adds Grammar Stack 3 (G020–G029), multiline auto-expanding Grammar Speaking/Writing input, and automatic highlighting of mismatched text on incorrect answers. Both Grammar modes support all three stacks. The Vocab and Alphabet engines are unchanged.

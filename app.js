@@ -275,6 +275,7 @@ $("grammarSpeakingBackBtn").addEventListener("click",openGrammarMenu);
 $("answerQuestionBtn").addEventListener("click",()=>startGrammarGame(1));
 $("grammarStack2Btn").addEventListener("click",()=>startGrammarGame(2));
 $("grammarStack3Btn").addEventListener("click",()=>startGrammarGame(3));
+$("grammarStack4Btn").addEventListener("click",()=>startGrammarGame(4));
 $("startBtn").addEventListener("click",()=>startVocabGame());
 $("startBackBtn").addEventListener("click",()=>selectVocabStack(vocabStack));
 $("gameHomeBtn").addEventListener("click",goMainHome);

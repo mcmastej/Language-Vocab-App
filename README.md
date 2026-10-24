@@ -1,10 +1,10 @@
-# V9.1.5 Korean Memory Game
+# V9.2.1 Korean Memory Game
 
-Grammar restart after an incorrect answer now presents the most recently missed card first (Level 1), then randomly draws the other nine cards. This applies to both Grammar modes and all three stacks. Fresh starts from the menu and restarts after completion remain fully randomized. Other gameplay remains unchanged.
+Grammar restart after an incorrect answer now presents the most recently missed card first (Level 1), then randomly draws the other nine cards. This applies to both Grammar modes and all four stacks. Fresh starts from the menu and restarts after completion remain fully randomized. Other gameplay remains unchanged.
 
 # V9.1.3 Korean Memory Game
 
-Adds Grammar Stack 3 (G020–G029), multiline auto-expanding Grammar Speaking/Writing input, and automatic highlighting of mismatched text on incorrect answers. Both Grammar modes support all three stacks. The Vocab and Alphabet engines are unchanged.
+Adds Grammar Stack 3 (G020–G029), multiline auto-expanding Grammar Speaking/Writing input, and automatic highlighting of mismatched text on incorrect answers. Both Grammar modes support all four stacks. The Vocab and Alphabet engines are unchanged.
 
 # V9.1.2 Korean Memory Game
 
@@ -402,3 +402,7 @@ No vocabulary replacements were necessary. The webpage footer version, which had
 
 ## V9.1.0
 Grammar Stack 2: G010–G019, 10 new sentence cards. Both Grammar modes support stack selection. Reading/Listening includes unlimited Hear sentence replay after image choices appear, without showing written Korean.
+
+
+## V9.2.1
+Added Grammar Stack 4 (G030–G039) with ten new Korean sentences, English translations, grammar breakdowns and 600×600 JPG images. Both Grammar modes support the new stack. All existing retry, replay, multiline input and error highlighting features are retained.
